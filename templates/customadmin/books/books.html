@@ -1,0 +1,310 @@
+{% extends 'customadmin/_base.html' %} {% load static %} {% block content %}
+
+<style>
+  .breadcrumb-item.active::before {
+    content: none;
+  }
+</style>
+
+
+
+
+ 
+
+
+<div class="d-md-flex align-items-center justify-content-between mb-4">
+  <div>
+    <ol class="breadcrumb fs-sm mb-1">
+      <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Books Management
+      </li>
+    </ol>
+    <h4 class="main-title mb-0">Book Management</h4>
+  </div>
+  <div class="d-flex align-items-center gap-2 mt-3 mt-md-0">
+    <!-- <button type="button" class="btn btn-white btn-icon">
+      <i class="ri-share-line fs-18 lh-1"></i>
+    </button>
+    <button type="button" class="btn btn-white btn-icon">
+      <i class="ri-printer-line fs-18 lh-1"></i>
+    </button> -->
+    <a href="{% url 'book_create' %}" class="btn btn-primary">
+      <i class="ri-add-line fs-18 lh-1"></i> Add Book
+    </a>
+  </div>
+
+
+  <!-- <div class="d-flex align-items-center gap-2 mt-3 mt-md-0">
+    <div class="dropdown dropdown-notification ms-3 ms-xl-4"> -->
+      <!-- <a href="#" class="dropdown-link" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+          <small>{{ notifications.count }}</small>
+          <i class="ri-notification-3-line"></i>
+      </a> -->
+      <!-- <div class="dropdown-menu dropdown-menu-end mt-10-f me--10-f">
+          <div class="dropdown-menu-header">
+              <h6 class="dropdown-menu-title">
+                  <a href="{% url 'contacts' %}">Notifications</a>
+              </h6>
+          </div>
+          <ul class="list-group">
+              {% for notification in notifications %}
+                  <li class="list-group-item">
+                      <div class="avatar {% if notification.is_online %}online{% endif %}">
+                          <img src="{{ notification.image_url }}" alt="" />
+                      </div>
+                      <div class="list-group-body">
+                          <p>{{ notification.message }}</p>
+                          <span>{{ notification.timestamp }}</span>
+                      </div>
+                  </li>
+              {% endfor %}
+          </ul>
+          <div class="dropdown-menu-footer">
+              <a href="#">Show all Notifications</a>
+          </div>
+      </div> -->
+    <!-- </div>
+    </a>
+  </div> -->
+</div>
+
+<div class="row g-3">
+  <div class="col-xl-6">
+    <div class="card card-one card-ticket-earnings">
+      <div class="card-body d-flex flex-column p-4">
+        <h1 class="card-value mb-3 fs-40 ls--2">
+          <span>Total- </span> {{ count }}
+        </h1>
+        <label class="card-label fw-semibold text-dark mb-1">Total Books</label>
+        <p class="w-75 fs-sm text-secondary mb-4">
+          The total number of books created by the admin.
+        </p>
+        <div
+          class="d-flex gap-4 fs-sm mt-auto text-primary-dark lh-1 opacity-75"
+        >
+          <span><strong class="fw-semibold ff-numerals"></strong> </span>
+          <span><strong class="fw-semibold ff-numerals"></strong> </span>
+        </div>
+      </div>
+      <!-- card-body -->
+  
+      <!-- Chart Container -->
+      <div id="apexChart1" class="apex-chart-two d-flex align-items-end"></div>
+    </div>
+    <!-- card -->
+  </div>
+  
+  <!-- Add ApexCharts Script -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  
+  <script>
+    // Initialize ApexCharts for total book count
+    var options = {
+      chart: {
+        height: 280,
+        type: 'radialBar',
+      },
+      series: [{{ count }}], // Total books count dynamically from backend
+      plotOptions: {
+        radialBar: {
+          hollow: {
+            size: '70%',
+          },
+          dataLabels: {
+            name: {
+              fontSize: '22px',
+            },
+            value: {
+              fontSize: '40px',
+              formatter: function(val) {
+                return parseInt(val); // Ensure it displays the count as a whole number
+              }
+            }
+          }
+        }
+      },
+      labels: ['Total Books'], // Label for the chart
+    };
+  
+    var chart = new ApexCharts(document.querySelector("#apexChart1"), options);
+    chart.render();
+  </script>
+  
+  <!-- col -->
+  
+  <!-- col -->
+  <div class="col-xl-8">
+    <div class="d-flex justify-content-between">
+      <h6 class="card-title">Book List</h6>
+      <!-- Toggle button for dark/light mode -->
+      <button id="theme-toggle" class="btn btn-outline-secondary">Toggle Dark Mode</button>
+    </div>
+    <div class="row g-3">
+      <!-- col -->
+      <div class="col-12">
+        <div class="card card-one">
+          <div class="card-header">
+            <h6 class="card-title">Book list</h6>
+            <nav class="nav nav-icon nav-icon-sm ms-auto">
+              <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+              <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+            </nav>
+          </div>
+          <!-- card-header -->
+          <div class="card-body px-3 pt-2">
+            <div class="table-responsive" style="max-height: 400px; overflow-y: auto; overflow-x: hidden; width: 100%;">
+              <table class="table table-agent mb-0" id="theme-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Created</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for book in books %}
+                  <tr>
+                    <td><span class="ff-numerals">{{ book.id }}</span></td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="avatar">
+                          <span class="avatar-initial">
+                            <img src="{{ book.image.url|default:'path/to/default/image.jpg' }}" alt="book">
+                          </span>
+                        </div>
+                        <div>
+                          <h6 class="mb-0">
+                            <a href="{% url 'book_update' book.id %}" class="text-light">{{ book.title }}</a>
+                          </h6>
+                          <span class="fs-xs text-secondary">{{ book.description|safe|truncatechars:25 }}</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="badge bg-primary">{{ book.author }}</span></td>
+                    <td><span class="ff-numerals">{{ book.category }}</span></td>
+                    <td><span class="ff-numerals">{{ book.price }}</span></td>
+                    <td><span class="ff-numerals">{{ book.created|date }}</span></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- table-responsive -->
+          </div>
+          <!-- card-body -->
+        </div>
+        <!-- card -->
+      </div>
+      <!-- col -->
+    </div>
+    <!-- row -->
+  </div>
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', function () {
+    document.getElementById('theme-table').classList.toggle('dark-mode-table');
+});
+
+  </script>
+  <style>
+    /* Light Mode (default) */
+#theme-table {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+#theme-table thead {
+  background-color: #f8f9fa;
+  color: #000000;
+}
+
+#theme-table tbody tr {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark Mode for table */
+.dark-mode-table {
+  background-color: #131B28 !important;
+  color: #f8f9fa !important;
+}
+
+.dark-mode-table thead {
+  background-color: #131B28 !important;
+  color: #f8f9fa !important;
+}
+
+.dark-mode-table tbody tr {
+  background-color: #131B28 !important;
+  color: #f8f9fa !important;
+}
+
+/* Dark Mode for table borders */
+.dark-mode-table .table {
+  border-color: #131B28;
+}
+
+  </style>
+  <!-- col -->
+  <!-- <div class="col-xl-4">
+    <div class="row g-3"> -->
+      <!-- {% if messages %}
+  {% for message in messages %} -->
+    <!-- <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
+      {{ message }}
+    </div> -->
+  <!-- {% endfor %}
+{% endif %} -->
+
+
+<div class="col-xl-4">
+  <div class="row g-3">
+      {% if messages %}
+          {% for message in messages %}
+              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
+                  {{ message }}
+              </div>
+          {% endfor %}
+      {% endif %}
+
+      <!-- Scrollable container for books -->
+      <div class="scrollable-book-list" style="max-height: 200px; overflow-y: auto;">
+          <!-- Loop through the books -->
+          {% for book in books %}
+              <div class="book-item">
+                  <h5>{{ book.title }}</h5>
+                  <p>Quantity: {{ book.quantity }}</p>
+
+                  <!-- Show a low stock alert if the book quantity is less than 4 -->
+                  {% if book.quantity < 4 %}
+                      <div class="alert alert-warning">
+                          Low Stock: Only {{ book.quantity }} left!
+                      </div>
+                  {% endif %}
+              </div>
+          {% endfor %}
+      </div>
+  </div>
+</div>
+
+
+      <!-- col -->
+      <div class="col-md-6 col-xl-12">
+        <!-- card -->
+      </div>
+      <!-- col -->
+    </div>
+    <!-- row -->
+  </div>
+  <!-- col -->
+  
+  <!-- col -->
+ 
+  <!-- col -->
+</div>
+<!-- row -->
+
+{% endblock %}

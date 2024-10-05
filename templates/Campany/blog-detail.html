@@ -1,0 +1,277 @@
+{% extends 'Campany/_base.html' %} {% load static %} {% block content %}
+
+<body>
+  <style>
+    .blog-thumbnail {
+      width: 100%;
+      height: 470px;
+    }
+    .blog-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+
+  <section class="page-banner services-banner">
+    <div class="container">
+      <div class="banner-header">
+        <h2>Blog Posts</h2>
+        <span class="underline center"></span>
+        <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+      </div>
+      <div class="breadcrumb">
+        <ul>
+          <li><a href="{% url 'index2'%}">Home</a></li>
+          <li><a href="{% url 'blog'%}">Blog</a></li>
+          <li>Post Detail</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- End: Page Banner -->
+
+  <!-- Start: Blog Section -->
+  <div id="content" class="site-content">
+    <div id="primary" class="content-area">
+      <main id="main" class="site-main">
+        <div class="blog-detail-main">
+          <div class="container">
+            <div class="row">
+              <div class="blog-page">
+                <div class="blog-section">
+                  <article>
+                    <div class="blog-detail">
+                      <header class="entry-header">
+                        <div class="blog_meta_category">
+                          <a href="#." rel="category tag">Design</a>,
+                          <a href="#." rel="category tag">art</a>
+                        </div>
+                        <h2 class="entry-title">{{ blog.title }}</h2>
+                        <div class="entry-meta">
+                          <span
+                            ><i class="fa fa-user"></i>
+                            <a href="#">Admin</a></span
+                          >
+                        </div>
+                      </header>
+                      <div class="post-thumbnail">
+                        <div class="post-date-box">
+                          <div class="post-date">
+                            <a class="date" href="#.">{{ blog.days }}</a>
+                          </div>
+                          <div class="post-date-month">
+                            <a class="month" href="#.">{{ blog.month }}</a>
+                          </div>
+                        </div>
+                        <div class="blog-thumbnail">
+                          <img alt="blog" src="{{ blog.image.url }}" />
+                        </div>
+                      </div>
+                      <div class="post-detail">
+                        <div class="post-detail-head">
+                          <div class="post-share">
+                            <a href="#."
+                              ><i class="fa fa-comment"></i> 37 Comments</a
+                            >
+                            <a href="#."
+                              ><i class="fa fa-thumbs-o-up"></i> 110 Likes</a
+                            >
+                            <a href="#."
+                              ><i class="fa fa-eye"></i> 180 Viewed</a
+                            >
+                          </div>
+                          <div class="post-social-share">
+                            <ul>
+                              <li>
+                                <a href="#.">
+                                  <i class="fa fa-facebook"></i>
+                                  <span>/ Facebook</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#."
+                                  ><i class="fa fa-twitter"></i>
+                                  <span>/ Twitter</span></a
+                                >
+                              </li>
+                              <li>
+                                <a href="#."
+                                  ><i class="fa fa-google-plus"></i>
+                                  <span>/ Google+</span></a
+                                >
+                              </li>
+                              <li>
+                                <a href="#."
+                                  ><i class="fa fa-youtube-play"></i>
+                                  <span>/ Youtube</span></a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="entry-content">
+                          <p>{{ blog.description|safe }}</p>
+                          <img
+                            src="{% static 'images/blog/post-detail-quote.jpg' %}"
+                            class="align-left"
+                            alt=""
+                          />
+                        </div>
+                        <footer class="entry-footer">
+                          <div class="col-xs-12 col-sm-12 entry-tags">
+                            <strong
+                              ><i class="fa fa-tags" aria-hidden="true"></i>
+                              Tags:</strong
+                            >
+                            <span
+                              ><a href="#">Beauty</a> ,
+                              <a href="#">Life Style</a> ,
+                              <a href="#">Travel</a> , <a href="#">Fashion</a> ,
+                              <a href="#">Health</a> , <a href="#">Food</a>,
+                              <a href="#">Adventure</a></span
+                            >
+                          </div>
+                        </footer>
+                      </div>
+                    </div>
+                  </article>
+                  <div class="about-author">
+                    <img
+                      src="{% static 'images/blog/about-author.jpg' %}"
+                      alt=""
+                    />
+                    <div class="author-content">
+                      <div class="author-head">
+                        <h3>Tom Hanks</h3>
+                        <span class="underline left"></span>
+                      </div>
+                      <div class="post-social-share">
+                        <ul>
+                          <li>
+                            <a href="#.">
+                              <i class="fa fa-facebook"></i>
+                              <span>/ Facebook</span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#."
+                              ><i class="fa fa-twitter"></i>
+                              <span>/ Twitter</span></a
+                            >
+                          </li>
+                          <li>
+                            <a href="#."
+                              ><i class="fa fa-google-plus"></i>
+                              <span>/ Google+</span></a
+                            >
+                          </li>
+                          <li>
+                            <a href="#."
+                              ><i class="fa fa-youtube-play"></i>
+                              <span>/ Youtube</span></a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="clearfix"></div>
+                      <p>
+                        Morbi in erat laoreet, eleifend mi sit amet, eleifend
+                        mauris. Duis magna turpis, semper ac ligula id,
+                        elementum hendrerit augue. Aliquam euismod sem ut justo
+                        ultrices, in eleifend sapien hendrerit. Vestibulum
+                        sollicitudin dapibus aliquet. Suspendisse a commodo
+                        ante. Pellentesque habitant morbi tristique senectus et
+                        netus et malesuada fames ac turpis egestas.
+                      </p>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="comments-area" id="comments">
+                    <div class="comment-bg">
+                        <h4 class="comments-title">User Comments</h4>
+                        <span class="underline left"></span>
+                        <ol class="comment-list">
+                            {% for comment in comments %}
+                            <li class="comment even thread-even depth-1 parent">
+                                <div class="comment-body">
+                                    <div class="comment-author vcard">
+                                        <img class="avatar avatar-32 photo avatar-default" src="{% static 'images/blog/default-avatar.jpg' %}" alt="Comment Author">
+                                        <b class="fn">
+                                            <a class="url" rel="external nofollow" href="#">{{ comment.name }}</a>
+                                        </b>					
+                                    </div>
+                                    <footer class="comment-meta">
+                                        <div class="left-arrow"></div>
+                                        <div class="reply">
+                                            <a href="#" class="comment-reply-link">
+                                                <i class="fa fa-reply"></i> Reply
+                                            </a>
+                                        </div>
+                                        <div class="comment-metadata">
+                                            <a href="#">
+                                                <time datetime="{{ comment.date|date:'c' }}">
+                                                    <b>{{ comment.date|date:"M d, Y" }} / </b>  {{ comment.date|timesince }} ago
+                                                </time>
+                                            </a>
+                                        </div>
+                                        <div class="comment-content">
+                                            <p>{{ comment.comment }}</p>
+                                        </div>
+                                    </footer>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                
+                    <div class="comment-respond" id="respond">
+                        <h4 class="comment-reply-title" id="reply-title">Write your comment:</h4>
+                        <span class="underline left"></span>
+                        <form class="comment-form" id="commentform" method="post" action="">
+                            <div class="row">
+                                <p class="comment-form-author input-required">
+                                    <label>
+                                        <span class="first-letter">Name</span>  
+                                        <span class="second-letter">*</span>
+                                    </label>
+                                    <input name="name" id="author" type="text">
+                                </p>
+                                <p class="comment-form-email input-required">
+                                    <label>
+                                        <span class="first-letter">Email</span>  
+                                        <span class="second-letter">*</span>
+                                    </label>
+                                    <input name="email" id="email" type="email">
+                                </p>
+                                <p class="comment-form-subject input-required">
+                                    <label>
+                                        <span class="first-letter">Website</span>
+                                    </label>
+                                    <input name="website" id="website" type="url">
+                                </p>
+                                <p class="comment-form-comment">
+                                    <textarea name="comment" id="comment" placeholder="Your Comment"></textarea>
+                                </p>
+                            </div>
+                            <div class="clearfix"></div>
+                            <p class="form-submit">
+                                <input value="Submit" class="submit" id="submit" name="submit" type="submit"> 
+                            </p>
+                        </form>
+                    </div>
+                </div>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <!-- End: Blog Section -->
+
+  {% endblock %}
+</body>

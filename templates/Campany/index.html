@@ -1,0 +1,410 @@
+{% extends 'Campany/_base.html' %} {% load static %} {% block content %}
+
+<div data-ride="carousel" class="carousel slide" id="home-v1-header-carousel" >
+    <!-- Carousel slides -->
+    <div class="carousel-inner">
+        {% for slide in slide_list %}
+        <div class="item {% if forloop.first %}active{% endif %}">
+            <figure>
+                <img alt="Home Slide" src="{{ slide.image.url }}" />
+            </figure>
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>{{ slide.title }}</h3>
+                    <p>{{ slide.paragraph|safe }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Controls -->
+    <!-- <a class="left carousel-control" href="#home-v1-header-carousel" data-slide="prev">
+        <i class="fa fa-chevron-left"></i>
+    </a>
+    <a class="right carousel-control" href="#home-v1-header-carousel" data-slide="next">
+        <i class="fa fa-chevron-right"></i> -->
+    </a>
+</div>
+
+<!-- End: Slider Section -->
+        <section class="welcome-section" >
+            {% for welcome in welcome_list %}        
+            <div class="container">
+                <div class="row">
+    
+                    <div class="col-md-6">
+                        
+                        <div class="welcome-wrap">
+                            <div class="welcome-text">
+                                <h2 class="section-title">{{welcome.title|safe}}</h2>
+                                <span class="underline left"></span>
+                                <p class="lead">{{welcome.title|safe}}</p>
+                                <p>{{welcome.description|safe}}
+                                     </p>
+                                <a class="btn btn-primary" href="{% url 'services' %}">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                   
+                    <div class="col-md-3">
+                        <div class="facts-counter">
+                            <ul>
+                                {% for fact in fact_list %}
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        
+              <div class="welcome-image">
+                <img 
+                    src="{{ fact.image.url }}" 
+                    alt="Book" 
+                    style="
+                        width: 850px; 
+                        height: 500px; 
+                        margin: 100px auto; 
+                        padding: 50px; 
+                       
+                        border-radius: 15px; 
+                        
+                        transition: transform 0.3s, box-shadow 0.3s;
+                    " 
+                    onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 20px 30px rgba(0, 0, 255, 0.7), 0 10px 10px rgba(0, 0, 255, 0.5)';" 
+                    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 255, 0.5), 0 6px 6px rgba(0, 0, 255, 0.3)';"
+                />
+            </div>
+        {% endfor %}
+        </section>
+        <!-- End: Welcome Section -->
+        
+        <!-- Start: Category Filter -->
+        <section class="category-filter section-padding">
+            {% for Category_Filter in Category_Filter_list %}
+            <div class="container">
+                <div class="center-content">
+                    <div class="row">
+                        
+                        <div class="col-md-6 col-md-offset-3">
+                            <h2 class="section-title"><h3>{{Category_Filter.title}}</h3></h2>
+                            <span class="underline center"></span>
+                            <p class="lead"><h3>{{Category_Filter.description}}</h3></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            {% endfor%}
+            <div class="container">
+                
+                <!-- Start: Search Section -->
+                
+                <!-- End: Search Section -->
+                
+
+
+
+                <div class="filter-options margin-list">
+                    <div class="row"> 
+                         
+                                                               
+                        <div style="text-align: center;">
+                            <h2 style="display: contents;">Walia Published Book</h2>
+                        </div>
+                        
+                                               
+                    </div>
+                </div>
+
+               
+                <div class="booksmedia-fullwidth">
+                    <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: space-around;">
+                        {% for Walia_Published_Book in Walia_Published_Books %}
+                        <li class="book-card">
+                            <!-- <div class="book-list-icon blue-icon"></div> -->
+                            <figure class="book-figure">
+                                <a href="{% url 'booksmediagirdviewv2' %}">
+                                    <img src="{{ Walia_Published_Book.image.url }}" alt="Book" class="book-image" />
+                                </a>
+                                <figcaption class="book-figcaption">
+                                    <header>
+                                        <h4><a href="{% url 'booksmediagirdviewv2' %}">{{ Walia_Published_Book.title }}</a></h4>
+                                        <p><strong>Author:</strong> {{ Walia_Published_Book.author }}</p>
+                                        <p><strong>Price:</strong> {{ Walia_Published_Book.price }}</p>
+                                        <p><strong>Discount Price:</strong> {{ Walia_Published_Book.discount_price }}</p>
+                                    </header>
+                                    <p>{{ Walia_Published_Book.description|safe }}</p>
+                                    <div class="actions">
+                                        <ul style="list-style: none; padding: 0; display: flex; justify-content: space-around;">
+                                           
+                                            <li>
+                                                <a href="#" class="like-button" data-id="{{ Walia_Published_Book.id }}" data-toggle="blog-tags" data-placement="top" title="Like">
+                                                    <i class="fa fa-heart"></i>
+                                                </a>
+                                                <span id="likeCount-{{ Walia_Published_Book.id }}" class="like-count">0</span>
+                                            </li>
+                                           
+                                           
+                                           
+                                            <li>
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u={% url 'booksmediagirdviewv2' %}" target="_blank" data-toggle="blog-tags" data-placement="top" title="Share">
+                                                    <i class="fa fa-share-alt"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <style>
+                .book-card {
+                    margin: 10px;
+                    width: 250px;
+                    perspective: 800px;
+                }
+                
+                .book-figure {
+                    margin: 0;
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    transform-style: preserve-3d;
+                    transition: transform 0.3s ease;
+                    border: 1px solid #ddd;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                
+                .book-card:hover .book-figure {
+                    transform: rotateY(8deg) rotateX(8deg);
+                    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+                }
+                
+                .book-image {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    backface-visibility: hidden;
+                    border-bottom: 1px solid #ddd;
+                }
+                
+                .book-figcaption {
+                    padding: 10px;
+                    backface-visibility: hidden;
+                }
+                
+                .book-figcaption header {
+                    margin-bottom: 10px;
+                }
+                
+                .book-figcaption h4 {
+                    font-size: 1em;
+                    margin: 0;
+                }
+                
+                .book-figcaption p {
+                    margin: 3px 0;
+                    font-size: 0.9em;
+                }
+                
+                .book-figcaption .actions {
+                    margin-top: 10px;
+                }
+                </style>
+                
+                <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const likeButtons = document.querySelectorAll('.like-button');
+                    likeButtons.forEach(button => {
+                        button.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            const bookId = this.dataset.id;
+                            const likeCountElement = document.getElementById(`likeCount-${bookId}`);
+                            let likeCount = parseInt(likeCountElement.textContent);
+                            likeCount++;
+                            likeCountElement.textContent = likeCount;
+                        });
+                    });
+                });
+                </script>
+                
+             
+               
+                <nav class="navigation pagination text-center">
+                    <h2 class="screen-reader-text">Posts navigation</h2>
+                    <div class="nav-links">
+                        {% if Walia_Published_Books.has_previous %}
+                            <a class="prev page-numbers" href="?page={{ Walia_Published_Books.previous_page_number }}"><i class="fa fa-long-arrow-left"></i> Previous</a>
+                        {% else %}
+                            <span class="prev page-numbers disabled"><i class="fa fa-long-arrow-left"></i> Previous</span>
+                        {% endif %}
+            
+                        {% for num in Walia_Published_Books.paginator.page_range %}
+                            {% if Walia_Published_Books.number == num %}
+                                <span class="page-numbers current">{{ num }}</span>
+                            {% else %}
+                                <a class="page-numbers" href="?page={{ num }}">{{ num }}</a>
+                            {% endif %}
+                        {% endfor %}
+            
+                        {% if Walia_Published_Books.has_next %}
+                            <a class="next page-numbers" href="?page={{ Walia_Published_Books.next_page_number }}">Next <i class="fa fa-long-arrow-right"></i></a>
+                        {% else %}
+                            <span class="next page-numbers disabled">Next <i class="fa fa-long-arrow-right"></i></span>
+                        {% endif %}
+                    </div>
+                </nav>
+            
+            </div>
+
+
+           
+
+
+           
+        </section>
+
+        
+        <!-- Start: Newsletter -->
+
+        <section class="newsletter section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="center-content">
+                            <h2 class="section-title">Subscribe to our Newsletters</h2>
+                            <span class="underline center"></span>
+                            <p class="lead">To subscribe to the Walia Book Store, you can sign up to receive updates and promotions via email or other communication channels..</p>
+                        </div>
+                        <form action="." method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Enter your Email!" id="newsletter" name="email" type="email">
+                                <input class="form-control" value="Subscribe" type="submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- End: Newsletter -->
+        
+        <!-- Start: Meet Staff -->
+
+
+        
+        <section class="team section-padding">
+            <div class="container">
+                
+                {% for Meet_Staff in Meet_Staff_list %}
+                <div class="center-content">
+                    <h4>{{Meet_Staff.title|safe}}</h4>
+                    <span class="designation">{{Meet_Staff.name|safe}}</span>
+                    <p class="lead">{{Meet_Staff.description|safe}}</p>
+
+                </div>
+                {% endfor %}
+               
+                
+                <div class="team-list">
+                    {% for member in team_member_list %}
+                    <div class="team-member">
+                        <figure>
+                            <img src="{{ member.image.url }}" alt="team"  />
+                        </figure>
+                        <div class="content-block">
+                            <div class="member-info">
+                                <h4>{{member.name_member|safe}}</h4>
+                                <span class="designation">{{member.span|safe}}</span>
+                                <ul class="social">
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class="fa fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class="fa fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class="fa fa-skype"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <p>{{member.description|safe}}</p>
+                                <a class="btn btn-primary" href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        
+       
+        <!-- End: Latest Blog -->
+        
+        <!-- Start: Our Community Section -->
+        <section class=" ">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-10 " >
+                  <h1>Video List</h1>
+                  {% for video in videos %}
+                    <div class="video">
+                      <h2>{{ video.title }}</h2>
+                      <video controls width="100%">
+                        <source src="{{ video.video_file.url }}" type="video/mp4">
+                      </video>
+                      <p>{{ video.description }}</p>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </section>
+          
+
+
+            
+           
+        </section>
+        
+
+        
+        
+
+
+    <div class="pdf-list">
+        {% for document in documents %}
+        <div class="pdf-item">
+            <h2>{{ document.title }}</h2>
+            {% if document.image %}
+            <img src="{{ document.image.url }}" alt="{{ document.title }}">
+            {% endif %}
+            <a href="{{ document.pdf.url }}" target="_blank">View PDF</a>
+        </div>
+        {% endfor %}
+    </div>
+
+
+   
+        
+        {% endblock %}

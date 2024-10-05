@@ -1,0 +1,228 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+    
+
+{% include 'head.html' %}
+
+    <body>
+
+        <!-- Start: Header Section -->
+        {% include 'header.html' %}
+        <!-- End: Header Section -->
+
+        <!-- Start: Page Banner -->
+        <section class="page-banner services-banner">
+            <div class="container">
+                <div class="banner-header">
+                    <h2>Books & Media Listing</h2>
+                    <span class="underline center"></span>
+                    <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+                </div>
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="index-2.html">Home</a></li>
+                        <li>Books & Media</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- End: Page Banner -->
+
+        <!-- Start: Products Section -->
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <div class="books-full-width">
+                        <div class="container">
+                            <!-- Start: Search Section -->
+
+                            <section class="search-filters">
+                                <div class="filter-box">
+                                    <h3>What are you looking for at the library?</h3>
+                                    <form action="http://libraria.demo.presstigers.com/index.html" method="get">
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="Search by Keyword" id="keywords" name="keywords" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="form-group">
+                                                <select name="catalog" id="catalog" class="form-control">
+                                                    <option>Search the Catalog</option>
+                                                    <option>Catalog 01</option>
+                                                    <option>Catalog 02</option>
+                                                    <option>Catalog 03</option>
+                                                    <option>Catalog 04</option>
+                                                    <option>Catalog 05</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="form-group">
+                                                <select name="category" id="category" class="form-control">
+                                                    <option>All Categories</option>
+                                                    <option>Category 01</option>
+                                                    <option>Category 02</option>
+                                                    <option>Category 03</option>
+                                                    <option>Category 04</option>
+                                                    <option>Category 05</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control" type="submit" value="Search">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="clear"></div>
+                            </section>
+
+                            <!-- End: Search Section -->
+                            
+                            <div class="filter-options margin-list">
+                                <div class="row">                                            
+                                    <div class="col-md-3 col-sm-3">
+                                        <select name="orderby">
+                                            <option selected="selected">Sort by Title</option>
+                                            <option>Sort by popularity</option>
+                                            <option>Sort by rating</option>
+                                            <option>Sort by newness</option>
+                                            <option>Sort by price</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3">
+                                        <select name="orderby">
+                                            <option selected="selected">Sort by Author</option>
+                                            <option>Sort by popularity</option>
+                                            <option>Sort by rating</option>
+                                            <option>Sort by newness</option>
+                                            <option>Sort by price</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 col-sm-3">
+                                        <select name="orderby">
+                                            <option selected="selected">Language</option>
+                                            <option>Sort by popularity</option>
+                                            <option>Sort by rating</option>
+                                            <option>Sort by newness</option>
+                                            <option>Sort by price</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 col-sm-3">
+                                        <select name="orderby">
+                                            <option selected="selected">Publishing Date</option>
+                                            <option>Sort by popularity</option>
+                                            <option>Sort by rating</option>
+                                            <option>Sort by newness</option>
+                                            <option>Sort by price</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 col-sm-12 pull-right">
+                                        <div class="filter-toggle">
+                                            <a href="books-media-gird-view-v2.html" class="active"><i class="glyphicon glyphicon-th-large"></i></a>
+                                            <a href="books-media-list-view.html"><i class="glyphicon glyphicon-th-list"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- {% comment %} {% if booksmgv2_list %} {% endcomment %} -->
+
+
+
+
+
+                        <div class="container">
+                            <div class="row">
+                                {% for i  in booksmgv2_list  %}
+                                <div class="col-lg-5">
+                                    <figure>
+                                        <a href="books-media-detail-v2.html"><img src="media/{{i.image}}" alt="Book"></a>
+                                        <figcaption>
+                                            <header>
+                                                <h4><a href="books-media-detail-v2.html">{{i.titles1}}</a></h4>
+                                                <p><strong>Author:</strong>  {{i.Autor}}</p>
+                                                <p><strong>ISBN:</strong>  {{i.price}}</p>
+                                            </header>
+                                            <p>{{i.descriptions1}}</p>
+                                          
+                                        </figcaption>
+                                    </figure>  
+
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+
+                        {% for booksmgv2 in booksmgv2_list %}
+                            <div class="booksmedia-fullwidth">
+                           
+                                <ul>
+                        
+                                    <li>
+
+                                        <div class="book-list-icon blue-icon"></div>
+                                        <figure>
+                                            <a href="books-media-detail-v2.html"><img src="media/{{booksmgv2.image}}" alt="Book"></a>
+                                            <figcaption>
+                                                <header>
+                                                    <h4><a href="books-media-detail-v2.html">{{booksmgv2.titles1}}</a></h4>
+                                                    <p><strong>Author:</strong>  {{booksmgv2.Autor}}</p>
+                                                    <p><strong>ISBN:</strong>  {{booksmgv2.price}}</p>
+                                                </header>
+                                                <p>{{booksmgv2.descriptions1}}</p>
+                                              
+                                            </figcaption>
+                                        </figure>                                                
+                                    </li>
+                             
+                                </ul>
+                                
+                            </div>
+                            {% endfor %} 
+<!-- {% comment %}                             
+                            {% else %}
+                            <p>No books found.</p>
+                            {% endif %} {% endcomment %} -->
+
+
+                            <nav class="navigation pagination text-center">
+                                <h2 class="screen-reader-text">Posts navigation</h2>
+                                <div class="nav-links">
+                                    <a class="prev page-numbers" href="#."><i class="fa fa-long-arrow-left"></i> Previous</a>
+                                    <a class="page-numbers" href="#.">1</a>
+                                    <span class="page-numbers current">2</span>
+                                    <a class="page-numbers" href="#.">3</a>
+                                    <a class="page-numbers" href="#.">4</a>
+                                    <a class="next page-numbers" href="#.">Next <i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </nav>
+                        </div>
+                        <!-- Start: Staff Picks -->
+                        
+                        <!-- End: Staff Picks -->
+                    </div>
+                </main>
+            </div>
+        </div>
+        <!-- End: Products Section -->
+
+        <!-- Start: Social Network -->
+        {% include 'social-network.html' %}
+        <!-- End: Social Network -->
+
+        <!-- Start: Footer -->
+        {% include 'footer.html' %}
+        <!-- End: Footer -->
+  <!-- jQuery Latest Version 1.x -->
+  {% include 'javascript.html' %}
+       
+
+    </body>
+
+
+</html>

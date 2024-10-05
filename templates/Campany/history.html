@@ -1,0 +1,111 @@
+{% extends 'Campany/_base.html' %} {% load static %} {% block content %}
+
+    <!-- Start: Page Banner -->
+    <section class="page-banner services-banner">
+      <div class="container">
+        <div class="banner-header">
+          <h2>history Us</h2>
+          <span class="underline center"></span>
+          <p class="lead"></p>
+        </div>
+        <div class="breadcrumb">
+          <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li>history</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    {% if messages %}
+    {% for m in messages %}
+    <div class="container py-3">
+      <div class="alert alert-success">
+        {{ m }}
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+  
+    <div id="content" class="site-content">
+      <div id="primary" class="content-area">
+        <main id="main" class="site-main">
+          <div class="contact-main">
+            <div class="contact-us">
+              <div class="container">
+                <div class="contact-location">
+                  
+                    <form>
+                        <div class="col-8 col-md-4 m-1">
+                          <input type="text" name="q" class="form-control ps-3 pe-3" placeholder="Enter Key Word">
+                        </div>
+                        <div class="col-3 col-md-1 m-1">
+                          <button type="submit" class="btn btn-primary" ><span class="mdi mdi-magnify"></span></button>
+                        </div>        
+                      </form>
+
+                      
+
+
+
+
+
+
+
+                      <div class="tab-content">
+                        <div id="sectionA" class="tab-pane fade in active">
+                            <form method="post" action="http://libraria.demo.presstigers.com/{% url 'history' %}">
+                                {% if user_info %}
+                                    <table class="table table-bordered shop_table cart hadedarke" style="border-collapse: collapse; width: 100%; background-color: #f9f9f9; border-radius: 8px; overflow: hidden;">
+                                        <thead style="background-color: #343a40; color: #fff;">
+                                            <tr>
+                                                <!-- <th class="product-name" style="padding: 12px; text-align: left;">image</th> -->
+                                                <th class="product-name" style="padding: 12px; text-align: left;">First Name</th>
+                                                <th class="product-name" style="padding: 12px; text-align: left;">Last Name</th>
+                                                <th class="product-quantity" style="padding: 12px; text-align: left;">Email</th>
+                                                <th class="product-price" style="padding: 12px; text-align: left;">Phone Number</th>
+                                                <th class="product-subtotal" style="padding: 12px; text-align: left;">Number of Books</th>
+                                                <th class="product-subtotal" style="padding: 12px; text-align: left;">Book titil</th>
+                                                <th class="product-subtotal" style="padding: 12px; text-align: left;">Book img</th>
+                                            </tr> 
+                                        </thead>
+                                        <tbody>
+                                            {% for info in user_info %}
+                                            <!-- <tr style="border-bottom: 1px solid #ddd;">
+                                                <td style="padding: 12px;"><img src="/media/{{ Book.info.image }}" style="width: 40px;" alt=""></td> -->
+                                            
+                                                <td style="padding: 12px;">{{ info.First_name }}</td>
+                                                <td style="padding: 12px;">{{ info.Last_Name }}</td>
+                                                <td style="padding: 12px;">{{ info.email }}</td>
+                                                <td style="padding: 12px;">{{ info.phone_Number }}</td>
+                                                <td style="padding: 12px;">{{ info.number_of_books }}</td>
+                                                <td style="padding: 12px;">{{ info.book.title }}</td>
+                                                
+
+                                                <td style="padding: 12px;"><img alt="Home Slide" src="{{ info.book.image.url }}" style="width: 80px; height: 80px;"/></td>
+
+                                                
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% endif %}
+                            </form>
+                        </div>
+                    </div>
+                    
+                    
+
+
+
+                 
+                
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <!-- End: Contact Us Section -->
+{% endblock %}

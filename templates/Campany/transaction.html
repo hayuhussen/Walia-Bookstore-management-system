@@ -1,0 +1,61 @@
+<h2>Transaction Reports</h2>
+
+<h3>By Year</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Year</th>
+            <th>Total Amount</th>
+            <th>Total Transactions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in transactions_by_year %}
+        <tr>
+            <td>{{ transaction.year }}</td>
+            <td>{{ transaction.total }}</td>
+            <td>{{ transaction.count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>By Month</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Month</th>
+            <th>Total Amount</th>
+            <th>Total Transactions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in transactions_by_month %}
+        <tr>
+            <td>{{ transaction.month }}</td>
+            <td>{{ transaction.total }}</td>
+            <td>{{ transaction.count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>By Week</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Week</th>
+            <th>Total Amount</th>
+            <th>Total Transactions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in transactions_by_week %}
+        <tr>
+            <td>{{ transaction.week }}</td>
+            <td>{{ transaction.total }}</td>
+            <td>{{ transaction.count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

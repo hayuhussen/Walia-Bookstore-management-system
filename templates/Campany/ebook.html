@@ -1,0 +1,306 @@
+ss{% extends 'Campany/_base.html' %} {% load static %} {% block content %}
+
+
+
+
+
+
+<section class="page-banner services-banner">
+  <div class="container">
+    <div class="banner-header">
+      <h2>Ebooks </h2>
+      <span class="underline center"></span>
+      <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+    </div>
+    <div class="breadcrumb">
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'ebook' %}">Ebook</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main">
+      <div class="books-full-width">
+        <div class="container">
+          <!-- Start: Search Section -->
+
+          <section class="search-filters">
+            <div class="filter-box">
+              <h3>Ebooks</h3>
+              <form
+                action="http://libraria.demo.presstigers.com/{% url 'index'%}"
+                method="get"
+              ></form>
+            </div>
+            <div class="clear"></div>
+          </section>
+
+          <!-- End: Search Section -->
+
+          <!-- {% comment %} {% if booksmgv2_list %} {% endcomment %} -->
+
+          
+        </div>
+        <!-- Start: Staff Picks -->
+
+        <!-- End: Staff Picks -->
+      </div>
+    </main>
+  </div>
+</div>
+
+
+
+
+
+<section class="search-filters">
+  <div class="filter-box">
+      <h3>What are you looking for at the library?</h3>
+      <form action="{% url 'ebook' %}" method="post">
+          {% csrf_token %}
+          <div class="col-md-4 col-sm-6">
+              <div class="form-group">
+                  <input class="form-control" placeholder="Search by Keyword" id="keywords" name="keywords" type="text">
+              </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+              <div class="form-group">
+                  <select name="discount_price" id="discount_price" class="form-control">
+                      <option>Search the discount_price</option>
+                      {% for price in discount_prices %}
+                      <option value="{{ price }}">{{ price }}</option>
+                      {% endfor %}
+                  </select>
+              </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+              <div class="form-group">
+                  <select name="category" id="category" class="form-control">
+                      <option>All Categories</option>
+                      {% for category in category_list %}
+                      <option value="{{ category.name }}">{{ category.name }}</option>
+                      {% endfor %}
+                  </select>
+              </div>
+          </div>
+          <div class="col-md-2 col-sm-6">
+              <div class="form-group">
+                  <input class="form-control" type="submit" value="Search">
+              </div>
+          </div>
+      </form>
+  </div>
+  <div class="clear"></div>
+</section>
+
+<!-- <section class="news-events section-padding banner" style="background-color: #e9ecef; padding-top: 70px; padding-bottom: 70px;">
+  <h1 style="text-align: center; color: #2c3e50; font-size: 3em; font-weight: 800; margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px;">Explore Our eBooks</h1>
+  <div class="container">
+    <ul class="row" style="list-style: none; padding-left: 0;">
+      {% for EBook in EBooks %}
+        <li class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center mb-5">
+          <div class="EBook card" style="background: linear-gradient(135deg, #ffffff, #f8f9fa); padding: 25px; border-radius: 20px; max-width: 100%; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); transition: transform 0.4s ease, box-shadow 0.4s ease;">
+            {% if EBook.image %}
+              <img src="{{ EBook.image.url }}" style="width: 100%; height: auto; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);" alt="{{ EBook.book.title }}">
+            {% endif %}
+            <h2 style="font-size: 1.7em; margin: 20px 0; color: #34495e; font-weight: 700; text-align: center;">{{ EBook.title }}</h2>
+            <div class="ebook-links" style="margin-top: 30px; text-align: center;">
+              <a href="{{ EBook.file.url }}" target="_blank" style="display: inline-block; margin-bottom: 15px; padding: 15px 30px; border-radius: 50px; background-color: #3498db; color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: background-color 0.3s ease, color 0.3s ease; text-decoration: none;">
+                Read eBook
+              </a>
+              <br>
+              <a href="{{ EBook.file.url }}" download style="display: inline-block; padding: 15px 30px; border-radius: 50px; background-color: #2ecc71; color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: background-color 0.3s ease, color 0.3s ease; text-decoration: none;">
+                Download eBook
+              </a>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section> -->
+
+
+<!-- <section class="news-events section-padding banner" style="background-color: #f4f6f9; padding-top: 70px; padding-bottom: 70px;">
+  <h1 style="text-align: center; color: #2c3e50; font-size: 3em; font-weight: 900; margin-bottom: 60px; text-transform: uppercase; letter-spacing: 3px;">Discover Our eBooks</h1>
+  <div class="container">
+    <ul class="row" style="list-style: none; padding-left: 0;">
+      {% for EBook in EBooks %}
+        <li class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center mb-5">
+          <div class="EBook card" style="background: linear-gradient(145deg, #ffffff, #f0f1f3); padding: 25px; border-radius: 15px; max-width: 100%; box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            {% if EBook.image %}
+              <img src="{{ EBook.image.url }}" style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);" alt="{{ EBook.book.title }}">
+            {% endif %}
+            <h2 style="font-size: 1.8em; margin: 20px 0; color: #34495e; font-weight: 700; text-align: center;">{{ EBook.title }}</h2>
+            <div class="ebook-links" style="margin-top: 30px; text-align: center;">
+              <a href="{{ EBook.file.url }}" target="_blank" style="display: inline-block; margin-bottom: 15px; padding: 15px 30px; border-radius: 50px; background-color: #3498db; color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: background-color 0.3s ease, color 0.3s ease; text-decoration: none;">
+                Read eBook
+              </a>
+              <br>
+              <a href="{{ EBook.file.url }}" download style="display: inline-block; padding: 15px 30px; border-radius: 50px; background-color: #2ecc71; color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: background-color 0.3s ease, color 0.3s ease; text-decoration: none;">
+                Download eBook
+              </a>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section> -->
+
+<section class="news-events section-padding banner" style="background-color: #e9ecef; padding-top: 70px; padding-bottom: 70px;">
+  <h1 style="text-align: center; color: #2c3e50; font-size: 3em; font-weight: 800; margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px;">Explore Our eBooks</h1>
+  <div class="container">
+    <ul class="row" style="list-style: none; padding-left: 0;">
+      {% for EBook in EBooks %}
+        <li class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center mb-4">
+          <div class="EBook card" style="background: linear-gradient(135deg, #ffffff, #f8f9fa); padding: 15px; border-radius: 15px; max-width: 90%; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            {% if EBook.image %}
+              <img src="{{ EBook.image.url }}" style="width: 100%; height: 400px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); object-fit: cover;" alt="{{ EBook.book.title }}">
+            {% endif %}
+            <h2 style="font-size: 1.4em; margin: 15px 0; color: #34495e; font-weight: 700; text-align: center;">{{ EBook.title }}</h2>
+            <div class="ebook-links" style="margin-top: 20px; text-align: center;">
+              <a href="{{ EBook.file.url }}" target="_blank" style="display: inline-block; margin-bottom: 10px; padding: 10px 20px; border-radius: 40px; background-color: #3498db; color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: background-color 0.3s ease, color 0.3s ease; text-decoration: none;">
+                Read eBook
+              </a>
+              <br>
+              <a href="{{ EBook.file.url }}" download style="display: inline-block; padding: 10px 20px; border-radius: 40px; background-color: #2ecc71; color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: background-color 0.3s ease, color 0.3s ease; text-decoration: none;">
+                Download eBook
+              </a>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+
+
+<nav class="navigation pagination text-center" style="background-color: rgb(47, 47, 48);">
+  <h2 class="screen-reader-text">Posts navigation</h2>
+  <div class="nav-links">
+      {% if EBooks.has_previous %}
+          <a class="prev page-numbers" href="?page={{ EBooks.previous_page_number }}"><i class="fa fa-long-arrow-left"></i> Previous</a>
+      {% else %}
+          <span class="prev page-numbers disabled"><i class="fa fa-long-arrow-left"></i> Previous</span>
+      {% endif %}
+
+      {% for num in EBooks.paginator.page_range %}
+          {% if EBooks.number == num %}
+              <span class="page-numbers current">{{ num }}</span>
+          {% else %}
+              <a class="page-numbers" href="?page={{ num }}">{{ num }}</a>
+          {% endif %}
+      {% endfor %}
+
+      {% if EBooks.has_next %}
+          <a class="next page-numbers" href="?page={{ EBooks.next_page_number }}">Next <i class="fa fa-long-arrow-right"></i></a>
+      {% else %}
+          <span class="next page-numbers disabled">Next <i class="fa fa-long-arrow-right"></i></span>
+      {% endif %}
+  </div>
+</nav>
+
+
+
+
+
+<style>
+  
+  form{
+position: absolute;
+top: 50%;
+left: 50%;
+margin-top: -100px;
+margin-left: -250px;
+width: 500px;
+height: 200px;
+border: 4px dashed #fff;
+}
+form p{
+width: 100%;
+height: 100%;
+text-align: center;
+line-height: 170px;
+color: #ffffff;
+font-family: Arial;
+}
+form input{
+position: absolute;
+margin: 0;
+padding: 0;
+width: 100%;
+height: 100%;
+outline: none;
+opacity: 0;
+}
+form button{
+margin: 0;
+color: #fff;
+background: #16a085;
+border: none;
+width: 508px;
+height: 35px;
+margin-top: -20px;
+margin-left: -4px;
+border-radius: 4px;
+border-bottom: 4px solid #117A60;
+transition: all .2s ease;
+outline: none;
+}
+form button:hover{
+background: #f64f59;
+color: white;
+}
+form button:active{
+border:0;
+}
+h1{
+  margin-top: -250px;
+  color: white;
+}
+
+
+.credit {
+  color: white;
+  margin: 0;
+  line-height: 50px; /* Vertically center the content within the footer */
+}
+
+.credit a {
+  
+  text-decoration: none;
+}
+
+
+
+ </style>
+
+ 
+ 
+
+{% endblock %}
+<!-- <ul class="bg-grey row">
+  {% for ebook in EBooks %}
+      <li class="col-md-4 col-sm-6 col-xs-12">
+          <div class="audiobook card" style="transform: translate(-10%, 10%); background: rgba(117, 107, 107, 0.7); padding: 40px; margin-bottom: 40px; border-radius: 10px;">
+              {% if ebook.image %}
+                  <img src="{{ ebook.image.url }}" style="height: 300px; width: 100%; object-fit: cover; border-radius: 10px 10px 0 0;" alt="{{ ebook.book.title }} cover image">
+              {% endif %}
+              <div class="card-body" style="padding: 15px;">
+                  <h2 style="font-size: 1.5em; margin: 10px 0;">{{ ebook.book.title }}</h2>
+                  <p style="color: #f0f0f0;">{{ ebook.book.author }}</p>
+                  <audio controls style="width: 100%; margin-top: 10px;">
+                      <source src="{{ ebook.file.url }}" type="EBook/mpeg">
+                      Your browser does not support the audio element.
+                  </audio>
+              </div>
+          </div>
+      </li>
+  {% endfor %}
+</ul> -->

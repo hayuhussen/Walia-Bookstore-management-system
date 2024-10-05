@@ -1,0 +1,167 @@
+{% extends 'Campany/_base.html' %} {% load static %} {% block content %}
+
+    <!-- Start: Page Banner -->
+    <section class="page-banner services-banner">
+      <div class="container">
+        <div class="banner-header">
+          <h2>Contact Us</h2>
+          <span class="underline center"></span Addressspan>
+          <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+        </div>
+        <div class="breadcrumb">
+          <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- End: Page Banner -->
+
+    {% if messages %}
+    {% for m in messages %}
+    <div class="container py-3">
+      <div class="alert alert-success">
+        {{ m }}
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <!-- Start: Contact Us Section -->
+    <div id="content" class="site-content">
+      <div id="primary" class="content-area">
+        <main id="main" class="site-main">
+          <div class="contact-main">
+            <div class="contact-us">
+              <div class="container">
+                <div class="contact-location">
+                  
+                  <div class="flipcard">
+                    <div class="front">
+                        <div class="top-info">
+                            <span><i class="fa fa-map-marker" aria-hidden="true"></i> Office Address</span>
+                        </div>
+                        <div class="bottom-info">
+                            <span class="top-arrow"></span>
+                            <ul>
+                                <li>4kilo walia bookstore</li>
+                                <li>Around turist hotel </li>
+                                <li>PO Box 16122</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="bottom-info orange-bg">
+                            <span class="bottom-arrow"></span>
+                            <ul>
+                              <li>4kilo walia bookstore</li>
+                              <li>Around turist hotel </li>
+                              <li>PO Box 16122</li>
+                            </ul>
+                        </div>
+                        <div class="top-info dark-bg">
+                            <span><i class="fa fa-map-marker" aria-hidden="true"></i> Office Address</span>
+                        </div>                                                
+                    </div>
+                </div>
+                <div class="flipcard">
+                    <div class="front">
+                        <div class="top-info">
+                            <span><i class="fa fa-fax" aria-hidden="true"></i> Phone and Fax</span>
+                        </div>
+                        <div class="bottom-info">
+                            <span class="top-arrow"></span>
+                            <ul>
+                                <li><a href="tel:+123-456-7890">Local: +251-966-252-525</a></li>
+                                <li><a href="tel:+123-456-7890">Local: +251-956-560-000</a></li>
+                                <li><a href="fax:(001)-254-7359">local: +251-910-409-093</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="bottom-info orange-bg">
+                            <span class="bottom-arrow"></span>
+                            <ul>
+                              <li><a href="tel:+123-456-7890">Local: +251-966-252-525</a></li>
+                              <li><a href="tel:+123-456-7890">Local: +251-956-560-000</a></li>
+                              <li><a href="fax:(001)-254-7359">local: +251-910-409-093</a></li>
+                            </ul>
+                        </div>
+                        <div class="top-info dark-bg">
+                            <span><i class="fa fa-fax" aria-hidden="true"></i> Phone and Fax</span>
+                        </div>                                                
+                    </div>
+                </div>
+                <div class="flipcard">
+                    <div class="front">
+                        <div class="top-info">
+                            <span><i class="fa fa-envelope" aria-hidden="true"></i> Email Address</span>
+                        </div>
+                        <div class="bottom-info">
+                            <span class="top-arrow"></span>
+                            <ul>
+                                <li>www.Waliabookstore.com</li>
+                                <li>Waliabookstore@gmail.com</li>
+                                <li>info@Waliabookstore.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="bottom-info orange-bg">
+                            <span class="bottom-arrow"></span>
+                            <ul>
+                              <li>www.Waliabookstore.com</li>
+                              <li>Waliabookstore@gmail.com</li>
+                              <li>info@Waliabookstore.com</li>
+                            </ul>
+                        </div>
+                        <div class="top-info dark-bg">
+                            <span><i class="fa fa-envelope" aria-hidden="true"></i> Email Address</span>
+                        </div>                                                
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+<br><br><br>
+              <div class="row mt-4">
+                <div class="col-md-6">
+                  <div class="p-4 mb-4" style="background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"><br><br><br>
+                    <h2 class="text-center mb-4" style="color: #333;">Send us a message</h2>
+                    <form action="." method="post">
+                      <h3 class="text-center mb-3" style="color: #555; font-size: 18px;"></h3> <br><br><br>
+                      {% csrf_token %}
+                      {{ form.as_p }}
+                      <button type="submit" class="btn btn-sm btn-orange mt-3" style="background-color: #ff6600; color: white; border-radius: 5px; border: none; padding: 8px 20px;">Submit</button>
+                    </form>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-4 mb-4" style="background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <h2 class="text-center mb-4" style="color: #333;">Our Location</h2>
+                    <iframe
+                      src="https://www.bing.com/maps/embed?h=400&w=500&cp=6.413289~38.306129&lvl=16&typ=d&sty=r&src=SHELL&FORM=MBEDV8"
+                      width="100%"
+                      height="400"
+                      style="border:0; border-radius: 10px;"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="text-center mt-3">
+                      <a href="https://www.bing.com/maps?osid=7f72fe54-c505-401b-97cd-e81efa60f24c&cp=6.413289~38.306129&lvl=16&pi=0&v=2&sV=2&form=S00027" target="_blank" class="btn btn-outline-dark" style="border-color: #333; color: #333;">View Larger Map</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </main>
+      </div>
+    </div>
+    <!-- End: Contact Us Section -->
+{% endblock %}

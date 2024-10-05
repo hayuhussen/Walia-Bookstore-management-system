@@ -1,0 +1,67 @@
+{% extends 'account/_base.html' %} {% load static %} {% block content %}
+
+<div class="card-header">
+  <a href="http://themepixels.me/demo/dashbyte/" class="header-logo mb-4"
+    >Walia</a
+  >
+  <h3 class="card-title">Sign Up</h3>
+  <p class="card-text">It's free to signup and only takes a minute.</p>
+</div>
+<!-- card-header -->
+<div class="card-body">
+  <form action="." method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input
+        name="username"
+        type="text"
+        class="form-control"
+        placeholder="Set your username"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email address</label>
+      <input
+        name="email"
+        type="email"
+        class="form-control"
+        placeholder="Enter your email address"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input
+        name="password1"
+        type="password"
+        class="form-control"
+        placeholder="Enter your password"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Confirm Password</label>
+      <input
+        name="password2"
+        type="password"
+        class="form-control"
+        placeholder="Enter your password"
+      />
+    </div>
+    <div class="mb-4">
+      <small
+        >By clicking <strong class="text-muted">Create Account</strong> below,
+        you agree to our terms of service and privacy statement.</small
+      >
+    </div>
+    <button type="submit" class="btn btn-primary btn-sign">
+      Create Account
+    </button>
+  </form>
+</div>
+<!-- card-body -->
+<div class="card-footer">
+  Already have an account? <a href="{% url 'account_login' %}">Sign In</a>
+</div>
+<!-- card-footer -->
+
+{% endblock %}

@@ -1,0 +1,544 @@
+{% extends 'Campany/_base.html' %} {% load static %} {% block content %}
+        
+        <!-- Start: Page Banner -->
+
+
+<!-- <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+    h2 {
+        text-align: center;
+    }
+    
+    card {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+ 
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+    input, select, textarea {
+        width: 70%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    input[type="submit"] {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    input[type="submit"]:hover {
+        background-color: #218838;
+    }
+    #credit-card-details {
+        display: none;
+    }
+    .bank-details {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .bank-details label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: black;
+    }
+    .bank-details p {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        color: black;
+    }
+</style> -->
+
+
+   <!-- <style>
+    .container {
+        margin-top: 50px;
+    }
+    .card {
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        margin-bottom: 20px;
+    }
+    label {
+        margin-top: 10px;
+    }
+    #totalPayment {
+        font-size: 24px;
+        font-weight: bold;
+        color: #007bff;
+    }
+    .bank-details {
+        margin-top: 20px;
+    }
+</style> -->
+
+
+
+ <style>
+  
+    .container {
+       
+        
+        box-shadow: 0 4px 8px rgba(14, 13, 13, 0.1);
+        
+    }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .col-md-3, .col-md-6 {
+        padding: 15px;
+    }
+    .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .card {
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #999494;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(83, 82, 82, 0.1);
+        
+    }
+    h2 {
+        margin-bottom: 20px;
+    }
+    h3 {
+        margin-top: 0;
+    }
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+    input[type="text"], input[type="tel"], input[type="number"], select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #686666;
+        border-radius: 5px;
+    }
+    input[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    #totalPayment {
+        font-size: 24px;
+        font-weight: bold;
+        color: #007bff;
+    }
+    .bank-details {
+        margin-top: 20px;
+    }
+</style> -->
+
+
+        <section class="page-banner services-banner">
+            <div class="container">
+                <div class="banner-header">
+                    <h2>Cart Page</h2>
+                    <span class="underline center"></span>
+                    <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+                </div>
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li>Dashboard</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- End: Page Banner -->
+        <!-- Start: Cart Section -->
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <div class="cart-main">
+                        <div class="container">
+                            <div class="row">
+
+                                <!-- <div class="cart-head">
+                                    <div class="col-xs-12 col-sm-6 account-option">
+                                        <strong>Scott Fitzgerald</strong>
+                                        <ul>
+                                            <li><a href="#">Edit Account</a></li>
+                                            <li class="divider">|</li>
+                                            <li><a href="#">Edit Pin </a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 library-info">
+                                        <ul>
+                                            <li>
+                                                <strong>Home Library:</strong>
+                                                Stephen A. Schwarzman Building
+                                            </li>
+                                            <li>
+                                                <strong>Email:</strong>
+                                                <a href="mailto:scottfitzgerald@gmail.com">scottfitzgerald@gmail.com</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div> -->
+
+                                
+
+
+
+                                <div class="col-md-12">
+                                    <div class="page type-page status-publish hentry">
+                                        <div class="entry-content">
+                                            <div class="woocommerce table-tabs" id="responsiveTabs">
+
+                                                <!-- <ul class="nav nav-tabs">
+                                                    <li class="active"><b class="arrow-up"></b><a data-toggle="tab" href="#sectionA">Book Bag</a></li>
+                                                    <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionB">Holds (4)</a></li>
+                                                    <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionC">My Checkouts (0)</a></li>
+                                                    <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionD">My eBooks (1)</a></li>
+                                                    <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionE">My Lists</a></li>
+                                                    <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionF">Fines/Fees ($0.00)</a></li>
+                                                </ul> -->
+
+                                                
+                                                <div class="tab-content">
+                                                    <div id="sectionA" class="tab-pane fade in active">
+                                                        <form method="post" action="http://libraria.demo.presstigers.com/{% url 'cart'%}">
+                                                            <table class="table table-bordered shop_table cart">
+                                                                <thead>
+
+                                                                    
+
+                                                                     <tr>
+                                                                        <th class="product-name">Title</th>
+                                                                        <th class="product-name">author</th>
+                                                                        <th class="product-quantity">price</th>
+                                                                        <th class="product-price">discount_price</th>                                                                
+                                                                        <th class="product-subtotal">image</th>
+                                                                    </tr> 
+                                                                    
+                                                                </thead>
+                                                                <tbody>
+                                                                    
+                                                                    <tr>
+                                                                      
+                                                                      <td>{{ book.title }}</td>
+                                                                      <td>{{ book.author }}</td>
+                                                                      <td>{{ book.price }}</td>
+                                                                      <td>{{ book.discount_price }}</td>
+                                                                      <td><img src="/media/{{ book.image }}" style="width: 40px;" alt=""></td>
+                                                                    </tr>
+                                                            </table>
+                                                        </form>
+                                                    </div>
+
+                                                    
+                                                    <div id="sectionB" class="tab-pane fade in">
+                                                        <h5>Lorem Ipsum Dolor</h5>
+                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+                                                    </div>
+                                                    <div id="sectionC" class="tab-pane fade in">
+                                                        <h5>Lorem Ipsum Dolor</h5>
+                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+                                                    </div>
+                                                    <div id="sectionD" class="tab-pane fade in">
+                                                        <h5>Lorem Ipsum Dolor</h5>
+                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+                                                    </div>                                                    
+                                                    <div id="sectionE" class="tab-pane fade in">
+                                                        <h5>Lorem Ipsum Dolor</h5>
+                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+                                                    </div>                                                    
+                                                    <div id="sectionF" class="tab-pane fade in">
+                                                        <h5>Lorem Ipsum Dolor</h5>
+                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div><!-- .entry-content -->
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col-md-3">
+                                    <h2>Payment Form</h2>
+                                    <div class="card">
+                                        <h3>total payment-method</h3>
+                                        <label id="bookPrice" for="price"><h1>400</h1></label>
+                                            
+                                    </div>
+                                    <div class="card">
+                                    
+       
+                                    </form>
+                                </div>
+                                    
+                                </div> -->
+
+
+                                <!-- <div class="col-md-6">
+                                    <h2>Payment Form</h2>
+                                    <div class="card">
+                                    <form action="/submit_payment" method="post">
+                                        <div class="card">
+                                            <label for="name">First Name:</label>
+                                            <input type="text" id="name" name="name" required>
+                                    
+                                            <label for="name">Last Name:</label>
+                                            <input type="text" id="name" name="name" required>
+                                    
+                                            <!-- <label for="address">Address:</label>
+                                            <input type="text" id="address" name="address" required>
+                                    
+                                            <label for="email">Email:</label>
+                                            <input type="email" id="email" name="email" required> -->
+                                    
+                                            <!-- <label for="phone">Phone Number:</label>
+                                            <input type="tel" id="phone" name="phone" required> -->
+        
+        
+                                            
+                                    
+                                            <!-- <label for="amount">Payment Amount:</label>
+                                            <input type="number" id="amount" name="amount" required> -->
+                                    
+        
+        
+        
+                                            <!-- <label for="payment-method">Payment Method:</label>
+                                            <input type="number" name="" min="1" value="1" id="numberOfBook"> -->
+                                    
+                                           
+                                    
+                                            <!-- <label for="Total Payment">Total Payment</label>
+                                    
+                                            <input type="submit" value="Submit Payment">
+         -->
+                                        </div>
+                                    </form>
+                                </div>
+                                    <!-- <script>
+                                        document.getElementById('payment-method').addEventListener('change', function() {
+                                            var creditCardDetails = document.getElementById('credit-card-details');
+                                            if (this.value === 'credit-card') {
+                                                creditCardDetails.style.display = 'block';
+                                            } else {
+                                                creditCardDetails.style.display = 'none';
+                                            }
+                                        });
+                                    </script> -->
+                                <!-- </div> -->
+                                -->
+                                <!-- <div class="col-md-3">
+                                    <h2>Bank Account Details</h2>
+                                      <div class="bank-details">
+                                    
+                                        {% for bank in banks %}
+                                    <div style="margin-top: 20px;">
+                                        <label for="bank_name">Bank Name: {{ bank.bank_name}} </label>
+                                    <label for="account_name">Account Name: {{ bank.account_name}} </label>
+                                   <label for="account_number">Account Number: {{ bank.account_number}} </label>
+                                    </div>
+                                   {% endfor %}
+                                      </div>
+                                </div> -->
+
+
+                                <!-- <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h2>Payment Summary</h2>
+                                            <div class="card">
+                                                <h3>Total Payment</h3>
+                                                <label id="bookPrice"><h1>$400</h1></label>
+                                            </div>
+                                        </div>
+                            
+                                        <div class="col-md-6">
+                                            <h2>Payment Form</h2>
+                                            <div class="card">
+                                                <form action="/submit_payment" method="post">
+                                                    <div class="form-group">
+                                                        <label for="firstName">First Name:</label>
+                                                        <input type="text" id="firstName" name="firstName" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="lastName">Last Name:</label>
+                                                        <input type="text" id="lastName" name="lastName" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="phone">Phone Number:</label>
+                                                        <input type="tel" id="phone" name="phone" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="numberOfBooks">Number of Books:</label>
+                                                        <input type="number" id="numberOfBooks" name="numberOfBooks" min="1" value="1" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="paymentMethod">Payment Method:</label>
+                                                        <select id="paymentMethod" name="paymentMethod" class="form-control">
+                                                            <option value="credit-card">Credit Card</option>
+                                                            <option value="paypal">PayPal</option>
+                                                            <option value="bank-transfer">Bank Transfer</option>
+                                                        </select>
+                                                    </div>
+                                                    <div id="credit-card-details" class="form-group" style="display:none;">
+                                                        <label for="cardNumber">Card Number:</label>
+                                                        <input type="text" id="cardNumber" name="cardNumber" class="form-control">
+                                                        <label for="expiryDate">Expiry Date:</label>
+                                                        <input type="text" id="expiryDate" name="expiryDate" class="form-control">
+                                                        <label for="cvv">CVV:</label>
+                                                        <input type="text" id="cvv" name="cvv" class="form-control">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary btn-block">Submit Payment</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                            
+                                        <div class="col-md-3">
+                                            <h2>Bank Account Details</h2>
+                                            <div class="card">
+                                                <div class="bank-details">
+                                                    {% for bank in banks %}
+                                                    <div style="margin-top: 20px;">
+                                                        <p><strong>Bank Name:</strong> {{ bank.bank_name }}</p>
+                                                        <p><strong>Account Name:</strong> {{ bank.account_name }}</p>
+                                                        <p><strong>Account Number:</strong> {{ bank.account_number }}</p>
+                                                    </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <script>
+                                    document.getElementById('paymentMethod').addEventListener('change', function() {
+                                        var creditCardDetails = document.getElementById('credit-card-details');
+                                        if (this.value === 'credit-card') {
+                                            creditCardDetails.style.display = 'block';
+                                        } else {
+                                            creditCardDetails.style.display = 'none';
+                                        }
+                                    });
+                                </script>
+                            
+                                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+                                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+
+
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <!-- <h2>Payment Summary</h2>
+                                            <div class="card">
+                                                <h3>Total Payment</h3>
+                                                <label id="bookPrice"><h1>$400</h1></label>
+                                            </div> -->
+                                        </div>
+                            
+                                        <div class="col-md-6">
+                                            <h2>Payment Form</h2>
+                                            {{id}}
+                                            <div class="card">
+                                                
+                                                <form method="POST" action="{% url 'cart' %}">
+                                                    {% csrf_token %}
+                                                    <input type="hidden" name="id" value="{{ book.id }}">
+                                                    <!-- Other form fields -->
+                                                    
+                                                    
+                                                    <label for="firstName">First Name:</label>
+                                                    <input type="text" name="firstName" required>
+                                                    <label for="lastName">Last Name:</label>
+                                                    <input type="text" name="lastName" required>
+                                                    <label for="email">Email:</label>
+                                                    <input type="email" name="email" required>
+                                                    <label for="phone">Phone:</label>
+                                                    <input type="tel" name="phone" required>
+                                                    <label for="numberOfBooks">Number of Books:</label>
+                                                    <input type="number" name="numberOfBooks" required>
+                                                    <input type="hidden" name="amount" value="{{ book.price }}">
+                                                    <input type="submit" value="Submit">
+                                                </form>
+                                                
+                            
+                                    
+                                    </div>
+                                </div>
+                            
+                                <script>
+                                    document.getElementById('paymentMethod').addEventListener('change', function() {
+                                        var creditCardDetails = document.getElementById('credit-card-details');
+                                        if (this.value === 'credit-card') {
+                                            creditCardDetails.style.display = 'block';
+                                        } else {
+                                            creditCardDetails.style.display = 'none';
+                                        }
+                                    });
+                                </script>
+
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+    
+
+
+        
+        <!-- End: Cart Section -->
+        
+  {% endblock %}
+
+
+  <script>
+
+    
+
+  </script>
+</html>

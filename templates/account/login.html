@@ -1,0 +1,44 @@
+{% extends 'account/_base.html' %} {% load static %} {% block content %}
+<div class="card-header">
+  <a href="/" class="header-logo mb-4">Walia</a>
+  <h3 class="card-title">Sign In</h3>
+  <p class="card-text">Welcome back! Please signin to continue.</p>
+</div>
+<!-- card-header -->
+<div class="card-body">
+  {% if form.errors %} {% for e in form.errors %}
+  <div class="alert alert-danger">{{ e }}</div>
+  {% endfor %} {% endif %}
+
+  <form action="." method="post">
+    {% csrf_token %}
+    <div class="mb-4">
+      <label class="form-label">Username</label>
+      <input
+        name="login"
+        type="text"
+        class="form-control"
+        placeholder="Enter your username"
+      />
+    </div>
+    <div class="mb-4">
+      <label class="form-label d-flex justify-content-between"
+        >Password <a href="#">Forgot password?</a></label
+      >
+      <input
+        name="password"
+        type="password"
+        class="form-control"
+        placeholder="Enter your password"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary btn-sign">Sign In</button>
+  </form>
+</div>
+<!-- card-body -->
+<div class="card-footer">
+  Don't have an account?
+  <a href="{% url 'account_signup' %}">Create an Account</a>
+</div>
+<!-- card-footer -->
+{% endblock %}

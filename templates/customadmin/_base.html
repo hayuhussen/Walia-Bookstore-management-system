@@ -1,0 +1,1116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Mirrored from themepixels.me/demo/dashbyte/dashboard/events.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jul 2023 09:21:51 GMT -->
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Meta -->
+    <meta name="description" content="" />
+    <meta name="author" content="Themepixels" />
+
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{% static 'customadmin/assets/img/favicon.png' %}"
+    />
+
+    <title>Dashboard - WaliaBookStore  </title>
+
+    <!-- Vendor CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'customadmin/lib/remixicon/fonts/remixicon.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'customadmin/lib/apexcharts/apexcharts.css' %}"
+    />
+
+    <!-- Template CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'customadmin/assets/css/style.min.css' %}"
+    />
+
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <a href="http://themepixels.me/demo/dashbyte/" class="sidebar-logo"
+          >Walia Book Store{% comment %}
+          <img src="{% static 'Campany/images/walia.png' %}" alt="LIBRARIA" />
+          {% endcomment %}
+        </a>
+      </div>
+      <!-- sidebar-header -->
+      <div id="sidebarMenu" class="sidebar-body" style="max-height: 700px; overflow-y: auto; overflow-x: hidden; width: 100%;">
+        <div class="nav-group show">
+          <a href="#" class="nav-label">Dashboard</a>
+          <ul class="nav nav-sidebar">
+            <li class="nav-item">
+              <a href="{% url 'books'%}" class="nav-link"
+                ><i class="ri-pie-chart-2-line"></i>
+                <span style="color: #faf2f2;">Book Management</span></a
+              >
+            </li>
+
+
+            
+
+
+            <li class="nav-item">
+              <a href="{% url 'transactions'%}" class="nav-link"
+                ><i class="ri-pie-chart-2-line"></i>
+                <span>transactionsManagement</span></a
+              >
+            </li>
+
+
+            <li class="nav-item">
+              <a href="{% url 'customer_info'%}" class="nav-link"
+                ><i class="ri-pie-chart-2-line"></i>
+                <span>customer_info_Management</span></a
+              >
+            </li>
+
+            <!-- <li class="nav-item">
+              <a href="{% url 'Cart'%}" class="nav-link"
+                ><i class="ri-pie-chart-2-line"></i>
+                <span>Cart Management</span></a
+              >
+            </li> -->
+
+            <li class="nav-item">
+              <a href="{% url 'WaliaPublishedBook'%}" class="nav-link"
+                ><i class="ri-pie-chart-2-line"></i>
+                <span>WaliaPublishedBook</span></a
+              >
+            </li>
+
+
+            <li class="nav-item">
+              <a href="{% url 'ConsignmentAgreements'%}" class="nav-link"
+                ><i class="ri-pie-chart-2-line"></i>
+                <span>ConsignmentAgreement</span></a
+              >
+            </li>
+           
+
+
+            <li class="nav-item">
+              <a href="{% url 'events'%}" class="nav-link"
+                ><i class="ri-calendar-todo-line"></i>
+                <span>Events Management</span></a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a href="{% url 'eventposts'%}" class="nav-link"
+                ><i class="ri-calendar-todo-line"></i>
+                <span>Event Post Management</span></a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a href="{% url 'blogs'%}" class="nav-link"
+                ><i class="ri-coin-line"></i> <span> blog managemnet</span></a
+              >
+            </li>
+
+            {% comment %}
+            <li class="nav-item">
+              <a href="{% url 'AudioBook'%}" class="nav-link"
+                ><i class="ri-coin-line"></i>
+                <span> AudioBooks managemnet</span></a
+              >
+            </li>
+            {% endcomment %}
+
+            <li class="nav-item">
+              <a href="{% url 'dashboard'%}" class="nav-link"
+                ><i class="ri-shopping-bag-3-line"></i>
+                <span>Dashboard Monitoring</span></a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a href="{% url 'AudioBookss'%}" class="nav-link"
+                ><i class="ri-shopping-bag-3-line"></i>
+                <span> AudioBook management </span></a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a href="{% url 'EBooks'%}" class="nav-link"
+                ><i class="ri-shopping-bag-3-line"></i>
+                <span> EBook management </span></a
+              >
+            </li>
+
+
+            <li class="nav-item">
+              <a href="{% url 'Authors'%}" class="nav-link"
+                ><i class="ri-service-line"></i> <span>Author category</span></a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a href="{% url 'BookCategorys'%}" class="nav-link"
+                ><i class="ri-hard-drive-2-line"></i>
+                <span>Book_Category Management</span></a
+              >
+            </li>
+
+
+           
+
+            <li class="nav-item">
+              <a href="{% url 'BookLanaguages'%}" class="nav-link"
+                ><i class="ri-hard-drive-2-line"></i>
+                <span>Book_Lanaguage Management</span></a
+              >
+            </li>
+            
+            <li class="nav-item">
+              <a href="{% url 'EventPostImages'%}" class="nav-link"
+                ><i class="ri-hard-drive-2-line"></i>
+                <span>Event_Post_Images Management</span></a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a href="{% url 'contacts'%}" class="nav-link"
+                ><i class="ri-suitcase-2-line"></i>
+                <span>contact Management</span></a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- nav-group -->
+        <!-- <div class="nav-group show">
+          <a href="#" class="nav-label">Applications</a>
+          <ul class="nav nav-sidebar">
+            <li class="nav-item">
+              <a
+                href="http://themepixels.me/demo/dashbyte/apps/file-manager.html"
+                class="nav-link"
+                ><i class="ri-folder-2-line"></i> <span>File Manager</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="http://themepixels.me/demo/dashbyte/apps/email.html"
+                class="nav-link"
+                ><i class="ri-mail-send-line"></i> <span>Email</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="http://themepixels.me/demo/dashbyte/apps/calendar.html"
+                class="nav-link"
+                ><i class="ri-calendar-line"></i> <span>Calendar</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="http://themepixels.me/demo/dashbyte/apps/chat.html"
+                class="nav-link"
+                ><i class="ri-question-answer-line"></i> <span>Chat</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="http://themepixels.me/demo/dashbyte/apps/contact.html"
+                class="nav-link"
+                ><i class="ri-contacts-book-line"></i> <span>Contacts</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="http://themepixels.me/demo/dashbyte/apps/tasks.html"
+                class="nav-link"
+                ><i class="ri-checkbox-multiple-line"></i>
+                <span>Task Manager</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-gallery-line"></i> <span>Media Gallery</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/apps/gallery-music.html"
+                  class="nav-sub-link"
+                  >Music Stream</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/apps/gallery-video.html"
+                  class="nav-sub-link"
+                  >Video Stream</a
+                >
+              </nav>
+            </li>
+          </ul>
+        </div> -->
+        <!-- nav-group -->
+        <!-- <div class="nav-group show">
+          <a href="#" class="nav-label">Pages</a>
+          <ul class="nav nav-sidebar">
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-account-circle-line"></i>
+                <span>User Pages</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/profile.html"
+                  class="nav-sub-link"
+                  >User Profile</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/people.html"
+                  class="nav-sub-link"
+                  >People &amp; Groups</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/activity.html"
+                  class="nav-sub-link"
+                  >Activity Log</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/events.html"
+                  class="nav-sub-link"
+                  >Events</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/settings.html"
+                  class="nav-sub-link"
+                  >Settings</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-lock-2-line"></i> <span>Authentication</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/sign-in.html"
+                  class="nav-sub-link"
+                  >Sign In Basic</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/sign-in-2.html"
+                  class="nav-sub-link"
+                  >Sign In Cover</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/sign-up.html"
+                  class="nav-sub-link"
+                  >Sign Up Basic</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/sign-up-2.html"
+                  class="nav-sub-link"
+                  >Sign Up Cover</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/verify-account.html"
+                  class="nav-sub-link"
+                  >Verify Account</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/forgot-password.html"
+                  class="nav-sub-link"
+                  >Forgot Password</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/lock-screen.html"
+                  class="nav-sub-link"
+                  >Lock Screen</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-error-warning-line"></i>
+                <span>Error Pages</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/error-404.html"
+                  class="nav-sub-link"
+                  >Page Not Found</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/error-500.html"
+                  class="nav-sub-link"
+                  >Internal Server Error</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/error-503.html"
+                  class="nav-sub-link"
+                  >Service Unavailable</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/error-505.html"
+                  class="nav-sub-link"
+                  >Forbidden</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-file-text-line"></i> <span>Other Pages</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/pricing.html"
+                  class="nav-sub-link"
+                  >Pricing</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/faq.html"
+                  class="nav-sub-link"
+                  >FAQ</a
+                >
+              </nav>
+            </li>
+          </ul>
+        </div> -->
+        <!-- nav-group -->
+        <!-- <div class="nav-group show mb-3">
+          <a href="#" class="nav-label">UI Elements</a>
+          <ul class="nav nav-sidebar">
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-pencil-ruler-2-line"></i>
+                <span>Getting Started</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/layout-grid.html"
+                  class="nav-sub-link"
+                  >Grid System</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/layout-columns.html"
+                  class="nav-sub-link"
+                  >Columns</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/layout-gutters.html"
+                  class="nav-sub-link"
+                  >Gutters</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-suitcase-line"></i> <span>Components</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-accordion.html"
+                  class="nav-sub-link"
+                  >Accordion</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-alerts.html"
+                  class="nav-sub-link"
+                  >Alerts</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-avatars.html"
+                  class="nav-sub-link"
+                  >Avatars</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-badge.html"
+                  class="nav-sub-link"
+                  >Badge</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-breadcrumbs.html"
+                  class="nav-sub-link"
+                  >Breadcrumbs</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-buttons.html"
+                  class="nav-sub-link"
+                  >Buttons</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-cards.html"
+                  class="nav-sub-link"
+                  >Cards</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-carousel.html"
+                  class="nav-sub-link"
+                  >Carousel</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-collapse.html"
+                  class="nav-sub-link"
+                  >Collapse</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-dropdown.html"
+                  class="nav-sub-link"
+                  >Dropdown</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-images.html"
+                  class="nav-sub-link"
+                  >Images</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-listgroup.html"
+                  class="nav-sub-link"
+                  >List Group</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-markers.html"
+                  class="nav-sub-link"
+                  >Markers</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-modal.html"
+                  class="nav-sub-link"
+                  >Modal</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-navtabs.html"
+                  class="nav-sub-link"
+                  >Navs &amp; Tabs</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-offcanvas.html"
+                  class="nav-sub-link"
+                  >Offcanvas</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-pagination.html"
+                  class="nav-sub-link"
+                  >Pagination</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-placeholders.html"
+                  class="nav-sub-link"
+                  >Placeholders</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-popovers.html"
+                  class="nav-sub-link"
+                  >Popovers</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-progress.html"
+                  class="nav-sub-link"
+                  >Progress</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-scrollspy.html"
+                  class="nav-sub-link"
+                  >Scrollspy</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-spinners.html"
+                  class="nav-sub-link"
+                  >Spinners</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-toasts.html"
+                  class="nav-sub-link"
+                  >Toasts</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-tooltips.html"
+                  class="nav-sub-link"
+                  >Tooltips</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-tables.html"
+                  class="nav-sub-link"
+                  >Tables</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-list-check-2"></i> <span>Forms</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-elements.html"
+                  class="nav-sub-link"
+                  >Text Elements</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-selects.html"
+                  class="nav-sub-link"
+                  >Selects</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-checksradios.html"
+                  class="nav-sub-link"
+                  >Checks &amp; Radios</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-tagsmasks.html"
+                  class="nav-sub-link"
+                  >Tags &amp; Masks</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-range.html"
+                  class="nav-sub-link"
+                  >Range</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-pickers.html"
+                  class="nav-sub-link"
+                  >Pickers</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-wizards.html"
+                  class="nav-sub-link"
+                  >Wizards</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-layouts.html"
+                  class="nav-sub-link"
+                  >Layouts</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-validation.html"
+                  class="nav-sub-link"
+                  >Validation</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-editors.html"
+                  class="nav-sub-link"
+                  >Editors</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-bar-chart-2-line"></i>
+                <span>Charts &amp; Graphs</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/chart-flot.html"
+                  class="nav-sub-link"
+                  >Flot</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/chart-apex.html"
+                  class="nav-sub-link"
+                  >Apexcharts</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/chart-chartjs.html"
+                  class="nav-sub-link"
+                  >Chartjs</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/chart-peity.html"
+                  class="nav-sub-link"
+                  >Peity</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/chart-morris.html"
+                  class="nav-sub-link"
+                  >Morris</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-stack-line"></i> <span>Maps &amp; Icons</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/map-leaflet.html"
+                  class="nav-sub-link"
+                  >Leaflet Maps</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/map-vector.html"
+                  class="nav-sub-link"
+                  >Vector Maps</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/icon-remix.html"
+                  class="nav-sub-link"
+                  >Remixicon</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/icon-feather.html"
+                  class="nav-sub-link"
+                  >Feathericons</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-briefcase-4-line"></i> <span>Utilities</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-animation.html"
+                  class="nav-sub-link"
+                  >Animation</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-background.html"
+                  class="nav-sub-link"
+                  >Background</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-border.html"
+                  class="nav-sub-link"
+                  >Border</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-colors.html"
+                  class="nav-sub-link"
+                  >Colors</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-divider.html"
+                  class="nav-sub-link"
+                  >Divider</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-flex.html"
+                  class="nav-sub-link"
+                  >Flex</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-sizing.html"
+                  class="nav-sub-link"
+                  >Sizing</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-spacing.html"
+                  class="nav-sub-link"
+                  >Spacing</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-opacity.html"
+                  class="nav-sub-link"
+                  >Opacity</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-position.html"
+                  class="nav-sub-link"
+                  >Position</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-typography.html"
+                  class="nav-sub-link"
+                  >Typography</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-shadows.html"
+                  class="nav-sub-link"
+                  >Shadows</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-extras.html"
+                  class="nav-sub-link"
+                  >Extras</a
+                >
+              </nav>
+            </li>
+          </ul>
+        </div> -->
+        <!-- nav-group -->
+      </div>
+      <!-- sidebar-body -->
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-top">
+          <div class="sidebar-footer-thumb">
+            <img src="{% static 'customadmin/assets/img/walia.png' %}" alt="" />
+          </div>
+          <!-- sidebar-footer-thumb -->
+          <!-- <div class="sidebar-footer-body">
+            <h6>
+              <a href=""
+                >WaliaBookStore</a
+              >
+            </h6>
+            <p>Dashboard</p>
+          </div> -->
+          <!-- sidebar-footer-body -->
+          <!-- <a id="sidebarFooterMenu" href="#" class="dropdown-link"
+            ><i class="ri-arrow-down-s-line"></i
+          ></a> -->
+        </div>
+        <!-- sidebar-footer-top -->
+        <!-- <div class="sidebar-footer-menu">
+          <nav class="nav"> -->
+            <!-- <a href="{% url 'account_logout' %}"
+                ><i class="ri-logout-box-r-line"></i> Log Out</a
+              > -->
+            <!-- <a href="#"><i class=""></i></a>
+            <a href="#"><i class=""></i></a> -->
+
+            <!-- <a href="#"><i class="ri-edit-2-line"></i> Edit Profile</a>
+            <a href="#"><i class="ri-profile-line"></i> View Profile</a> -->
+          </nav>
+          <hr />
+          <nav class="nav">
+            <a href="#"><i class=""></i></a>
+            <a href="#"><i class=""></i></a>
+            <a href="#"
+              ><i class=""></i> </a
+            >
+            <a href="{% url 'account_logout' %}"
+                ><i class=""></i></a
+              >
+
+              <!-- <a href="#"><i class="ri-question-line"></i> Help Center</a>
+              <a href="#"><i class="ri-lock-line"></i> Privacy Settings</a>
+              <a href="#"
+                ><i class="ri-user-settings-line"></i> Account Settings</a
+              >
+              <a href="{% url 'account_logout' %}"
+                  ><i class="ri-logout-box-r-line"></i> Log Out</a
+                > -->
+          </nav>
+          <nav class="nav">
+            
+          </nav>
+        </div>
+        <!-- sidebar-footer-menu -->
+      </div>
+      <!-- sidebar-footer -->
+    </div>
+    <!-- sidebar -->
+
+
+
+    
+
+
+
+
+
+
+
+    <div class="header-main px-3 px-lg-4">
+      <a id="menuSidebar" href="#" class="menu-link me-3 me-lg-4"
+        ><i class="ri-menu-2-fill"></i
+      ></a>
+
+      <!-- <div class="form-search me-auto">
+        <input type="text" class="form-control" placeholder="" />
+        <i class=""></i>
+      </div> -->
+
+       <div class="form-search me-auto">
+        <input type="text" class="form-control" placeholder="Search" />
+        <i class="ri-search-line"></i>
+      </div> 
+      <!-- form-search -->
+
+     
+      <div class="dropdown dropdown-skin">
+        <a href="#" class="dropdown-link" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+          <i class="ri-settings-3-line"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end mt-10-f">
+          <!-- Skin Mode -->
+          <label>Skin Mode</label>
+          <nav id="skinMode" class="nav nav-skin">
+            <a href="#" class="nav-link" id="skinDarkMode">Dark</a>
+            <a href="#" class="nav-link" id="skinLightMode">Light</a>
+          </nav>
+          <hr />
+          
+          <!-- Sidebar Skin -->
+          <label>Sidebar Skin</label>
+          <nav id="sidebarSkin" class="nav nav-skin">
+            <a href="#" class="nav-link" id="sidebarDark">Dark</a>
+            <a href="#" class="nav-link" id="sidebarPrime">Prime</a>
+            <a href="#" class="nav-link" id="sidebarDefault">Default</a>
+          </nav>
+          <hr />
+          
+          <!-- Layout Direction -->
+          <label>Direction</label>
+          <nav id="layoutDirection" class="nav nav-skin">
+            <a href="#" class="nav-link" id="layoutLTR">LTR</a>
+            <a href="#" class="nav-link" id="layoutRTL">RTL</a>
+          </nav>
+        </div>
+      </div>
+      
+      <!-- Add this script for toggling functionality -->
+      <script>
+        // Skin Mode
+        const skinDarkMode = document.getElementById('skinDarkMode');
+        const skinLightMode = document.getElementById('skinLightMode');
+      
+        // Sidebar Skin
+        const sidebarDark = document.getElementById('sidebarDark');
+        const sidebarPrime = document.getElementById('sidebarPrime');
+        const sidebarDefault = document.getElementById('sidebarDefault');
+      
+        // Layout Direction
+        const layoutLTR = document.getElementById('layoutLTR');
+        const layoutRTL = document.getElementById('layoutRTL');
+      
+        // Apply saved preferences from localStorage
+        const savedSkinMode = localStorage.getItem('skinMode');
+        const savedSidebarSkin = localStorage.getItem('sidebarSkin');
+        const savedLayoutDirection = localStorage.getItem('layoutDirection');
+      
+        if (savedSkinMode) {
+          document.body.classList.add(savedSkinMode);
+          updateActiveLink('skinMode', savedSkinMode);
+        }
+      
+        if (savedSidebarSkin) {
+          document.body.classList.add(savedSidebarSkin);
+          updateActiveLink('sidebarSkin', savedSidebarSkin);
+        }
+      
+        if (savedLayoutDirection) {
+          document.body.classList.add(savedLayoutDirection);
+          updateActiveLink('layoutDirection', savedLayoutDirection);
+        }
+      
+        // Functions to activate Skin Mode
+        skinDarkMode.addEventListener('click', function(e) {
+          e.preventDefault();
+          setMode('skinMode', 'dark-mode', skinDarkMode, skinLightMode);
+        });
+      
+        skinLightMode.addEventListener('click', function(e) {
+          e.preventDefault();
+          setMode('skinMode', 'light-mode', skinLightMode, skinDarkMode);
+        });
+      
+        // Functions to activate Sidebar Skin
+        sidebarDark.addEventListener('click', function(e) {
+          e.preventDefault();
+          setMode('sidebarSkin', 'sidebar-dark', sidebarDark, sidebarPrime, sidebarDefault);
+        });
+      
+        sidebarPrime.addEventListener('click', function(e) {
+          e.preventDefault();
+          setMode('sidebarSkin', 'sidebar-prime', sidebarPrime, sidebarDark, sidebarDefault);
+        });
+      
+        sidebarDefault.addEventListener('click', function(e) {
+          e.preventDefault();
+          setMode('sidebarSkin', 'sidebar-default', sidebarDefault, sidebarDark, sidebarPrime);
+        });
+      
+        // Functions to activate Layout Direction
+        layoutLTR.addEventListener('click', function(e) {
+          e.preventDefault();
+          setMode('layoutDirection', 'layout-ltr', layoutLTR, layoutRTL);
+        });
+      
+        layoutRTL.addEventListener('click', function(e) {
+          e.preventDefault();
+          setMode('layoutDirection', 'layout-rtl', layoutRTL, layoutLTR);
+        });
+      
+        // Utility function to set mode and update active class
+        function setMode(mode, className, activeLink, ...otherLinks) {
+          // Remove all previous classes for the mode
+          document.body.classList.remove(...Array.from(document.body.classList).filter(c => c.startsWith(mode)));
+      
+          // Add new class
+          document.body.classList.add(className);
+      
+          // Update localStorage
+          localStorage.setItem(mode, className);
+      
+          // Update active link state
+          activeLink.classList.add('active');
+          otherLinks.forEach(link => link.classList.remove('active'));
+        }
+      
+        // Utility function to update active link based on saved mode
+        function updateActiveLink(navId, savedClass) {
+          const links = document.querySelectorAll(`#${navId} .nav-link`);
+          links.forEach(link => {
+            if (link.textContent.trim().toLowerCase() === savedClass.split('-')[1]) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      </script>
+      
+      <!-- Add this CSS for the various modes -->
+      <style>
+        /* Skin Mode */
+        body.dark-mode {
+          background-color: #000036;
+          color: #ffffff;
+        }
+        
+        body.light-mode {
+          background-color: #ffffff;
+          color: #000000;
+        }
+        
+        /* Sidebar Skin */
+        body.sidebar-dark .sidebar {
+          background-color: #000036;
+        }
+        
+        body.sidebar-prime .sidebar {
+          background-color: #002366;
+        }
+        
+        body.sidebar-default .sidebar {
+          background-color: #f8f9fa;
+        }
+        
+        /* Layout Direction */
+        body.layout-ltr {
+          direction: ltr;
+        }
+        
+        body.layout-rtl {
+          direction: rtl;
+        }
+        
+        /* Customize additional styles for dark/light modes, sidebar, and layout */
+      </style>
+      
+ <!-- dropdown -->
+
+       <!-- <div class="dropdown dropdown-notification ms-3 ms-xl-4">
+        <a href="#" class="dropdown-link" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+            <small>{{ notifications.count }}</small>
+            <i class="ri-notification-3-line"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end mt-10-f me--10-f">
+            <div class="dropdown-menu-header">
+                <h6 class="dropdown-menu-title">
+                    <a href="{% url 'contacts' %}">Notifications</a>
+                </h6>
+            </div>
+            <ul class="list-group">
+                {% for notification in notifications %}
+                    <li class="list-group-item">
+                        <div class="avatar {% if notification.is_online %}online{% endif %}">
+                            <img src="{{ notification.image_url }}" alt="" />
+                        </div>
+                        <div class="list-group-body">
+                            <p>{{ notification.message }}</p>
+                            <span>{{ notification.timestamp }}</span>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="dropdown-menu-footer">
+                <a href="#">Show all Notifications</a>
+            </div>
+        </div>
+    </div> 
+     -->
+      <!-- dropdown -->
+      <div class="dropdown dropdown-profile ms-3 ms-xl-4">
+        <a
+          href="#"
+          class="dropdown-link"
+          data-bs-toggle="dropdown"
+          data-bs-auto-close="outside"
+          ><div class="avatar online">
+            <img
+              src="{% static 'customadmin/assets/img/walia.png' %}"
+              alt=""
+            /></div
+        ></a>
+        <div class="dropdown-menu dropdown-menu-end mt-10-f">
+          <div class="dropdown-menu-body">
+            <div class="avatar avatar-xl online mb-3">
+              <img
+                src="{% static 'customadmin/assets/img/walia.png' %}"
+                alt=""
+              />
+            </div>
+            <h5 class="mb-1 text-dark fw-semibold">WaliaBookStore</h5>
+            <p class="fs-sm text-secondary">Dashboard</p>
+
+            <nav class="nav">
+              <!-- <a href="#"><i class="ri-edit-2-line"></i> Edit Profile</a>
+              <a href="#"><i class="ri-profile-line"></i> View Profile</a> -->
+            </nav>
+            <hr />
+            <nav class="nav">
+              <!-- <a href="#"><i class="ri-question-line"></i> Help Center</a>
+              <a href="#"><i class="ri-lock-line"></i> Privacy Settings</a>
+              <a href="#"
+                ><i class="ri-user-settings-line"></i> Account Settings</a
+              > -->
+              <a href="{% url 'account_logout' %}"
+                ><i class="ri-logout-box-r-line"></i> Log Out</a
+              >
+            </nav>
+          </div>
+          <!-- dropdown-menu-body -->
+        </div>
+        <!-- dropdown-menu -->
+      </div>
+      <!-- dropdown -->
+    </div>
+    <!-- header-main -->
+
+    <div class="main main-app p-3 p-lg-4">
+      {% block content %} {% endblock %}
+
+      <div class="main-footer mt-5">
+        <span>@2024 WaliaBookStore All Rights Reserved.</span>
+
+        <span>
+          Created by:
+          <a href="http://themepixels.me/" target="_blank"
+            >Hayat Hussen</a
+          ></span
+        >
+      </div>
+      <!-- main-footer -->
+    </div>
+    <!-- main -->
+
+    <script src="{% static 'customadmin/lib/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'customadmin/lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'customadmin/lib/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'customadmin/lib/chart.js/chart.min.js' %}"></script>
+    <script src="{% static 'customadmin/lib/jqvmap/jquery.vmap.min.js' %}"></script>
+    <script src="{% static 'customadmin/lib/jqvmap/maps/jquery.vmap.usa.js' %}"></script>
+
+    <script src="{% static 'customadmin/lib/apexcharts/apexcharts.min.js' %}"></script>
+
+    <script src="{% static 'customadmin/assets/js/script.js' %}"></script>
+    <script src="{% static 'customadmin/assets/js/db.data.js' %}"></script>
+    <script src="{% static 'customadmin/assets/js/db.events.js' %}"></script>
+
+    {% block scripts %}{% endblock %}
+  </body>
+
+  <!-- Mirrored from themepixels.me/demo/dashbyte/dashboard/events.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jul 2024 09:21:51 GMT -->
+</html>

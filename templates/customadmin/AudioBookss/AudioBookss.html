@@ -1,0 +1,174 @@
+{% extends 'customadmin/_base.html' %} {% load static %} {% block content %}
+
+<style>
+  .breadcrumb-item.active::before {
+    content: none;
+  }
+</style>
+
+{% if messages %} {% for m in messages %}
+<div class="alert alert-success">{{ m }}</div>
+{% endfor %} {% endif %}
+
+<div class="d-md-flex align-items-center justify-content-between mb-4">
+  <div>
+    <ol class="breadcrumb fs-sm mb-1">
+      <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+      <li class="breadcrumb-item active" aria-current="page">
+        AudioBook Management
+      </li>
+    </ol>
+    <h4 class="main-title mb-0">AudioBook Management</h4>
+  </div>
+  <div class="d-flex align-items-center gap-2 mt-3 mt-md-0">
+    <!-- <button type="button" class="btn btn-white btn-icon">
+      <i class="ri-share-line fs-18 lh-1"></i>
+    </button>
+    <button type="button" class="btn btn-white btn-icon">
+      <i class="ri-printer-line fs-18 lh-1"></i>
+    </button> -->
+    <a href="{% url 'AudioBookss_create' %}" class="btn btn-primary">
+      <i class="ri-add-line fs-18 lh-1"></i> Add AudioBook
+    </a>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-xl-6">
+    <div class="card card-one card-ticket-earnings">
+      <div class="card-body d-flex flex-column p-4">
+        <h1 class="card-value mb-3 fs-40 ls--2">
+          <span>Total- </span> {{ count }}
+        </h1>
+        <label class="card-label fw-semibold text-dark mb-1">Total Books</label>
+        <p class="w-75 fs-sm text-secondary mb-4">
+          The total number of AudioBooks created by the admin.
+        </p>
+        <p class="mb-5">
+          <a href="#" class="btn fs-sm btn-primary">View Statements</a>
+        </p>
+
+        <div
+          class="d-flex gap-4 fs-sm mt-auto text-primary-dark lh-1 opacity-75"
+        >
+         
+          
+        </div>
+      </div>
+      <!-- card-body -->
+      <div id="apexChart1" class="apex-chart-two d-flex align-items-end"></div>
+    </div>
+    <!-- card -->
+  </div>
+  <!-- col -->
+  <div class="col-xl-6">
+    <div class="row g-3">
+      <div class="col-12">
+        
+        <!-- card -->
+      </div>
+      <!-- col -->
+     
+      <!-- col -->
+      
+      <!-- col -->
+    </div>
+  </div>
+  
+  <!-- col -->
+  <div class="col-xl-8">
+    <div class="row g-3">
+      <!-- col -->
+      <div class="col-12">
+        <div class="card card-one">
+          <div class="card-header">
+            <h6 class="card-title">AudioBook list</h6>
+            <nav class="nav nav-icon nav-icon-sm ms-auto">
+              <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+              <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+            </nav>
+          </div>
+          <!-- card-header -->
+          <div class="card-body px-3 pt-2">
+            <div class="table-responsive">
+              <table class="table table-agent mb-0">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>book</th>
+                    <th>audio_file</th>
+                    <th>background_color</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for AudioBook in AudioBookss %}
+                  <tr>
+                    <td>
+                      <span class="ff-numerals">{{ AudioBook.id }}</span>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="avatar">
+                          <span class="avatar-initial"
+                            ><img
+                              src="{{ AudioBook.image.url }}"
+                              alt="AudioBook"
+                          /></span>
+                        </div>
+                        <div class="avatar">
+                          <span class="avatar-initial"
+                            ><img
+                              src="{{ AudioBook.audio_file.url }}"
+                              alt="AudioBook"
+                          /></span>
+                        </div>
+                        <div>
+                          <h6 class="mb-0">
+                            <a
+                              href="{% url 'AudioBookss_update' AudioBook.id %}"
+                              class="text-light"
+                              >{{ AudioBook.book }}</a
+                            >
+                          </h6>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge bg-primary"
+                        >{{ AudioBook.background_color }}</span
+                      >
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- table-responsive -->
+          </div>
+          <!-- card-body -->
+        </div>
+        <!-- card -->
+      </div>
+      <!-- col -->
+    </div>
+    <!-- row -->
+  </div>
+  </div>
+  <!-- col -->
+  <div class="col-xl-4">
+    <div class="row g-3">
+      <!-- col -->
+      <div class="col-md-6 col-xl-12">
+        <!-- card -->
+      </div>
+      <!-- col -->
+    </div>
+    <!-- row -->
+  </div>
+  <!-- col -->
+
+  <!-- col -->
+</div>
+<!-- row -->
+
+{% endblock %}

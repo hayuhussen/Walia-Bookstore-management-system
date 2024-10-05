@@ -1,0 +1,412 @@
+{% extends 'customadmin/_base.html' %} {% load static %} {% block content %}
+
+<style>
+  .breadcrumb-item.active::before {
+    content: none;
+  }
+</style>
+
+{% if messages %} {% for m in messages %}
+<div class="alert alert-success">{{ m }}</div>
+{% endfor %} {% endif %}
+
+<div class="d-md-flex align-items-center justify-content-between mb-4">
+  <div>
+    <ol class="breadcrumb fs-sm mb-1">
+      <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Blog Management
+      </li>
+    </ol>
+    <h4 class="main-title mb-0">Blog Management</h4>
+  </div>
+  <div class="d-flex align-items-center gap-2 mt-3 mt-md-0">
+    <!-- <button type="button" class="btn btn-white btn-icon">
+      <i class="ri-share-line fs-18 lh-1"></i>
+    </button>
+    <button type="button" class="btn btn-white btn-icon">
+      <i class="ri-printer-line fs-18 lh-1"></i>
+    </button> -->
+    <a href="{% url 'blog_create' %}" class="btn btn-primary">
+      <i class="ri-add-line fs-18 lh-1"></i> Add blog
+    </a>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-xl-6">
+    <div class="card card-one card-ticket-earnings">
+      <div class="card-body d-flex flex-column p-4">
+        <h1 class="card-value mb-3 fs-40 ls--2">
+          <span>Total- </span> {{ count }}
+        </h1>
+        <label class="card-label fw-semibold text-dark mb-1">Total blog</label>
+        <p class="w-75 fs-sm text-secondary mb-4">
+          The total number of blogs created by the admin.
+        </p>
+        <p class="mb-5">
+          <a href="#" class="btn fs-sm btn-primary">View Statements</a>
+        </p>
+
+        <div
+          class="d-flex gap-4 fs-sm mt-auto text-primary-dark lh-1 opacity-75"
+        >
+          <span
+            ><strong class="fw-semibold ff-numerals">11,716</strong> Upcoming
+            Events
+          </span>
+          <span
+            ><strong class="fw-semibold ff-numerals">12,864</strong>
+            History/Passed Events
+          </span>
+        </div>
+      </div>
+      <!-- card-body -->
+      <div id="apexChart1" class="apex-chart-two d-flex align-items-end"></div>
+    </div>
+    <!-- card -->
+  </div>
+  <!-- col -->
+  <div class="col-xl-6">
+    <div class="row g-3">
+      <div class="col-12">
+        <div class="card card-one card-ticket-available">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-end">
+              <div class="w-45">
+                <h1 class="card-value fs-32 mb-2 ls--1">24,580</h1>
+                <label class="card-label fw-semibold text-dark mb-1"
+                  >Removed/Cancelled Events</label
+                >
+                <p class="text-secondary fs-sm mb-0">
+                  Cura bitur ullam corper ultri cies nisi nam eget dui etiam
+                  rhoncus.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- card-body -->
+          <div id="apexChart2" class="apex-chart"></div>
+        </div>
+        <!-- card -->
+      </div>
+      <!-- col -->
+      <div class="col-sm-6">
+        <div class="card card-one card-ticket-sold">
+          <div class="card-body p-4">
+            <div class="d-flex flex-column align-items-center">
+              <h1 class="card-value fs-32 mb-2 ls--1">11,716</h1>
+              <label class="card-label fw-semibold text-dark mb-1"
+                >Tickets Sold</label
+              >
+              <p class="text-secondary text-center fs-sm mb-0">
+                Ullam corper ultricies cura bitur nisi nam eget dui etia.
+              </p>
+            </div>
+          </div>
+          <!-- card-body -->
+          <div id="apexChart3" class="apex-chart"></div>
+        </div>
+        <!-- card -->
+      </div>
+      <!-- col -->
+      <div class="col-sm-6">
+        <div class="card card-one card-ticket-sold">
+          <div class="card-body p-4">
+            <div class="d-flex flex-column align-items-center">
+              <h1 class="card-value fs-32 mb-2 ls--1">12,864</h1>
+              <label class="card-label fw-semibold text-dark mb-1"
+                >Tickets Unsold</label
+              >
+              <p class="text-secondary text-center fs-sm mb-0">
+                Nam libero tempore, cum soluta nobis est eligendi.
+              </p>
+            </div>
+          </div>
+          <!-- card-body -->
+          <div id="apexChart4" class="apex-chart"></div>
+        </div>
+        <!-- card -->
+      </div>
+      <!-- col -->
+    </div>
+  </div>
+  <!-- col -->
+  <div class="col-xl-8">
+    <div class="row g-3">
+      <!-- col -->
+      <div class="col-12">
+        <div class="card card-one">
+          <div class="card-header">
+            <h6 class="card-title">blog list</h6>
+            <nav class="nav nav-icon nav-icon-sm ms-auto">
+              <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+              <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+            </nav>
+          </div>
+          <!-- card-header -->
+          <div class="card-body px-3 pt-2">
+            <div class="table-responsive">
+              <table class="table table-agent mb-0">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>title</th>
+                    <th>days</th>
+                    <th>month</th>
+                    <th>description</th>
+                    <th>Created</th>
+
+                    image = models.ImageField(upload_to="blogs/") title =
+                    models.CharField(max_length=200) days =
+                    models.IntegerField(_("Number of days")) created =
+                    models.DateTimeField(auto_now_add=True) month =
+                    models.CharField(max_length=50) description =
+                    tinymce_models.HTMLField()
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for blogs in Blog %}
+                  <tr>
+                    <td><span class="ff-numerals">{{ blog.id }}</span></td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="avatar">
+                          <span class="avatar-initial"
+                            ><img src="{{ blog.image.url }}" alt="book"
+                          /></span>
+                        </div>
+                        <div>
+                          <h6 class="mb-0">
+                            <a
+                              href="{% url 'blog_update' book.id %}"
+                              class="text-light"
+                              >{{ blog.title }}</a
+                            >
+                          </h6>
+                          <span class="fs-xs text-secondary"
+                            >{{ blog.description|safe|truncatechars:25 }}</span
+                          >
+                        </div>
+                      </div>
+                      {% comment %}
+                    </td>
+                    <td>
+                      <span class="badge bg-primary">{{ blog.days }}</span>
+                    </td>
+                    <td>
+                      <span class="ff-numerals">{{ blog.month }}</span>
+                    </td>
+                    <td>
+                      <span class="ff-numerals">{{ blog.description }}</span>
+                    </td>
+                    <td>
+                      <span class="ff-numerals">{{ blog.created|date }}</span>
+                    </td>
+                    {% endcomment %}
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- table-responsive -->
+          </div>
+          <!-- card-body -->
+        </div>
+        <!-- card -->
+      </div>
+      <!-- col -->
+    </div>
+    <!-- row -->
+  </div>
+  <!-- col -->
+  <div class="col-xl-4">
+    <div class="row g-3">
+      <!-- col -->
+      <div class="col-md-6 col-xl-12">
+        <!-- card -->
+      </div>
+      <!-- col -->
+    </div>
+    <!-- row -->
+  </div>
+  <!-- col -->
+  <div class="col-md-6 col-xl-4">
+    <div class="card card-one card-events-category">
+      <div class="card-header">
+        <h6 class="card-title">blog By Category</h6>
+        <nav class="nav nav-icon nav-icon-sm ms-auto">
+          <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+          <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+        </nav>
+      </div>
+      <!-- card-header -->
+      <div class="card-body p-3">
+        <div class="chart-donut-two mb-4">
+          <canvas id="chartDonut"></canvas>
+        </div>
+        <div class="row g-4">
+          <div class="col-6">
+            <label class="fs-sm fw-medium mb-1">Festivals</label>
+            <h3 class="card-value mb-2">6,000 <small>40%</small></h3>
+            <div class="progress ht-5 mb-0">
+              <div
+                class="progress-bar w-60"
+                role="progressbar"
+                aria-valuenow="60"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+          <!-- col -->
+          <div class="col-6">
+            <label class="fs-sm fw-medium mb-1">Sports</label>
+            <h3 class="card-value mb-2">3,750 <small>25%</small></h3>
+            <div class="progress ht-5 mb-0">
+              <div
+                class="progress-bar bg-ui-02 w-75"
+                role="progressbar"
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+          <!-- col -->
+          <div class="col-6">
+            <label class="fs-sm fw-medium mb-1">Concerts</label>
+            <h3 class="card-value mb-2">3,000 <small>20%</small></h3>
+            <div class="progress ht-5 mb-0">
+              <div
+                class="progress-bar bg-gray-700 w-80"
+                role="progressbar"
+                aria-valuenow="80"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+          <!-- col -->
+          <div class="col-6">
+            <label class="fs-sm fw-medium mb-1">Concerts</label>
+            <h3 class="card-value mb-2">2,250 <small>15%</small></h3>
+            <div class="progress ht-5 mb-0">
+              <div
+                class="progress-bar bg-gray-500 w-85"
+                role="progressbar"
+                aria-valuenow="85"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+          <!-- col -->
+        </div>
+        <!-- row -->
+      </div>
+      <!-- card-body -->
+    </div>
+    <!-- card -->
+  </div>
+  <!-- col -->
+  <div class="col-xl-4">
+    <div class="card card-one">
+      <div class="card-header">
+        <h6 class="card-title">Events This Month</h6>
+        <nav class="nav nav-icon nav-icon-sm ms-auto">
+          <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+          <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+        </nav>
+      </div>
+      <!-- card-header -->
+      <div class="card-body p-3">
+        <ul class="events-list">
+          <li class="active">
+            <div class="event-date">
+              <small>Sat</small>
+              <h5>03</h5>
+            </div>
+            <!-- event-date -->
+            <div class="events-body">
+              <div class="ev-item">
+                <small>08:00am - 10:30am</small>
+                <h6>Web Design Workshop</h6>
+                <p>
+                  Duis aute irure dolor in repre hen derit in volup tate velit
+                  esse cillum.
+                </p>
+              </div>
+              <!-- event-item -->
+            </div>
+            <!-- events-body -->
+          </li>
+          <li>
+            <div class="event-date">
+              <small>Wed</small>
+              <h5>07</h5>
+            </div>
+            <!-- event-date -->
+            <div class="events-body">
+              <div class="ev-item">
+                <small>08:00am - 11:30am</small>
+                <h6>5th Religious Conference</h6>
+                <p>
+                  Excep teur sint occae cat cupi datat non proident sunt in
+                  culpa qui.
+                </p>
+              </div>
+              <!-- event-item -->
+              <div class="ev-item">
+                <small>1:30pm - 5:30pm</small>
+                <h6>Church Workshop Events</h6>
+                <p>Datat non proident sunt in culpa qui.</p>
+              </div>
+              <!-- event-item -->
+            </div>
+            <!-- events-body -->
+          </li>
+          <li>
+            <div class="event-date">
+              <small>Thu</small>
+              <h5>08</h5>
+            </div>
+            <!-- event-date -->
+            <div class="events-body">
+              <div class="ev-item">
+                <small>08:30am - 03:30pm</small>
+                <h6>Front-End Devs Meetup</h6>
+                <p>
+                  Sed ut perspi ciatis unde omnis iste natus error sit volup
+                  tatem.
+                </p>
+              </div>
+              <!-- event-item -->
+            </div>
+            <!-- events-body -->
+          </li>
+          <li>
+            <div class="event-date">
+              <small>Mon</small>
+              <h5>23</h5>
+            </div>
+            <!-- event-date -->
+            <div class="events-body">
+              <div class="ev-item">
+                <small>09:00am - 05:30pm</small>
+                <h6 class="mb-0">Golden Autumn Festival</h6>
+              </div>
+              <!-- event-item -->
+            </div>
+            <!-- events-body -->
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- card -->
+  </div>
+  <!-- col -->
+</div>
+<!-- row -->
+
+{% endblock %}

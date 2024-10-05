@@ -1,0 +1,928 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from themepixels.me/demo/dashbyte/dashboard/crypto.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jul 2023 09:21:53 GMT -->
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Meta -->
+  <meta name="description" content="">
+  <meta name="author" content="Themepixels">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.png' %}">
+
+  <title>DashByte - Premium Dashboard Template</title>
+
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="{% static 'lib/remixicon/fonts/remixicon.css' %}">
+  <link rel="stylesheet" href="{% static 'lib/cryptofont/css/cryptofont.min.css' %}">
+  <link rel="stylesheet" href="{% static 'lib/apexcharts/apexcharts.css' %}">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/style.min.css' %}">
+</head>
+  <body>
+
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <a href="http://themepixels.me/demo/dashbyte/" class="sidebar-logo">dashbyte</a>
+      </div><!-- sidebar-header -->
+      <div id="sidebarMenu" class="sidebar-body">
+        <div class="nav-group show">
+          <a href="#" class="nav-label">Dashboard</a>
+          <ul class="nav nav-sidebar">
+            <li class="nav-item">
+              <a href="{% url 'finance'%}" class="nav-link"><i class="ri-pie-chart-2-line"></i> <span>Finance Monitoring</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'events'%}" class="nav-link"><i class="ri-calendar-todo-line"></i> <span>Events Management</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'sales'%}" class="nav-link"><i class="ri-shopping-bag-3-line"></i> <span>Sales Monitoring</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'analytics'%}" class="nav-link active"><i class="ri-bar-chart-2-fill"></i> <span>Website Analytics</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'crypto'%}" class="nav-link"><i class="ri-coin-line"></i> <span>Cryptocurrency</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'helpdesk'%}" class="nav-link"><i class="ri-service-line"></i> <span>Helpdesk Service</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'storage'%}" class="nav-link"><i class="ri-hard-drive-2-line"></i> <span>Storage Management</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'product'%}" class="nav-link"><i class="ri-suitcase-2-line"></i> <span>Product Management</span></a>
+            </li>
+          </ul>
+        </div><!-- nav-group -->
+        <div class="nav-group show">
+          <a href="#" class="nav-label">Applications</a>
+          <ul class="nav nav-sidebar">
+            <li class="nav-item">
+              <a href="http://themepixels.me/demo/dashbyte/apps/file-manager.html" class="nav-link"><i class="ri-folder-2-line"></i> <span>File Manager</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="http://themepixels.me/demo/dashbyte/apps/email.html" class="nav-link"><i class="ri-mail-send-line"></i> <span>Email</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="http://themepixels.me/demo/dashbyte/apps/calendar.html" class="nav-link"><i class="ri-calendar-line"></i> <span>Calendar</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="http://themepixels.me/demo/dashbyte/apps/chat.html" class="nav-link"><i class="ri-question-answer-line"></i> <span>Chat</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="http://themepixels.me/demo/dashbyte/apps/contact.html" class="nav-link"><i class="ri-contacts-book-line"></i> <span>Contacts</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="http://themepixels.me/demo/dashbyte/apps/tasks.html" class="nav-link"><i class="ri-checkbox-multiple-line"></i> <span>Task Manager</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"><i class="ri-gallery-line"></i> <span>Media Gallery</span></a>
+              <nav class="nav nav-sub">
+                <a href="http://themepixels.me/demo/dashbyte/apps/gallery-music.html" class="nav-sub-link">Music Stream</a>
+                <a href="http://themepixels.me/demo/dashbyte/apps/gallery-video.html" class="nav-sub-link">Video Stream</a>
+              </nav>
+            </li>
+          </ul>
+        </div><!-- nav-group -->
+        <div class="nav-group show">
+          <a href="#" class="nav-label">Pages</a>
+          <ul class="nav nav-sidebar">
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"><i class="ri-account-circle-line"></i> <span>User Pages</span></a>
+              <nav class="nav nav-sub">
+                <a href="http://themepixels.me/demo/dashbyte/pages/profile.html" class="nav-sub-link">User Profile</a>
+                <a href="http://themepixels.me/demo/dashbyte/pages/people.html" class="nav-sub-link">People &amp; Groups</a>
+                <a href="http://themepixels.me/demo/dashbyte/pages/activity.html" class="nav-sub-link">Activity Log</a>
+                <a href="http://themepixels.me/demo/dashbyte/pages/events.html" class="nav-sub-link">Events</a>
+                <a href="http://themepixels.me/demo/dashbyte/pages/settings.html" class="nav-sub-link">Settings</a>
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"><i class="ri-lock-2-line"></i> <span>Authentication</span></a>
+              <nav class="nav nav-sub">
+                <a href="http://themepixels.me/demo/dashbyte/pages/sign-in.html" class="nav-sub-link">Sign In Basic</a>
+                <a href="http://themepixels.me/demo/dashbyte/pages/sign-in-2.html" class="nav-sub-link">Sign In Cover</a>
+                <a href="http://themepixels.me/demo/dashbyte/pages/sign-up.html" class="nav-sub-link">Sign Up Basic</a>
+                <a href="http://themepixels.me/demo/dashbyte/pages/sign-up-2.html" class="nav-sub-link">Sign Up Cover</a>
+                <a href="http://themepixels.me/demo/dashbyte/pages/verify-account.html" class="nav-sub-link">Verify Account</a>
+                <a href="http://themepixels.me/demo/dashbyte/pages/forgot-password.html" class="nav-sub-link">Forgot Password</a>
+                <a href="http://themepixels.me/demo/dashbyte/pages/lock-screen.html" class="nav-sub-link">Lock Screen</a>
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"><i class="ri-error-warning-line"></i> <span>Error Pages</span></a>
+              <nav class="nav nav-sub">
+                <a href="http://themepixels.me/demo/dashbyte/pages/error-404.html" class="nav-sub-link">Page Not Found</a>
+                <a href="http://themepixels.me/demo/dashbyte/pages/error-500.html" class="nav-sub-link">Internal Server Error</a>
+                <a href="http://themepixels.me/demo/dashbyte/pages/error-503.html" class="nav-sub-link">Service Unavailable</a>
+                <a href="http://themepixels.me/demo/dashbyte/pages/error-505.html" class="nav-sub-link">Forbidden</a>
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"><i class="ri-file-text-line"></i> <span>Other Pages</span></a>
+              <nav class="nav nav-sub">
+                <a href="http://themepixels.me/demo/dashbyte/pages/pricing.html" class="nav-sub-link">Pricing</a>
+                <a href="http://themepixels.me/demo/dashbyte/pages/faq.html" class="nav-sub-link">FAQ</a>
+              </nav>
+            </li>
+          </ul>
+        </div><!-- nav-group -->
+        <div class="nav-group show mb-3">
+          <a href="#" class="nav-label">UI Elements</a>
+          <ul class="nav nav-sidebar">
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"><i class="ri-pencil-ruler-2-line"></i> <span>Getting Started</span></a>
+              <nav class="nav nav-sub">
+                <a href="http://themepixels.me/demo/dashbyte/docs/layout-grid.html" class="nav-sub-link">Grid System</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/layout-columns.html" class="nav-sub-link">Columns</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/layout-gutters.html" class="nav-sub-link">Gutters</a>
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"><i class="ri-suitcase-line"></i> <span>Components</span></a>
+              <nav class="nav nav-sub">
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-accordion.html" class="nav-sub-link">Accordion</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-alerts.html" class="nav-sub-link">Alerts</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-avatars.html" class="nav-sub-link">Avatars</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-badge.html" class="nav-sub-link">Badge</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-breadcrumbs.html" class="nav-sub-link">Breadcrumbs</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-buttons.html" class="nav-sub-link">Buttons</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-cards.html" class="nav-sub-link">Cards</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-carousel.html" class="nav-sub-link">Carousel</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-collapse.html" class="nav-sub-link">Collapse</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-dropdown.html" class="nav-sub-link">Dropdown</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-images.html" class="nav-sub-link">Images</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-listgroup.html" class="nav-sub-link">List Group</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-markers.html" class="nav-sub-link">Markers</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-modal.html" class="nav-sub-link">Modal</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-navtabs.html" class="nav-sub-link">Navs &amp; Tabs</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-offcanvas.html" class="nav-sub-link">Offcanvas</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-pagination.html" class="nav-sub-link">Pagination</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-placeholders.html" class="nav-sub-link">Placeholders</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-popovers.html" class="nav-sub-link">Popovers</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-progress.html" class="nav-sub-link">Progress</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-scrollspy.html" class="nav-sub-link">Scrollspy</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-spinners.html" class="nav-sub-link">Spinners</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-toasts.html" class="nav-sub-link">Toasts</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-tooltips.html" class="nav-sub-link">Tooltips</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/com-tables.html" class="nav-sub-link">Tables</a>
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"><i class="ri-list-check-2"></i> <span>Forms</span></a>
+              <nav class="nav nav-sub">
+                <a href="http://themepixels.me/demo/dashbyte/docs/form-elements.html" class="nav-sub-link">Text Elements</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/form-selects.html" class="nav-sub-link">Selects</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/form-checksradios.html" class="nav-sub-link">Checks &amp; Radios</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/form-tagsmasks.html" class="nav-sub-link">Tags &amp; Masks</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/form-range.html" class="nav-sub-link">Range</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/form-pickers.html" class="nav-sub-link">Pickers</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/form-wizards.html" class="nav-sub-link">Wizards</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/form-layouts.html" class="nav-sub-link">Layouts</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/form-validation.html" class="nav-sub-link">Validation</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/form-editors.html" class="nav-sub-link">Editors</a>
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"><i class="ri-bar-chart-2-line"></i> <span>Charts &amp; Graphs</span></a>
+              <nav class="nav nav-sub">
+                <a href="http://themepixels.me/demo/dashbyte/docs/chart-flot.html" class="nav-sub-link">Flot</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/chart-apex.html" class="nav-sub-link">Apexcharts</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/chart-chartjs.html" class="nav-sub-link">Chartjs</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/chart-peity.html" class="nav-sub-link">Peity</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/chart-morris.html" class="nav-sub-link">Morris</a>
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"><i class="ri-stack-line"></i> <span>Maps &amp; Icons</span></a>
+              <nav class="nav nav-sub">
+                <a href="http://themepixels.me/demo/dashbyte/docs/map-leaflet.html" class="nav-sub-link">Leaflet Maps</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/map-vector.html" class="nav-sub-link">Vector Maps</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/icon-remix.html" class="nav-sub-link">Remixicon</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/icon-feather.html" class="nav-sub-link">Feathericons</a>
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"><i class="ri-briefcase-4-line"></i> <span>Utilities</span></a>
+              <nav class="nav nav-sub">
+                <a href="http://themepixels.me/demo/dashbyte/docs/util-animation.html" class="nav-sub-link">Animation</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/util-background.html" class="nav-sub-link">Background</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/util-border.html" class="nav-sub-link">Border</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/util-colors.html" class="nav-sub-link">Colors</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/util-divider.html" class="nav-sub-link">Divider</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/util-flex.html" class="nav-sub-link">Flex</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/util-sizing.html" class="nav-sub-link">Sizing</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/util-spacing.html" class="nav-sub-link">Spacing</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/util-opacity.html" class="nav-sub-link">Opacity</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/util-position.html" class="nav-sub-link">Position</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/util-typography.html" class="nav-sub-link">Typography</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/util-shadows.html" class="nav-sub-link">Shadows</a>
+                <a href="http://themepixels.me/demo/dashbyte/docs/util-extras.html" class="nav-sub-link">Extras</a>
+              </nav>
+            </li>
+          </ul>
+        </div><!-- nav-group -->
+      </div><!-- sidebar-body -->
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-top">
+          <div class="sidebar-footer-thumb">
+            <img src="{% static 'assets/img/img1.jpg' %}" alt="">
+          </div><!-- sidebar-footer-thumb -->
+          <div class="sidebar-footer-body">
+            <h6><a href="http://themepixels.me/demo/dashbyte/pages/profile.html">Shaira Diaz</a></h6>
+            <p>Premium Member</p>
+          </div><!-- sidebar-footer-body -->
+          <a id="sidebarFooterMenu" href="#" class="dropdown-link"><i class="ri-arrow-down-s-line"></i></a>
+        </div><!-- sidebar-footer-top -->
+        <div class="sidebar-footer-menu">
+          <nav class="nav">
+            <a href="#"><i class="ri-edit-2-line"></i> Edit Profile</a>
+            <a href="#"><i class="ri-profile-line"></i> View Profile</a>
+          </nav>
+          <hr>
+          <nav class="nav">
+            <a href="#"><i class="ri-question-line"></i> Help Center</a>
+            <a href="#"><i class="ri-lock-line"></i> Privacy Settings</a>
+            <a href="#"><i class="ri-user-settings-line"></i> Account Settings</a>
+            <a href="#"><i class="ri-logout-box-r-line"></i> Log Out</a>
+          </nav>
+        </div><!-- sidebar-footer-menu -->
+      </div><!-- sidebar-footer -->
+    </div><!-- sidebar -->
+
+    <div class="header-main px-3 px-lg-4">
+      <a id="menuSidebar" href="#" class="menu-link me-3 me-lg-4"><i class="ri-menu-2-fill"></i></a>
+
+      <div class="form-search me-auto">
+        <input type="text" class="form-control" placeholder="Search">
+        <i class="ri-search-line"></i>
+      </div><!-- form-search -->
+
+      <div class="dropdown dropdown-skin">
+        <a href="#" class="dropdown-link" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="ri-settings-3-line"></i></a>
+        <div class="dropdown-menu dropdown-menu-end mt-10-f">
+          <label>Skin Mode</label>
+          <nav id="skinMode" class="nav nav-skin">
+            <a href="#" class="nav-link active">Light</a>
+            <a href="#" class="nav-link">Dark</a>
+          </nav>
+          <hr>
+          <label>Sidebar Skin</label>
+          <nav id="sidebarSkin" class="nav nav-skin">
+            <a href="#" class="nav-link active">Default</a>
+            <a href="#" class="nav-link">Prime</a>
+            <a href="#" class="nav-link">Dark</a>
+          </nav>
+          <hr>
+          <label>Direction</label>
+          <nav id="layoutDirection" class="nav nav-skin">
+            <a href="#" class="nav-link active">LTR</a>
+            <a href="#" class="nav-link">RTL</a>
+          </nav>
+        </div><!-- dropdown-menu -->
+      </div><!-- dropdown -->
+
+      <div class="dropdown dropdown-notification ms-3 ms-xl-4">
+        <a href="#" class="dropdown-link" data-bs-toggle="dropdown" data-bs-auto-close="outside"><small>3</small><i class="ri-notification-3-line"></i></a>
+        <div class="dropdown-menu dropdown-menu-end mt-10-f me--10-f">
+          <div class="dropdown-menu-header">
+            <h6 class="dropdown-menu-title">Notifications</h6>
+          </div><!-- dropdown-menu-header -->
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="avatar online"><img src="{% static 'assets/img/img10.jp' %}g" alt=""></div>
+              <div class="list-group-body">
+                <p><strong>Dominador Manuel</strong> and <strong>100 other people</strong> reacted to your comment "Tell your partner that...</p>
+                <span>Aug 20 08:55am</span>
+              </div><!-- list-group-body -->
+            </li>
+            <li class="list-group-item">
+              <div class="avatar online"><img src="{% static 'assets/img/img11.jp' %}g" alt=""></div>
+              <div class="list-group-body">
+                <p><strong>Angela Ighot</strong> tagged you and <strong>9 others</strong> in a post.</p>
+                <span>Aug 18 10:30am</span>
+              </div><!-- list-group-body -->
+            </li>
+            <li class="list-group-item">
+              <div class="avatar"><span class="avatar-initial bg-primary">a</span></div>
+              <div class="list-group-body">
+                <p>New listings were added that match your search alert <strong>house for rent</strong></p>
+                <span>Aug 15 08:10pm</span>
+              </div><!-- list-group-body -->
+            </li>
+            <li class="list-group-item">
+              <div class="avatar online"><img src="{% static 'assets/img/img14.jp' %}g" alt=""></div>
+              <div class="list-group-body">
+                <p>Reminder: <strong>Jerry Cuares</strong> invited you to like <strong>Cuares Surveying Services</strong>. <br><a href="#">Accept</a> or <a href="#">Decline</a></p>
+                <span>Aug 14 11:50pm</span>
+              </div><!-- list-group-body -->
+            </li>
+            <li class="list-group-item">
+              <div class="avatar online"><img src="{% static 'assets/img/img15.jp' %}g" alt=""></div>
+              <div class="list-group-body">
+                <p><strong>Dyanne Aceron</strong> reacted to your post <strong>King of the Bed</strong>.</p>
+                <span>Aug 10 05:30am</span>
+              </div><!-- list-group-body -->
+            </li>
+          </ul>
+          <div class="dropdown-menu-footer"><a href="#">Show all Notifications</a></div>
+        </div><!-- dropdown-menu -->
+      </div><!-- dropdown -->
+      <div class="dropdown dropdown-profile ms-3 ms-xl-4">
+          <a href="#" class="dropdown-link" data-bs-toggle="dropdown" data-bs-auto-close="outside"><div class="avatar online"><img src="{% static 'assets/img/img1.jpg' %}" alt=""></div></a>
+          <div class="dropdown-menu dropdown-menu-end mt-10-f">
+            <div class="dropdown-menu-body">
+              <div class="avatar avatar-xl online mb-3"><img src="{% static 'assets/img/img1.jpg' %}" alt=""></div>
+              <h5 class="mb-1 text-dark fw-semibold">Shaira Diaz</h5>
+              <p class="fs-sm text-secondary">Premium Member</p>
+
+              <nav class="nav">
+                <a href="#"><i class="ri-edit-2-line"></i> Edit Profile</a>
+                <a href="#"><i class="ri-profile-line"></i> View Profile</a>
+              </nav>
+              <hr>
+              <nav class="nav">
+                <a href="#"><i class="ri-question-line"></i> Help Center</a>
+                <a href="#"><i class="ri-lock-line"></i> Privacy Settings</a>
+                <a href="#"><i class="ri-user-settings-line"></i> Account Settings</a>
+                <a href="#"><i class="ri-logout-box-r-line"></i> Log Out</a>
+              </nav>
+            </div><!-- dropdown-menu-body -->
+          </div><!-- dropdown-menu -->
+      </div><!-- dropdown -->
+    </div><!-- header-main -->
+
+    <div class="main main-app p-3 p-lg-4">
+      <div class="d-md-flex align-items-center justify-content-between mb-4">
+        <div>
+          <ol class="breadcrumb fs-sm mb-1">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Cryptocurrency</li>
+          </ol>
+          <h4 class="main-title mb-0">Welcome to Dashboard</h4>
+        </div>
+        <div class="d-flex gap-2 mt-3 mt-md-0">
+          <button type="button" class="btn btn-white d-flex align-items-center gap-2"><i class="ri-share-line fs-18 lh-1"></i>Share</button>
+          <button type="button" class="btn btn-white d-flex align-items-center gap-2"><i class="ri-printer-line fs-18 lh-1"></i>Print</button>
+          <button type="button" class="btn btn-primary d-flex align-items-center gap-2"><i class="ri-bar-chart-2-line fs-18 lh-1"></i>Generate<span class="d-none d-sm-inline"> Report</span></button>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-sm-6 col-xl-3">
+          <div class="card card-one">
+            <div class="card-body overflow-hidden px-0">
+              <div class="crypto-item">
+                <div class="avatar bg-orange"><i class="cf cf-btc"></i></div>
+                <div class="crypto-body">
+                  <label class="card-label">Bitcoin <span>(BTC)</span></label>
+                  <h6 class="card-value">$3,972.87</h6>
+                </div><!-- crypto-body -->
+              </div><!-- crypto-item -->
+              <div id="apexChart1" class="apex-chart-ten"></div>
+            </div><!-- card-body -->
+            <div class="card-footer card-footer-crypto pt-0">
+              <div><strong>12</strong> USD Markets</div>
+              <div><strong>80</strong> BTC Markets</div>
+            </div><!-- card-footer -->
+          </div><!-- card -->
+        </div><!-- col -->
+        <div class="col-sm-6 col-xl-3">
+          <div class="card card-one">
+            <div class="card-body overflow-hidden px-0">
+              <div class="crypto-item">
+                <div class="avatar bg-twitter"><i class="cf cf-etc"></i></div>
+                <div class="crypto-body">
+                  <label class="card-label">Ethereum <span>(ETC)</span></label>
+                  <h6 class="card-value">$136.99</h6>
+                </div><!-- crypto-body -->
+              </div><!-- crypto-item -->
+              <div id="apexChart2" class="apex-chart-ten"></div>
+            </div><!-- card-body -->
+            <div class="card-footer card-footer-crypto pt-0">
+              <div><strong>10</strong> USD Markets</div>
+              <div><strong>65</strong> ETH Markets</div>
+            </div><!-- card-footer -->
+          </div><!-- card -->
+        </div><!-- col -->
+        <div class="col-sm-6 col-xl-3">
+          <div class="card card-one">
+            <div class="card-body overflow-hidden px-0">
+              <div class="crypto-item">
+                <div class="avatar bg-success"><i class="cf cf-btc"></i></div>
+                <div class="crypto-body">
+                  <label class="card-label">Bitcoin Cash <span>(BCH)</span></label>
+                  <h6 class="card-value">$160.43</h6>
+                </div><!-- crypto-body -->
+              </div><!-- crypto-item -->
+              <div id="apexChart3" class="apex-chart-ten"></div>
+            </div><!-- card-body -->
+            <div class="card-footer card-footer-crypto pt-0">
+              <div><strong>12</strong> USD Markets</div>
+              <div><strong>74</strong> BCH Markets</div>
+            </div><!-- card-footer -->
+          </div><!-- card -->
+        </div><!-- col -->
+        <div class="col-sm-6 col-xl-3">
+          <div class="card card-one">
+            <div class="card-body overflow-hidden px-0">
+              <div class="crypto-item">
+                <div class="avatar bg-primary"><i class="cf cf-dash"></i></div>
+                <div class="crypto-body">
+                  <label class="card-label">Dash <span>(DASH)</span></label>
+                  <h6 class="card-value">$90.58</h6>
+                </div><!-- crypto-body -->
+              </div><!-- crypto-item -->
+              <div id="apexChart4" class="apex-chart-ten"></div>
+            </div><!-- card-body -->
+            <div class="card-footer card-footer-crypto pt-0">
+              <div><strong>16</strong> USD Markets</div>
+              <div><strong>31</strong> DASH Markets</div>
+            </div><!-- card-footer -->
+          </div><!-- card -->
+        </div><!-- col -->
+        <div class="col-xl-8">
+          <div class="card card-one">
+            <div class="card-header">
+              <h6 class="card-title">Cryptocurrency Watchlist</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div><!-- card-header -->
+            <div class="card-body">
+              <div id="apexChart5" class="apex-chart-nine mb-4"></div>
+              <div class="row row-cols-auto gy-3 gx-5">
+                <div class="col">
+                  <label class="fs-xs mb-1 text-secondary">Market Cap</label>
+                  <h4 class="ff-numerals text-dark mb-0">$14.5B</h4>
+                </div><!-- col -->
+                <div class="col">
+                  <label class="fs-xs mb-1 text-secondary">Volume (24h)</label>
+                  <h4 class="ff-numerals text-dark mb-0">$6.8B</h4>
+                </div><!-- col -->
+                <div class="col">
+                  <label class="fs-xs mb-1 text-secondary">Change</label>
+                  <h4 class="ff-numerals text-dark mb-0">$7.98</h4>
+                </div><!-- col -->
+                <div class="col">
+                  <label class="fs-xs mb-1 text-secondary">Circulating Supply</label>
+                  <h4 class="ff-numerals text-dark mb-0">$18.59M</h4>
+                </div><!-- col -->
+                <div class="col">
+                  <label class="fs-xs mb-1 text-secondary">All Time High</label>
+                  <h4 class="ff-numerals text-dark mb-0">$16.4K</h4>
+                </div><!-- col -->
+              </div><!-- row -->
+            </div><!-- card-body -->
+          </div><!-- card -->
+        </div><!-- col -->
+        <div class="col-sm-6 col-xl-4">
+          <div class="card card-one">
+            <div class="card-header">
+              <h6 class="card-title">Bitcoin Wallet</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div><!-- card-header -->
+            <div class="card-body">
+              <label class="card-title fw-medium fs-sm mb-1">Available Balance</label>
+              <h3 class="card-value mb-1">26.00453100 <span class="text-secondary">BTC</span></h3>
+              <div class="d-flex gap-2 ff-numerals fs-sm">
+                <div><span class="text-primary">USD</span> $103,342.50</div>
+                <div><span class="text-success">EUR</span> $91,105.00</div>
+              </div>
+
+              <div class="d-flex gap-2 mt-4 mb-4">
+                <a href="#" class="btn btn-white flex-fill">Send</a>
+                <a href="#" class="btn btn-primary flex-fill">Receive</a>
+              </div>
+
+              <div class="d-flex align-items-center justify-content-between fs-xs mb-1">
+                <label class="mg-b-0 fw-medium text-secondary">Recent Transactions</label>
+                <a href="#">Show All</a>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item px-0 d-flex justify-content-between">
+                  <span class="fw-medium">Received Bitcoin</span>
+                  <span class="ff-numerals">+0.00003998 BTC</span>
+                </li>
+                <li class="list-group-item px-0 d-flex justify-content-between">
+                  <span class="fw-medium">Sent Bitcoin</span>
+                  <span class="ff-numerals">-0.01570525 BTC</span>
+                </li>
+                <li class="list-group-item px-0 d-flex justify-content-between">
+                  <span class="fw-medium">Ethereum Conversion</span>
+                  <span class="ff-numerals">+2.0157 ETH</span>
+                </li>
+                <li class="list-group-item px-0 d-flex justify-content-between">
+                  <span class="fw-medium">Bought Bitcoin</span>
+                  <span class="ff-numerals">+0.000033420 BTC</span>
+                </li>
+                <li class="list-group-item px-0 d-flex justify-content-between">
+                  <span class="fw-medium">Sent Bitcoin</span>
+                  <span class="ff-numerals">-0.01570525 BTC</span>
+                </li>
+              </ul>
+            </div><!-- card-body -->
+          </div><!-- card -->
+        </div><!-- col -->
+        <div class="col-sm-6 col-xl-4">
+          <div class="card card-one">
+            <div class="card-header">
+              <h6 class="card-title">Volume By Currency</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div><!-- card-header -->
+            <div class="card-body">
+              <div class="chart-donut-one mb-3"><canvas id="chartDonut"></canvas></div>
+
+              <table class="table table-five">
+                <tbody>
+                  <tr>
+                    <td><div><span class="badge-dot bg-primary"></span> <span class="fw-medium">USD</span></div></td>
+                    <td>4,024.52</td>
+                    <td><div class="justify-content-end text-success">0.96% <i class="ri-arrow-up-line"></i></div></td>
+                  </tr>
+                  <tr>
+                    <td><div><span class="badge-dot bg-ui-02"></span> <span class="fw-medium">EUR</span></div></td>
+                    <td>3,539.23</td>
+                    <td><div class="justify-content-end text-success">0.75% <i class="ri-arrow-up-line"></i></div></td>
+                  </tr>
+                  <tr>
+                    <td><div><span class="badge-dot bg-teal"></span> <span class="fw-medium">CNY</span></div></td>
+                    <td>27,499.4</td>
+                    <td><div class="justify-content-end text-danger">-0.58% <i class="ri-arrow-down-line"></i></div></td>
+                  </tr>
+                  <tr>
+                    <td><div><span class="badge-dot bg-info"></span> <span class="fw-medium">GBP</span></div></td>
+                    <td>3,022.90</td>
+                    <td><div class="justify-content-end text-danger">-0.69% <i class="ri-arrow-down-line"></i></div></td>
+                  </tr>
+                  <tr>
+                    <td><div><span class="badge-dot bg-twitter"></span> <span class="fw-medium">NZD</span></div></td>
+                    <td>444,814.7</td>
+                    <td><div class="justify-content-end text-success">0.82% <i class="ri-arrow-up-line"></i></div></td>
+                  </tr>
+                  <tr class="d-none d-xl-table-row">
+                    <td><div><span class="badge-dot bg-secondary"></span> <span class="fw-medium">KRW</span></div></td>
+                    <td>4,491,099.6</td>
+                    <td><div class="justify-content-end text-danger">-1.11% <i class="ri-arrow-down-line"></i></div></td>
+                  </tr>
+                  <tr class="d-none d-xl-table-row">
+                    <td><div><span class="badge-dot bg-gray-400"></span> <span class="fw-medium">SGD</span></div></td>
+                    <td>5,393.0</td>
+                    <td><div class="justify-content-end text-success">0.66% <i class="ri-arrow-up-line"></i></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div><!-- card-body -->
+          </div><!-- card -->
+        </div><!-- col -->
+        <div class="col-sm-6 col-xl-4">
+          <div class="card card-one">
+            <div class="card-header">
+              <h6 class="card-title">Portfolio</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div><!-- card-header -->
+            <div class="card-body">
+              <div class="position-absolute p-1">
+                <label class="fw-medium fs-sm mb-1">Total Balance</label>
+                <h3 class="card-value"><span class="text-secondary">$</span>7,428.68</h3>
+              </div>
+              <div id="apexChart6" class="apex-chart-ten mb-4"></div>
+
+              <ul class="list-group list-group-one">
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar bg-gray-300 text-secondary"><i class="cf cf-btc"></i></div>
+                  <div>
+                    <h6 class="mb-0">Bitcoin</h6>
+                    <small>BTC/USD</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">0.7200 BTC</h6>
+                    <small class="text-secondary">$2,907.71 USD</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar bg-gray-300 text-secondary"><i class="cf cf-eth"></i></div>
+                  <div>
+                    <h6 class="mb-0">Ethereum</h6>
+                    <small>ETH/USD</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">15.0030 ETH</h6>
+                    <small class="text-secondary">$2,083.62 USD</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar bg-gray-300 text-secondary"><i class="cf cf-ltc"></i></div>
+                  <div>
+                    <h6 class="mb-0">Litecoin</h6>
+                    <small>LTC/USD</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">12.5021 LTC</h6>
+                    <small class="text-secondary">$748.88 USD</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar bg-gray-300 text-secondary"><i class="cf cf-dash"></i></div>
+                  <div>
+                    <h6 class="mb-0">Dash</h6>
+                    <small>DASH/USD</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">16.5019 DASH</h6>
+                    <small class="text-secondary">$1,521.97 USD</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar bg-gray-300 text-secondary"><i class="cf cf-btc"></i></div>
+                  <div>
+                    <h6 class="mb-0">Bitcoin Cash</h6>
+                    <small>BCH/USD</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">5.8120 BCH</h6>
+                    <small class="text-secondary">$916.67 USD</small>
+                  </div>
+                </li>
+              </ul>
+            </div><!-- card-body -->
+          </div><!-- card -->
+        </div><!-- col -->
+        <div class="col-sm-6 col-xl-4">
+          <div class="card card-one">
+            <div class="card-header">
+              <h6 class="card-title">Price Indexes</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div><!-- card-header -->
+            <div class="card-body">
+              <ul class="list-group list-group-one">
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar bg-orange text-white"><i class="cf cf-btc"></i></div>
+                  <div>
+                    <h6 class="mb-0">Bitcoin</h6>
+                    <small>BTC/USD</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">$4,000.19</h6>
+                    <small class="text-success">0.27%</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar bg-twitter text-white"><i class="cf cf-eth"></i></div>
+                  <div>
+                    <h6 class="mb-0">Ethereum</h6>
+                    <small>ETH/USD</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">$138.90</h6>
+                    <small class="text-success">0.35%</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar bg-litecoin text-white"><i class="cf cf-ltc"></i></div>
+                  <div>
+                    <h6 class="mb-0">Litecoin</h6>
+                    <small>LTC/USD</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">$59.95</h6>
+                    <small class="text-success">0.05%</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar bg-success text-white"><i class="cf cf-btc"></i></div>
+                  <div>
+                    <h6 class="mb-0">Bitcoin Cash</h6>
+                    <small>BCH/USD</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">$160.28</h6>
+                    <small class="text-danger">-0.19%</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar bg-primary text-white"><i class="cf cf-dash"></i></div>
+                  <div>
+                    <h6 class="mb-0">Dash</h6>
+                    <small>DASH/USD</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">$92.20</h6>
+                    <small class="text-danger">-0.21%</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar bg-ui-02 text-white"><i class="cf cf-bsd"></i></div>
+                  <div>
+                    <h6 class="mb-0">Bitsend</h6>
+                    <small>BSD/USD</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">$56.53</h6>
+                    <small class="text-success">2.86%</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar bg-pink text-white"><i class="cf cf-bcn"></i></div>
+                  <div>
+                    <h6 class="mb-0">Bytecoin</h6>
+                    <small>BCN/USD</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">$0.76</h6>
+                    <small class="text-danger">-1.32%</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar bg-info text-white"><i class="cf cf-dmd"></i></div>
+                  <div>
+                    <h6 class="mb-0">Diamond</h6>
+                    <small>DMD/USD</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">$280.80</h6>
+                    <small class="text-success">2.01%</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar bg-danger text-white"><i class="cf cf-emc"></i></div>
+                  <div>
+                    <h6 class="mb-0">Emercoin</h6>
+                    <small>EMC/USD</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">$48.25</h6>
+                    <small class="text-success">1.22%</small>
+                  </div>
+                </li>
+              </ul>
+            </div><!-- card-body -->
+          </div><!-- card -->
+        </div><!-- col -->
+        <div class="col-xl-7">
+          <div class="card card-one">
+            <div class="card-header">
+              <h6 class="card-title">Cryptocurrency News</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div><!-- card-header -->
+            <div class="card-body">
+              <div class="news-item">
+                <div class="news-img"><img src="{% static 'assets/img/crypto1.' %}jpg" class="img-fluid" alt=""></div>
+                <div class="news-body">
+                  <label class="d-block mb-1 fs-sm text-primary">Crypto Ninja</label>
+                  <h6 class="news-title fw-semibold"><a href="#" class="text-dark">Dow Futures, Bitcoin Teeter as Markets Wait for FOMC Bounce</a></h6>
+                  <p class="news-text mb-0">As the unwelcome bearish momentum returns to all top cryptocurrency markets, most of this...</p>
+                </div><!-- news-body -->
+              </div><!-- news-item -->
+              <div class="news-item">
+                <div class="news-img"><img src="{% static 'assets/img/crypto2.' %}jpg" class="img-fluid" alt=""></div>
+                <div class="news-body">
+                  <label class="d-block mb-1 fs-sm text-primary">Cable News Network</label>
+                  <h6 class="news-title fw-semibold"><a href="#" class="text-dark">XRP Price Remains Bearish as XRP/BTC Drops Below 7,800 Satoshi</a></h6>
+                  <p class="news-text mb-0">Liquidity has shifted away from the top gaining crypto assets, with only six of the week’s 30 top performing...</p>
+                </div><!-- news-body -->
+              </div><!-- news-item -->
+              <div class="news-item">
+                <div class="news-img"><img src="{% static 'assets/img/crypto3.' %}jpg" class="img-fluid" alt=""></div>
+                <div class="news-body">
+                  <label class="d-block mb-1 fs-sm text-primary">Bitcoin.com</label>
+                  <h6 class="news-title fw-semibold"><a href="#" class="text-dark">Bitcoin Price to $4500 soon? BTC Price Analysis</a></h6>
+                  <p class="news-text mb-0">Published on CoinnounceTechnical Indicators: Support Level: $3900 Resistance Levels: $4100, $4200 Bitcoin...</p>
+                </div><!-- news-body -->
+              </div><!-- news-item -->
+            </div><!-- card-body -->
+          </div><!-- card -->
+        </div><!-- col -->
+        <div class="col-sm-12 col-xl-5">
+          <div class="card card-one">
+            <div class="card-header">
+              <h6 class="card-title">Transactions</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div><!-- card-header -->
+            <div class="card-body">
+              <div class="divider divider-start fw-medium mt-0"><span>Today, October 20</span></div>
+              <ul class="list-group list-group-one">
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar border border-2 border-success text-success"><i class="ri-coin-line"></i></div>
+                  <div>
+                    <h6 class="mb-0">Received Bitcoin</h6>
+                    <small>Received via PayPal</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">+0.01084 BTC</h6>
+                    <small class="text-success">+25.60 USD</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar border border-2 border-primary text-primary"><i class="ri-arrow-right-up-line"></i></div>
+                  <div>
+                    <h6 class="mb-0">Sent Bitcoin</h6>
+                    <small>To Bitcoin Address</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">-0.00029 BTC</h6>
+                    <small class="text-danger">-11.48 USD</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar border border-2 border-info text-info"><i class="ri-shopping-basket-line"></i></div>
+                  <div>
+                    <h6 class="mb-0">Purchased Ethereum</h6>
+                    <small>Purchased using PayPal</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">+0.02115 ETH</h6>
+                    <small class="text-success">+21.50 USD</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar border border-2 border-info text-info"><i class="ri-shopping-basket-line"></i></div>
+                  <div>
+                    <h6 class="mb-0">Purchased Bitcoin</h6>
+                    <small>Purchased using Debit Card</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">+0.0005 BTC</h6>
+                    <small class="text-success">+18.30 USD</small>
+                  </div>
+                </li>
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar border border-2 border-primary text-primary"><i class="ri-arrow-right-up-line"></i></div>
+                  <div>
+                    <h6 class="mb-0">Sent Bitcoin</h6>
+                    <small>To Bitcoin Address</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">-0.00040 BTC</h6>
+                    <small class="text-danger">-18.50 USD</small>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="divider divider-start"><span class="fw-medium">Yesterday, October 19</span></div>
+              <ul class="list-group list-group-one">
+                <li class="list-group-item px-0 d-flex align-items-center gap-2">
+                  <div class="avatar border border-2 border-success text-success"><i class="ri-coin-line"></i></div>
+                  <div>
+                    <h6 class="mb-0">Received Bitcoin</h6>
+                    <small>Received via PayPal</small>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <h6 class="ff-numerals mb-0">+0.01084 BTC</h6>
+                    <small class="text-success">+25.60 USD</small>
+                  </div>
+                </li>
+              </ul>
+            </div><!-- card-body -->
+          </div><!-- card -->
+        </div><!-- col -->
+      </div><!-- row -->
+
+      <div class="main-footer mt-5">
+        <span>&copy; 2023. Dashbyte. All Rights Reserved.</span>
+        <span>Created by: <a href="http://themepixels.me/" target="_blank">Themepixels</a></span>
+      </div><!-- main-footer -->
+    </div><!-- main -->
+
+
+    <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'lib/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'lib/chart.js/chart.min.js' %}"></script>
+    <script src="{% static 'lib/apexcharts/apexcharts.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/script.js' %}"></script>
+    <script src="{% static 'assets/js/db.data.js' %}"></script>
+    <script src="{% static 'assets/js/db.crypto.js' %}"></script>
+  </body>
+
+<!-- Mirrored from themepixels.me/demo/dashbyte/dashboard/crypto.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jul 2023 09:22:15 GMT -->
+</html>

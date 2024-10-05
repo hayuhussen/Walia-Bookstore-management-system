@@ -1,0 +1,345 @@
+{% extends 'Campany/_base.html' %} {% load static %} {% block content %}
+
+    
+        <section class="page-banner services-banner">
+            <div class="container">
+                <div class="banner-header">
+                    <h2>Books & Media Listing</h2>
+                    <span class="underline center"></span>
+                    <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+                </div>
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li>Books & Media</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- End: Page Banner -->
+
+        <!-- Start: Products Section -->
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <div class="books-full-width">
+                        <div class="container">
+                            <!-- Start: Search Section -->
+
+                         
+
+
+<section class="search-filters">
+    <div class="filter-box">
+        <h3>What are you looking for at the library?</h3>
+        <form action="{% url 'booksmediagirdviewv2' %}" method="post">
+            {% csrf_token %}
+            <div class="col-md-4 col-sm-6">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Search by Keyword" id="keywords" name="keywords" type="text">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="form-group">
+                    <select name="discount_price" id="discount_price" class="form-control">
+                        <option>Search the discount_price</option>
+                        {% for price in discount_prices %}
+                        <option value="{{ price }}">{{ price }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="form-group">
+                    <select name="category" id="category" class="form-control">
+                        <option>All Categories</option>
+                        {% for category in category_list %}
+                        <option value="{{ category.name }}">{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div class="form-group">
+                    <input class="form-control" type="submit" value="Search">
+                </div>
+            </div>
+        </form>
+
+        <form action="{% url 'booksmediagirdviewv2' %}" method="post">
+            {% csrf_token %}
+            <div class="col-md-4 col-sm-6">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Search by Language" id="language" name="language" type="text">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="form-group">
+                    <select name="author" id="author" class="form-control">
+                        <option value="">Search by Author</option>
+                        {% for author in authors %}
+                        <option value="{{ author.name }}">{{ author.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Search by Publish Date (YYYY-MM-DD)" id="publish_date" name="publish_date" type="text">
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div class="form-group">
+                    <input class="form-control" type="submit" value="Search">
+                </div>
+            </div>
+        </form>
+        
+        
+    </div>
+    <div class="clear"></div>
+</section>
+
+
+
+
+
+
+
+<!-- End: Search Section -->
+
+<!-- <div class="filter-options margin-list">
+    <div class="row">
+        <div class="col-md-3 col-sm-3">
+            <select name="orderby" form="filter-form">
+                <option selected="selected">Sort by Title</option>
+                <option>Sort by popularity</option>
+                <option>Sort by rating</option>
+                <option>Sort by newness</option>
+                <option>Sort by price</option>
+            </select>
+        </div>
+        <div class="col-md-3 col-sm-3">
+            <select name="orderby" form="filter-form">
+                <option selected="selected">Sort by Author</option>
+                {% for author in authors %}
+                <option value="{{ author.name }}">{{ author.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-2 col-sm-3">
+            <select name="orderby" form="filter-form">
+                <option selected="selected">Language</option>
+                {% for Lanaguage in Lanaguage_list %}
+                <option value="{{ Lanaguage.name }}">{{ Lanaguage.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-2 col-sm-3">
+            <select name="orderby" form="filter-form">
+                <option selected="selected">Publishing Date</option>
+                <option>Sort by popularity</option>
+                <option>Sort by rating</option>
+                <option>Sort by newness</option>
+                <option>Sort by price</option>
+            </select>
+        </div>
+        <div class="col-md-2 col-sm-12 pull-right">
+            <div class="filter-toggle">
+                <a href="{% url 'booksmediagirdviewv2' %}" class="active"><i class="glyphicon glyphicon-th-large"></i></a>
+                <a href="{% url 'booksmedialistview' %}"><i class="glyphicon glyphicon-th-list"></i></a>
+                <li><a href="404.html">404/Error</a></li>
+            </div>
+        </div>
+    </div>
+    
+</div>  -->
+
+                        
+                  
+                 
+
+
+                        <!-- <div class="booksmedia-fullwidth">
+                            <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: space-around;">
+                                {% for book in books %}
+                                <li class="book-card">
+                                  
+                                    <figure class="book-figure">
+                                        <a href="{% url 'booksmediagirdviewv2'%}">
+                                            <img src="{{ book.image.url }}" alt="Book" style="width: 300px; height: auto;" />
+                                        <figcaption class="book-figcaption">
+                                            <header>
+                                                <h4><a href="{% url 'booksmediagirdviewv2' %}">{{ book.title }}</a></h4>
+                                                <p><strong>Author:</strong> {{ book.author }}</p>
+                                                <p><strong>Price:</strong> {{ book.price }}</p>
+                                                <p><strong>Discount Price:</strong> {{ book.discount_price }}</p>
+                                            </header>
+                                            <p>{{ book.description|safe }}</p>
+                                            <div class="actions">
+                                                <ul style="list-style: none; padding: 0; display: flex; justify-content: space-around;">
+                                                    <li>
+                                                        <a href="/cart?id={{ book.id }}" data-toggle="blog-tags" data-placement="top" title="Add TO CART">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="like-button" data-id="{{ book.id }}" data-toggle="blog-tags" data-placement="top" title="Like">
+                                                            <i class="fa fa-heart"></i>
+                                                        </a>
+                                                        <span id="likeCount-{{ book.id }}" class="like-count">0</span>
+                                                    </li>
+                                                    <li>
+                                                        <a href="mailto:?subject={{ book.title }}" target="_blank" data-toggle="blog-tags" data-placement="top" title="Mail">
+                                                            <i class="fa fa-envelope"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/search?query={{ book.title }}" target="_blank" data-toggle="blog-tags" data-placement="top" title="Search">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" onclick="window.print()" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print">
+                                                            <i class="fa fa-print"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.facebook.com/sharer/sharer.php?u={% url 'booksmediagirdviewv2' %}" target="_blank" data-toggle="blog-tags" data-placement="top" title="Share">
+                                                            <i class="fa fa-share-alt"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div> -->
+                        <div class="booksmedia-fullwidth">
+                            <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: space-around;">
+                                {% for book in books %}
+                                <li class="book-card">
+                                    <figure class="book-figure">
+                                        <a href="{% url 'booksmediagirdviewv2'%}">
+                                            <img src="{{ book.image.url }}" alt="Book" style="width: 300px; height: auto;" />
+
+                                            
+                                        </a>
+                                        <figcaption class="book-figcaption">
+                                            <header>
+                                                <h4><a href="{% url 'booksmediagirdviewv2' %}">{{ book.title }}</a></h4>
+                                                <p><strong>Author:</strong> {{ book.author }}</p>
+                                                <p><strong>Price:</strong> {{ book.price }}</p>
+                                                <p><strong>Discount Price:</strong> {{ book.discount_price }}</p>
+                                            </header>
+                                            <p>{{ book.description|safe }}</p>
+                                            <div class="actions">
+                                                <ul style="list-style: none; padding: 0; display: flex; justify-content: space-around;">
+                                                    <li>
+                                                        <a href="/cart?id={{ book.id }}" data-toggle="blog-tags" data-placement="top" title="Add TO CART">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="like-button" data-id="{{ book.id }}" data-toggle="blog-tags" data-placement="top" title="Like">
+                                                            <i class="fa fa-heart"></i>
+                                                        </a>
+                                                        <span id="likeCount-{{ book.id }}" class="like-count">0</span>
+                                                    </li>
+                                                    <li>
+                                                        <a href="mailto:?subject={{ book.title }}" target="_blank" data-toggle="blog-tags" data-placement="top" title="Mail">
+                                                            <i class="fa fa-envelope"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/search?query={{ book.title }}" target="_blank" data-toggle="blog-tags" data-placement="top" title="Search">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" onclick="window.print()" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print">
+                                                            <i class="fa fa-print"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.facebook.com/sharer/sharer.php?u={% url 'booksmediagirdviewv2' %}" target="_blank" data-toggle="blog-tags" data-placement="top" title="Share">
+                                                            <i class="fa fa-share-alt"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                       
+                        
+                        
+                         
+                        
+                        <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const likeButtons = document.querySelectorAll('.like-button');
+                            likeButtons.forEach(button => {
+                                button.addEventListener('click', function(event) {
+                                    event.preventDefault();
+                                    const bookId = this.dataset.id;
+                                    const likeCountElement = document.getElementById(`likeCount-${bookId}`);
+                                    let likeCount = parseInt(likeCountElement.textContent);
+                                    likeCount++;
+                                    likeCountElement.textContent = likeCount;
+                                });
+                            });
+                        });
+                        </script>
+                        
+                        <nav class="navigation pagination text-center">
+                            <h2 class="screen-reader-text">Posts navigation</h2>
+                            <div class="nav-links">
+                                {% if books.has_previous %}
+                                    <a class="prev page-numbers" href="?page={{ books.previous_page_number }}"><i class="fa fa-long-arrow-left"></i> Previous</a>
+                                {% else %}
+                                    <span class="prev page-numbers disabled"><i class="fa fa-long-arrow-left"></i> Previous</span>
+                                {% endif %}
+                    
+                                {% for num in books.paginator.page_range %}
+                                    {% if books.number == num %}
+                                        <span class="page-numbers current">{{ num }}</span>
+                                    {% else %}
+                                        <a class="page-numbers" href="?page={{ num }}">{{ num }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                    
+                                {% if books.has_next %}
+                                    <a class="next page-numbers" href="?page={{ books.next_page_number }}">Next <i class="fa fa-long-arrow-right"></i></a>
+                                {% else %}
+                                    <span class="next page-numbers disabled">Next <i class="fa fa-long-arrow-right"></i></span>
+                                {% endif %}
+                            </div>
+                        </nav>
+                        
+                    
+                        
+
+
+                        </div>
+                        <!-- Start: Staff Picks -->
+                        
+                        <!-- End: Staff Picks -->
+                    </div>
+                </main>
+            </div>
+        </div>
+       
+
+
+
+       
+
+   {% endblock %}

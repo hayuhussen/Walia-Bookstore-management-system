@@ -1,0 +1,19 @@
+<!-- create_post.html -->
+
+<form method="POST" action="{% url 'create_post' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="Title">
+    <br>
+    <textarea name="description" rows="4" cols="50" placeholder="Description"></textarea>
+    <br>
+    <input type="file" name="image">
+    <br>
+    <input type="text" name="location" placeholder="Location">
+    <br>
+    <input type="date" name="date">
+    <br>
+    <input type="time" name="time">
+    <br>
+    <input type="submit" value="Create Post">
+  </form>
+  

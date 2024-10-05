@@ -1,0 +1,105 @@
+{% extends 'customadmin/_base.html' %} {% load static %} {% block content %}
+
+<style>
+  .breadcrumb-item.active::before {
+    content: none;
+  }
+</style>
+
+{% if messages %} {% for m in messages %}
+<div class="alert alert-success">{{ m }}</div>
+{% endfor %} {% endif %}
+
+<div class="d-md-flex align-items-center justify-content-between mb-4">
+  <div>
+    <ol class="breadcrumb fs-sm mb-1">
+      <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+      <li class="breadcrumb-item active" aria-current="page">
+        BookCategory Management
+      </li>
+    </ol>
+    <h4 class="main-title mb-0">Author Management</h4>
+  </div>
+  <div class="d-flex align-items-center gap-2 mt-3 mt-md-0">
+    <!-- <button type="button" class="btn btn-white btn-icon">
+      <i class="ri-share-line fs-18 lh-1"></i>
+    </button>
+    <button type="button" class="btn btn-white btn-icon">
+      <i class="ri-printer-line fs-18 lh-1"></i>
+    </button> -->
+    <a href="{% url 'BookCategorys_create' %}" class="btn btn-primary">
+      <i class="ri-add-line fs-18 lh-1"></i> Add BookCategorys
+    </a>
+  </div>
+</div>
+
+<div class="row g-3">
+  
+  <!-- col -->
+  
+  <!-- col -->
+  <div class="col-xl-8">
+    <div class="row g-3">
+      <!-- col -->
+      <div class="col-12">
+        <div class="card card-one">
+          <div class="card-header">
+            <h6 class="card-title">BookCategory list</h6>
+            <nav class="nav nav-icon nav-icon-sm ms-auto">
+              <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+              <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+            </nav>
+          </div>
+          <!-- card-header -->
+          <div class="card-body px-3 pt-2">
+            <div class="table-responsive">
+              <table class="table table-agent mb-0">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for BookCategory in BookCategorys %}
+                  <tr>
+                    <td>
+                      <span class="ff-numerals">{{ BookCategory.id }}</span>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div>
+                          <h6 class="mb-0">
+                            <a
+                              href="{% url 'BookCategorys_update' BookCategory.id %}"
+                              class="text-light"
+                              >{{ BookCategory.name }}</a
+                            >
+                          </h6>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- table-responsive -->
+          </div>
+          <!-- card-body -->
+        </div>
+        <!-- card -->
+      </div>
+      <!-- col -->
+    </div>
+    <!-- row -->
+  </div>
+  <!-- col -->
+  
+  <!-- col -->
+ 
+  <!-- col -->
+</div>
+<!-- row -->
+
+{% endblock %}

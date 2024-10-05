@@ -1,0 +1,394 @@
+{% extends 'customadmin/_base.html' %}
+{% load static %}
+{% block head %}
+<!-- Vendor CSS -->
+<link rel="stylesheet" href="{% static 'customadmin/lib/remixicon/fonts/remixicon.css' %}" />
+<link rel="stylesheet" href="{% static 'customadmin/lib/jqvmap/jqvmap.min.css' %}" />
+<link rel="stylesheet" href="{% static 'customadmin/lib/apexcharts/apexcharts.css' %}" />
+<!-- Template CSS -->
+<link rel="stylesheet" href="{% static 'customadmin/assets/css/style.min.css' %}" />
+{% endblock %}
+{% block content %}
+<div class="d-flex align-items-center justify-content-between mb-4">
+  <div>
+    <ol class="breadcrumb fs-sm mb-1">
+      <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+      </li>
+    </ol>
+    <h4 class="main-title mb-0">Hi {{ request.user }}, Welcome to Dashboard</h4>
+  </div>
+</div>
+
+<!-- Transaction Charts -->
+<div class="row">
+  <div class="col-lg-4 mb-4">
+    <canvas id="transactionsByYear"></canvas>
+  </div>
+  <div class="col-lg-4 mb-4">
+    <canvas id="transactionsByMonth"></canvas>
+  </div>
+  <div class="col-lg-4 mb-4">
+    <canvas id="transactionsByWeek"></canvas>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'customadmin/lib/chart.js/chart.min.js' %}"></script>
+<script>
+  // Prepare data for the charts
+  const transactionsByYear = {
+    labels: [{% for t in transactions_by_year %} "{{ t.year|date:'Y' }}", {% endfor %}],
+    datasets: [{
+      label: 'Total Amount Paid',
+      data: [{% for t in transactions_by_year %} {{ t.total }}, {% endfor %}],
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'rgba(54, 162, 235, 1)',
+      borderWidth: 1
+    }]
+  };
+
+  const transactionsByMonth = {
+    labels: [{% for t in transactions_by_month %} "{{ t.month|date:'F Y' }}", {% endfor %}],
+    datasets: [{
+      label: 'Total Amount Paid',
+      data: [{% for t in transactions_by_month %} {{ t.total }}, {% endfor %}],
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      borderColor: 'rgba(75, 192, 192, 1)',
+      borderWidth: 1
+    }]
+  };
+
+  const transactionsByWeek = {
+    labels: [{% for t in transactions_by_week %} "Week {{ t.week|date:'W, Y' }}", {% endfor %}],
+    datasets: [{
+      label: 'Total Amount Paid',
+      data: [{% for t in transactions_by_week %} {{ t.total }}, {% endfor %}],
+      backgroundColor: 'rgba(153, 102, 255, 0.2)',
+      borderColor: 'rgba(153, 102, 255, 1)',
+      borderWidth: 1
+    }]
+  };
+
+  // Render the charts
+  const ctxYear = document.getElementById('transactionsByYear').getContext('2d');
+  const ctxMonth = document.getElementById('transactionsByMonth').getContext('2d');
+  const ctxWeek = document.getElementById('transactionsByWeek').getContext('2d');
+
+  new Chart(ctxYear, {
+    type: 'bar',
+    data: transactionsByYear,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  new Chart(ctxMonth, {
+    type: 'line',
+    data: transactionsByMonth,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  new Chart(ctxWeek, {
+    type: 'line',
+    data: transactionsByWeek,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+{% endblock %}
+
+
+
+
+
+
+
+{% extends 'customadmin/_base.html' %}
+{% load static %}
+
+{% block head %}
+<!-- Vendor CSS -->
+<link rel="stylesheet" href="{% static 'customadmin/lib/remixicon/fonts/remixicon.css' %}" />
+<link rel="stylesheet" href="{% static 'customadmin/lib/jqvmap/jqvmap.min.css' %}" />
+<link rel="stylesheet" href="{% static 'customadmin/lib/apexcharts/apexcharts.css' %}" />
+
+<!-- Template CSS -->
+<link rel="stylesheet" href="{% static 'customadmin/assets/css/style.min.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center justify-content-between mb-4">
+  <div>
+    <h4 class="main-title mb-0">Hi {{ request.user }}, Welcome to Dashboard</h4>
+  </div>
+</div>
+
+<figure class="highcharts-figure">
+    <div id="transaction-chart"></div>
+</figure>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'customadmin/lib/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'customadmin/lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'customadmin/lib/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    Highcharts.setOptions({
+        chart: {
+            backgroundColor: '#2a2a2b',
+            style: {
+                fontFamily: "'Unica One', sans-serif"
+            },
+            plotBorderColor: '#606063'
+        },
+        title: {
+            style: {
+                color: '#E0E0E3',
+                textTransform: 'uppercase',
+                fontSize: '20px'
+            }
+        },
+        subtitle: {
+            style: {
+                color: '#E0E0E3'
+            }
+        },
+        xAxis: {
+            gridLineColor: '#707073',
+            labels: {
+                style: {
+                    color: '#E0E0E3'
+                }
+            },
+            lineColor: '#707073',
+            minorGridLineColor: '#505053',
+            tickColor: '#707073',
+            title: {
+                style: {
+                    color: '#A0A0A3'
+                }
+            }
+        },
+        yAxis: {
+            gridLineColor: '#707073',
+            labels: {
+                style: {
+                    color: '#E0E0E3'
+                }
+            },
+            lineColor: '#707073',
+            minorGridLineColor: '#505053',
+            tickColor: '#707073',
+            tickWidth: 1,
+            title: {
+                style: {
+                    color: '#A0A0A3'
+                }
+            }
+        },
+        tooltip: {
+            backgroundColor: 'rgba(0, 0, 0, 0.85)',
+            style: {
+                color: '#F0F0F0'
+            }
+        },
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    color: '#B0B0B3'
+                },
+                marker: {
+                    lineColor: '#333'
+                }
+            },
+            boxplot: {
+                fillColor: '#505053'
+            },
+            candlestick: {
+                lineColor: 'white'
+            },
+            errorbar: {
+                color: 'white'
+            }
+        },
+        legend: {
+            itemStyle: {
+                color: '#E0E0E3'
+            },
+            itemHoverStyle: {
+                color: '#FFF'
+            },
+            itemHiddenStyle: {
+                color: '#606063'
+            }
+        },
+        credits: {
+            style: {
+                color: '#666'
+            }
+        },
+        labels: {
+            style: {
+                color: '#707073'
+            }
+        },
+
+        navigation: {
+            buttonOptions: {
+                symbolStroke: '#DDDDDD',
+                theme: {
+                    fill: '#505053'
+                }
+            }
+        },
+
+        // scroll charts
+        rangeSelector: {
+            buttonTheme: {
+                fill: '#505053',
+                stroke: '#000000',
+                style: {
+                    color: '#CCC'
+                },
+                states: {
+                    hover: {
+                        fill: '#707073',
+                        stroke: '#000000',
+                        style: {
+                            color: 'white'
+                        }
+                    },
+                    select: {
+                        fill: '#000003',
+                        stroke: '#000000',
+                        style: {
+                            color: 'white'
+                        }
+                    }
+                }
+            },
+            inputBoxBorderColor: '#505053',
+            inputStyle: {
+                backgroundColor: '#333',
+                color: 'silver'
+            },
+            labelStyle: {
+                color: 'silver'
+            }
+        },
+
+        navigator: {
+            handles: {
+                backgroundColor: '#666',
+                borderColor: '#AAA'
+            },
+            outlineColor: '#CCC',
+            maskFill: 'rgba(255,255,255,0.1)',
+            series: {
+                color: '#7798BF',
+                lineColor: '#A6C7ED'
+            },
+            xAxis: {
+                gridLineColor: '#505053'
+            }
+        },
+
+        scrollbar: {
+            barBackgroundColor: '#808083',
+            barBorderColor: '#808083',
+            buttonArrowColor: '#CCC',
+            buttonBackgroundColor: '#606063',
+            buttonBorderColor: '#606063',
+            rifleColor: '#FFF',
+            trackBackgroundColor: '#404043',
+            trackBorderColor: '#404043'
+        }
+    });
+
+    Highcharts.chart('transaction-chart', {
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Transaction Overview'
+        },
+        xAxis: {
+            categories: [{% for transaction in transactions_by_month %}'{{ transaction.month|date:"F" }}',{% endfor %}]
+        },
+        yAxis: {
+            title: {
+                text: 'Amount Paid'
+            }
+        },
+        series: [{
+            name: 'Transactions',
+            data: [{% for transaction in transactions_by_month %}{{ transaction.total }},{% endfor %}]
+        }]
+    });
+});
+</script>
+{% endblock %}
+(# ========================== Transaction VIEWS ==========================
+from django.db.models import Sum, Count
+from django.db.models.functions import TruncYear, TruncMonth, TruncWeek
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+
+
+@login_required
+def dashboard(request):
+    transactions_by_year = Transaction.objects.annotate(
+        year=TruncYear('payment_date')
+    ).values('year').annotate(
+        total=Sum('amount_paid'),
+        count=Count('id')
+    ).order_by('year')
+
+    transactions_by_month = Transaction.objects.annotate(
+        month=TruncMonth('payment_date')
+    ).values('month').annotate(
+        total=Sum('amount_paid'),
+        count=Count('id')
+    ).order_by('month')
+
+    transactions_by_week = Transaction.objects.annotate(
+        week=TruncWeek('payment_date')
+    ).values('week').annotate(
+        total=Sum('amount_paid'),
+        count=Count('id')
+    ).order_by('week')
+
+    return render(
+        request,
+        "customadmin/dashboard.html",
+        {
+            'transactions_by_year': transactions_by_year,
+            'transactions_by_month': transactions_by_month,
+            'transactions_by_week': transactions_by_week,
+        },
+    ))

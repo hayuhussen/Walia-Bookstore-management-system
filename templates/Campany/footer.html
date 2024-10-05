@@ -1,0 +1,142 @@
+{% load static %}
+
+<footer class="site-footer">
+  <div class="container">
+    <div id="footer-widgets">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 widget-container">
+          {% comment %} {% for footer in footers %} {% endcomment %}
+          <div id="text-2" class="widget widget_text">
+            <h3 class="footer-widget-title">Walia Book Store</h3>
+            <span class="underline left"></span>
+            <div class="textwidget">
+              The Walia Bookstore is a popular destination for book lovers,
+              offering a wide variety of books at affordable prices. However,
+              managing a large bookstore can be a daunting task.
+            </div>
+            <address>
+              <div class="info">
+                <i class="fa fa-location-arrow"></i>
+                <span>4 kilo </span>
+              </div>
+              <div class="info">
+                <i class="fa fa-envelope"></i>
+                <span
+                  ><a href="mailto:support@libraria.com"
+                    >Waliabookstore12@gmail.com</a
+                  ></span
+                >
+              </div>
+              <div class="info">
+                <i class="fa fa-phone"></i>
+                <span><a href="tel:251-966-2525">+2519-66252525</a></span>
+              </div>
+            </address>
+          </div>
+        </div>
+
+        <div class="col-md-2 col-sm-6 widget-container">
+          <div id="nav_menu-2" class="widget widget_nav_menu">
+            <h3 class="footer-widget-title">Quick Links</h3>
+            <span class="underline left"></span>
+            <div class="menu-quick-links-container">
+              <ul id="menu-quick-links" class="menu">
+                <li><a href="{% url 'index2'%}">Home</a></li>
+                <li>
+                  <a href="{% url 'booksmedialistview'%}">Books &amp; Media</a>
+                </li>
+                <li>
+                  <a href="{% url 'newseventslistview'%}">News &amp; Events</a>
+                </li>
+                <li><a href="#">Kids &amp; Teens</a></li>
+                <li><a href="{% url 'services'%}">Services</a></li>
+                <li><a href="#">Research</a></li>
+                <li><a href="{% url 'blog'%}">Blog</a></li>
+                <li><a href="{% url 'contact'%}">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="clearfix hidden-lg hidden-md hidden-xs tablet-margin-bottom"
+        ></div>
+        <div class="col-md-2 col-sm-6 widget-container">
+          <div id="text-4" class="widget widget_text">
+            <h3 class="footer-widget-title">Timing</h3>
+            <span class="underline left"></span>
+            <div class="timming-text-widget">
+              <time datetime="2017-02-13">Mon - Thu: 9 am - 9 pm</time>
+              <time datetime="2017-02-13">Fri: 9 am - 6 pm</time>
+              <time datetime="2017-02-13">Sat: 9 am - 5 pm</time>
+              <time datetime="2017-02-13">Sun: 1 pm - 6 pm</time>
+              <ul>
+                <li><a href="#">Closings</a></li>
+                <li><a href="#">Branches</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 widget-container">
+          <div class="widget twitter-widget">
+            <h3 class="footer-widget-title">Latest Tweets</h3>
+            <span class="underline left"></span>
+            <div id="twitter-feed">
+              <ul>
+                <li>
+                  <p>
+                    <a href="#">@bookstore management system application </a>
+                    can help simplify the process by organizing and maintaining
+                    vital information such as book inventory, customer data,
+                    sales records, employee details, and other relevant
+                    information.
+                    <a href="#">Walia-Bookstore.com</a>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <a href="#">@bookstore management system application </a>
+                    can help simplify the process by organizing and maintaining
+                    vital information such as book inventory, customer data,
+                    sales records, employee details, and other relevant
+                    information.
+                    <a href="#">Walia-Bookstore.com</a>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-text col-md-3">
+          <p>
+            <a target="_blank" href="https://www.templateshub.net"
+              >Waliabookstore</a
+            >
+          </p>
+        </div>
+        <div class="col-md-9 pull-right">
+          <ul>
+            <li><a href="{% url 'index2'%}">Home</a></li>
+            <li>
+              <a href="{% url 'booksmedialistview'%}">Books &amp; Media</a>
+            </li>
+            <li>
+              <a href="{% url 'newseventslistview'%}">News &amp; Events</a>
+            </li>
+            <li><a href="#">Kids &amp; Teens</a></li>
+            <li><a href="{% url 'services'%}">Services</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="{% url 'blog'%}">Blog</a></li>
+            <li><a href="{% url 'contact'%}">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

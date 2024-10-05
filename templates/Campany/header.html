@@ -1,0 +1,351 @@
+{% load static %}
+
+
+
+     
+<style>
+  .dynamic-img {
+  width: 100%;            /* Image takes up the full width of its container */
+  max-width: 150px;       /* Maximum width of the image */
+  height: auto;           /* Maintain aspect ratio */
+}
+
+@media (max-width: 768px) {
+  .dynamic-img {
+    max-width: 100px;     /* Reduce maximum width on smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .dynamic-img {
+    max-width: 80px;      /* Further reduce maximum width on extra small screens */
+  }
+}
+
+</style>
+
+<div class="container">
+  <header id="header-v1" class="navbar-wrapper">
+    <div class="container">
+      <div class="row">
+         <nav class="navbar navbar-default" >
+          <div class="row">
+            <div class="col-md-3">
+              <div class="navbar-header">
+                <div class="navbar-brand">
+                  <h1>
+                    <a href="{% url 'index' %}">
+                      <img src="{% static 'Campany/images/walia.png' %}" class="img-fluid dynamic-img" alt="LIBRARIA" />
+                    </a>
+                  </h1>
+                </div>
+              </div>
+            </div>
+            
+
+            
+            <div class="col-md-9">
+
+
+              
+              
+
+              <!-- Header Topbar -->
+              <!-- style="background-color: rgb(13, 13, 14);" -->
+              <div class="header-topbar hidden-sm hidden-xs" >
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="topbar-info">
+                      <a href="tel:+251-66-25-25-25  "
+                        ><i class="fa fa-phone"></i>+251 966252525</a
+                      >
+                      <span>/</span>
+                      <a href="mailto:support@libraria.com"
+                        ><i class="fa fa-envelope"></i>Waliaboos12@gmail.com</a
+                      >
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-6">
+                    <div class="topbar-links">
+                      <!-- <a href="{% url 'signin'%}"
+                        ><i class="fa fa-lock"></i>Login / Register</a
+                      > -->
+
+                      <a href="{% url 'history'%}"
+                        ><i class="fa fa-lock"></i>history</a
+                      >
+
+                      <!-- <li><a href=""></a></li> -->
+                      <span>|</span>
+                      <div class="header-cart dropdown">
+                        <a
+                          data-toggle="dropdown"
+                          class="dropdown-toggle"
+                          href="#"
+                        >
+                          <!-- <i class="fa fa-shopping-cart"></i>
+                          <small>0</small> -->
+                        </a>
+                        <div class="dropdown-menu cart-dropdown">
+                          <ul>
+                            <li class="clearfix">
+                              <img
+                                src="{% static 'images/header-cart-image-01.jpg' %}"
+                                alt="cart item"
+                              />
+                              <div class="item-info">
+                                <div class="name">
+                                  <a href="#">The Great Gatsby</a>
+                                </div>
+                                <div class="author">
+                                  <strong>Author:</strong> F. Scott Fitzgerald
+                                </div>
+                                <div class="price">1 X $10.00</div>
+                              </div>
+                              <a class="remove" href="#"
+                                ><i class="fa fa-trash-o"></i
+                              ></a>
+                            </li>
+                            <li class="clearfix">
+                              <img
+                                src="{% static 'images/header-cart-image-02.jpg' %}"
+                                alt="cart item"
+                              />
+                              <div class="item-info">
+                                <div class="name">
+                                  <a href="#">The Great Gatsby</a>
+                                </div>
+                                <div class="author">
+                                  <strong>Author:</strong> F. Scott Fitzgerald
+                                </div>
+                                <div class="price">1 X $10.00</div>
+                              </div>
+                              <a class="remove" href="#"
+                                ><i class="fa fa-trash-o"></i
+                              ></a>
+                            </li>
+                            <li class="clearfix">
+                              <img
+                                src="{% static 'images/header-cart-image-03.jpg' %}"
+                                alt="cart item"
+                              />
+                              <div class="item-info">
+                                <div class="name">
+                                  <a href="#">The Great Gatsby</a>
+                                </div>
+                                <div class="author">
+                                  <strong>Author:</strong> F. Scott Fitzgerald
+                                </div>
+                                <div class="price">1 X $10.00</div>
+                              </div>
+                              <a class="remove" href="#"
+                                ><i class="fa fa-trash-o"></i
+                              ></a>
+                            </li>
+                          </ul>
+                          <div class="cart-total">
+                            <div class="title">SubTotal</div>
+                            <div class="price">$30.00</div>
+                          </div>
+                          <div class="cart-buttons">
+                            <a href="{% url 'cart'%}" class="btn btn-dark-gray"
+                              >View Cart</a
+                            >
+                            <a
+                              href="{% url 'checkout'%}"
+                              class="btn btn-primary"
+                              >Checkout</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                </div>
+              </div>
+              <!-- style="background-color:#09476C;" -->
+              <div class="navbar-collapse hidden-sm hidden-xs">
+                <ul class="nav navbar-nav">
+                  <li class="dropdown active">
+                    <a data-toggle="dropdown"class="dropdown-toggle disabled"href="{% url 'index'%}"> Home</a>
+                    <!-- <ul class="dropdown-menu">
+                      <li><a href="{% url 'index'%}">Home</a></li>
+                      
+                      <li><a href="{% url 'homev2'%}">Home V2</a></li>
+                      <li><a href="{% url 'homev3'%}">Home V3</a></li>
+                    </ul> -->
+                  </li>
+                  <li class="dropdown">
+                    <a
+                      data-toggle="dropdown"
+                      class="dropdown-toggle disabled"
+                      href="{% url 'booksmediagirdviewv2'%}"
+                      >Books</a>
+                    
+                    
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="{% url 'ebook'%}">Ebook</a>
+                          
+                      </li>
+                      <li>
+                        <a href="{% url 'audio'%}">audio book</a>
+                          
+                      </li>
+                      <!-- <li>
+                        <a href="{% url 'booksmediagirdviewv2'%}">Books &amp; Media Grid View V2</a>
+                          
+                      </li>
+                      <li>
+                        <a href="{% url 'booksmediadetailv1'%}">Books &amp; Media Grid View V2</a>
+                          
+                      
+                      </li>
+                      <li>
+                        <a href="{% url 'booksmediadetailv2'%}">Books &amp; Media Grid View V2</a>
+                        
+                      </li> -->
+                    </ul>
+                    
+                  </li>
+                  <li class="dropdown">
+                    <a
+                      data-toggle="dropdown"
+                      class="dropdown-toggle disabled"
+                      href="{% url 'newseventslistview'%}"
+                      >News &amp; Events</a
+                    >
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="{% url 'newseventslistview'%}"
+                          >News &amp; Events List View</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a
+                      data-toggle="dropdown"
+                      class="dropdown-toggle disabled"
+                      href="{% url 'services'%}"
+                      >services</a
+                    >
+                    <!-- <ul class="dropdown-menu">
+                      <li><a href="{% url 'cart'%}">Cart</a></li>
+                      <li><a href="{% url 'checkout'%}">Checkout</a></li>
+                      <li><a href="{% url 'signin'%}">Signin/Register</a></li>
+                      <li><a href="404.html">404/Error</a></li>
+                    </ul> -->
+                  </li>
+                  <li class="dropdown">
+                    <a
+                      data-toggle="dropdown"
+                      class="dropdown-toggle disabled"
+                      href="{% url 'blog'%}"
+                      >Blog</a
+                    >
+                    <ul class="dropdown-menu">
+                      <li><a href="{% url 'blog'%}">Blog Grid View</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a href="{% url 'gallery'%}">gallery</a></li>
+                
+                  <li><a href="{% url 'contact'%}">Contact</a></li>
+                  <!-- <li><a href="{% url 'history'%}">history</a></li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div class="mobile-menu hidden-lg hidden-md">
+            <a href="#mobile-menu"><i class="fa fa-navicon"></i></a>
+            <div id="mobile-menu">
+              <ul>
+                <li class="mobile-title">
+                  <h4>Navigation</h4>
+                  <a href="#" class="close"></a>
+                </li>
+                <li>
+                  <a href="{% url 'index'%}">Home</a>
+                  
+                  <!-- <ul>
+                    <li><a href="{% url 'index2'%}">Home V1</a></li>
+                    <li><a href="{% url 'homev2'%}">Home V2</a></li>
+                    <li><a href="{% url 'homev3'%}">Home V3</a></li>
+                  </ul>
+                   -->
+                </li>
+                <li>
+                  <a href="{% url 'booksmediagirdviewv2'%}"
+                    >Books &amp; Media</a
+                  >
+                  <ul>
+                    
+                   
+                   
+                    <li>
+                      <a href="{% url 'ebook'%}">Ebook</a>
+                        
+                    </li>
+                    <li>
+                      <a href="{% url 'audio'%}">audio book</a>
+                        
+                    </li>
+                    
+                  </ul>
+                </li>
+                <li>
+                  <a href="{% url 'newseventslistview'%}">News &amp; Events</a>
+                  <ul>
+                    <!-- < -->
+                    <!-- <li>
+                      <a href="{% url 'newseventslistview'%}"
+                        >News &amp; Events List View</a
+                      >
+                    </li> -->
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Pages</a>
+                  <ul>
+                    <li><a href="{% url 'cart'%}">Cart</a></li>
+                    <li><a href="{% url 'checkout'%}">Checkout</a></li>
+                    <li><a href="{% url 'signin'%}">Signin/Register</a></li>
+                    <li><a href="404.html">404/Error</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="{% url 'blog'%}">Blog</a>
+                  <!-- <ul>
+                    <li><a href="{% url 'blog'%}">Blog Grid View</a></li>
+
+                    <li><a href="{% url 'event'%}">Event</a></li>
+                  </ul> -->
+                </li>
+                <!-- <li><a href="{% url 'services'%}">Services</a></li>
+                <li><a href="{% url 'gallery'%}">gallery</a></li>
+                <li><a href="{% url 'contact'%}">Contact</a></li>
+                <li><a href="{% url 'event'%}">Event</a></li>
+                <li><a href="{% url 'create_post'%}">Event</a></li>
+
+                
+                <li><a href="{% url 'contact'%}">gallery</a></li> -->
+                
+              </ul>
+            </div>
+          </div>
+        </nav> 
+      </div>
+    </div>
+  </header>
+</div>
+
+
+
+

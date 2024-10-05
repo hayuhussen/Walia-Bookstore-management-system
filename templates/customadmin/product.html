@@ -1,0 +1,1702 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Mirrored from themepixels.me/demo/dashbyte/dashboard/product.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jul 2023 09:22:48 GMT -->
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Meta -->
+    <meta name="description" content="" />
+    <meta name="author" content="Themepixels" />
+
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{% static 'assets/img/favicon.png' %}"
+    />
+
+    <title>DashByte - Premium Dashboard Template</title>
+
+    <!-- Vendor CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'lib/remixicon/fonts/remixicon.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'lib/apexcharts/apexcharts.css' %}"
+    />
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.min.css' %}" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <a href="http://themepixels.me/demo/dashbyte/" class="sidebar-logo"
+          >dashbyte</a
+        >
+      </div>
+      <!-- sidebar-header -->
+      <div id="sidebarMenu" class="sidebar-body">
+        <div class="nav-group show">
+          <a href="#" class="nav-label">Dashboard</a>
+          <ul class="nav nav-sidebar">
+            <li class="nav-item">
+              <a href="{% url 'finance'%}" class="nav-link"
+                ><i class="ri-pie-chart-2-line"></i>
+                <span>Finance Monitoring</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'events'%}" class="nav-link"
+                ><i class="ri-calendar-todo-line"></i>
+                <span>Events Management</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'sales'%}" class="nav-link"
+                ><i class="ri-shopping-bag-3-line"></i>
+                <span>Sales Monitoring</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'analytics'%}" class="nav-link active"
+                ><i class="ri-bar-chart-2-fill"></i>
+                <span>Website Analytics</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'crypto'%}" class="nav-link"
+                ><i class="ri-coin-line"></i> <span>Cryptocurrency</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'helpdesk'%}" class="nav-link"
+                ><i class="ri-service-line"></i>
+                <span>Helpdesk Service</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'storage'%}" class="nav-link"
+                ><i class="ri-hard-drive-2-line"></i>
+                <span>Storage Management</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'product'%}" class="nav-link"
+                ><i class="ri-suitcase-2-line"></i>
+                <span>Product Management</span></a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- nav-group -->
+        <div class="nav-group show">
+          <a href="#" class="nav-label">Applications</a>
+          <ul class="nav nav-sidebar">
+            <li class="nav-item">
+              <a
+                href="http://themepixels.me/demo/dashbyte/apps/file-manager.html"
+                class="nav-link"
+                ><i class="ri-folder-2-line"></i> <span>File Manager</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="http://themepixels.me/demo/dashbyte/apps/email.html"
+                class="nav-link"
+                ><i class="ri-mail-send-line"></i> <span>Email</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="http://themepixels.me/demo/dashbyte/apps/calendar.html"
+                class="nav-link"
+                ><i class="ri-calendar-line"></i> <span>Calendar</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="http://themepixels.me/demo/dashbyte/apps/chat.html"
+                class="nav-link"
+                ><i class="ri-question-answer-line"></i> <span>Chat</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="http://themepixels.me/demo/dashbyte/apps/contact.html"
+                class="nav-link"
+                ><i class="ri-contacts-book-line"></i> <span>Contacts</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="http://themepixels.me/demo/dashbyte/apps/tasks.html"
+                class="nav-link"
+                ><i class="ri-checkbox-multiple-line"></i>
+                <span>Task Manager</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-gallery-line"></i> <span>Media Gallery</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/apps/gallery-music.html"
+                  class="nav-sub-link"
+                  >Music Stream</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/apps/gallery-video.html"
+                  class="nav-sub-link"
+                  >Video Stream</a
+                >
+              </nav>
+            </li>
+          </ul>
+        </div>
+        <!-- nav-group -->
+        <div class="nav-group show">
+          <a href="#" class="nav-label">Pages</a>
+          <ul class="nav nav-sidebar">
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-account-circle-line"></i>
+                <span>User Pages</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/profile.html"
+                  class="nav-sub-link"
+                  >User Profile</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/people.html"
+                  class="nav-sub-link"
+                  >People &amp; Groups</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/activity.html"
+                  class="nav-sub-link"
+                  >Activity Log</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/events.html"
+                  class="nav-sub-link"
+                  >Events</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/settings.html"
+                  class="nav-sub-link"
+                  >Settings</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-lock-2-line"></i> <span>Authentication</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/sign-in.html"
+                  class="nav-sub-link"
+                  >Sign In Basic</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/sign-in-2.html"
+                  class="nav-sub-link"
+                  >Sign In Cover</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/sign-up.html"
+                  class="nav-sub-link"
+                  >Sign Up Basic</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/sign-up-2.html"
+                  class="nav-sub-link"
+                  >Sign Up Cover</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/verify-account.html"
+                  class="nav-sub-link"
+                  >Verify Account</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/forgot-password.html"
+                  class="nav-sub-link"
+                  >Forgot Password</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/lock-screen.html"
+                  class="nav-sub-link"
+                  >Lock Screen</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-error-warning-line"></i>
+                <span>Error Pages</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/error-404.html"
+                  class="nav-sub-link"
+                  >Page Not Found</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/error-500.html"
+                  class="nav-sub-link"
+                  >Internal Server Error</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/error-503.html"
+                  class="nav-sub-link"
+                  >Service Unavailable</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/error-505.html"
+                  class="nav-sub-link"
+                  >Forbidden</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-file-text-line"></i> <span>Other Pages</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/pricing.html"
+                  class="nav-sub-link"
+                  >Pricing</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/pages/faq.html"
+                  class="nav-sub-link"
+                  >FAQ</a
+                >
+              </nav>
+            </li>
+          </ul>
+        </div>
+        <!-- nav-group -->
+        <div class="nav-group show mb-3">
+          <a href="#" class="nav-label">UI Elements</a>
+          <ul class="nav nav-sidebar">
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-pencil-ruler-2-line"></i>
+                <span>Getting Started</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/layout-grid.html"
+                  class="nav-sub-link"
+                  >Grid System</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/layout-columns.html"
+                  class="nav-sub-link"
+                  >Columns</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/layout-gutters.html"
+                  class="nav-sub-link"
+                  >Gutters</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-suitcase-line"></i> <span>Components</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-accordion.html"
+                  class="nav-sub-link"
+                  >Accordion</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-alerts.html"
+                  class="nav-sub-link"
+                  >Alerts</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-avatars.html"
+                  class="nav-sub-link"
+                  >Avatars</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-badge.html"
+                  class="nav-sub-link"
+                  >Badge</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-breadcrumbs.html"
+                  class="nav-sub-link"
+                  >Breadcrumbs</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-buttons.html"
+                  class="nav-sub-link"
+                  >Buttons</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-cards.html"
+                  class="nav-sub-link"
+                  >Cards</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-carousel.html"
+                  class="nav-sub-link"
+                  >Carousel</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-collapse.html"
+                  class="nav-sub-link"
+                  >Collapse</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-dropdown.html"
+                  class="nav-sub-link"
+                  >Dropdown</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-images.html"
+                  class="nav-sub-link"
+                  >Images</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-listgroup.html"
+                  class="nav-sub-link"
+                  >List Group</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-markers.html"
+                  class="nav-sub-link"
+                  >Markers</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-modal.html"
+                  class="nav-sub-link"
+                  >Modal</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-navtabs.html"
+                  class="nav-sub-link"
+                  >Navs &amp; Tabs</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-offcanvas.html"
+                  class="nav-sub-link"
+                  >Offcanvas</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-pagination.html"
+                  class="nav-sub-link"
+                  >Pagination</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-placeholders.html"
+                  class="nav-sub-link"
+                  >Placeholders</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-popovers.html"
+                  class="nav-sub-link"
+                  >Popovers</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-progress.html"
+                  class="nav-sub-link"
+                  >Progress</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-scrollspy.html"
+                  class="nav-sub-link"
+                  >Scrollspy</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-spinners.html"
+                  class="nav-sub-link"
+                  >Spinners</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-toasts.html"
+                  class="nav-sub-link"
+                  >Toasts</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-tooltips.html"
+                  class="nav-sub-link"
+                  >Tooltips</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/com-tables.html"
+                  class="nav-sub-link"
+                  >Tables</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-list-check-2"></i> <span>Forms</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-elements.html"
+                  class="nav-sub-link"
+                  >Text Elements</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-selects.html"
+                  class="nav-sub-link"
+                  >Selects</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-checksradios.html"
+                  class="nav-sub-link"
+                  >Checks &amp; Radios</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-tagsmasks.html"
+                  class="nav-sub-link"
+                  >Tags &amp; Masks</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-range.html"
+                  class="nav-sub-link"
+                  >Range</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-pickers.html"
+                  class="nav-sub-link"
+                  >Pickers</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-wizards.html"
+                  class="nav-sub-link"
+                  >Wizards</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-layouts.html"
+                  class="nav-sub-link"
+                  >Layouts</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-validation.html"
+                  class="nav-sub-link"
+                  >Validation</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/form-editors.html"
+                  class="nav-sub-link"
+                  >Editors</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-bar-chart-2-line"></i>
+                <span>Charts &amp; Graphs</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/chart-flot.html"
+                  class="nav-sub-link"
+                  >Flot</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/chart-apex.html"
+                  class="nav-sub-link"
+                  >Apexcharts</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/chart-chartjs.html"
+                  class="nav-sub-link"
+                  >Chartjs</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/chart-peity.html"
+                  class="nav-sub-link"
+                  >Peity</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/chart-morris.html"
+                  class="nav-sub-link"
+                  >Morris</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-stack-line"></i> <span>Maps &amp; Icons</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/map-leaflet.html"
+                  class="nav-sub-link"
+                  >Leaflet Maps</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/map-vector.html"
+                  class="nav-sub-link"
+                  >Vector Maps</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/icon-remix.html"
+                  class="nav-sub-link"
+                  >Remixicon</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/icon-feather.html"
+                  class="nav-sub-link"
+                  >Feathericons</a
+                >
+              </nav>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link has-sub"
+                ><i class="ri-briefcase-4-line"></i> <span>Utilities</span></a
+              >
+              <nav class="nav nav-sub">
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-animation.html"
+                  class="nav-sub-link"
+                  >Animation</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-background.html"
+                  class="nav-sub-link"
+                  >Background</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-border.html"
+                  class="nav-sub-link"
+                  >Border</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-colors.html"
+                  class="nav-sub-link"
+                  >Colors</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-divider.html"
+                  class="nav-sub-link"
+                  >Divider</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-flex.html"
+                  class="nav-sub-link"
+                  >Flex</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-sizing.html"
+                  class="nav-sub-link"
+                  >Sizing</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-spacing.html"
+                  class="nav-sub-link"
+                  >Spacing</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-opacity.html"
+                  class="nav-sub-link"
+                  >Opacity</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-position.html"
+                  class="nav-sub-link"
+                  >Position</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-typography.html"
+                  class="nav-sub-link"
+                  >Typography</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-shadows.html"
+                  class="nav-sub-link"
+                  >Shadows</a
+                >
+                <a
+                  href="http://themepixels.me/demo/dashbyte/docs/util-extras.html"
+                  class="nav-sub-link"
+                  >Extras</a
+                >
+              </nav>
+            </li>
+          </ul>
+        </div>
+        <!-- nav-group -->
+      </div>
+      <!-- sidebar-body -->
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-top">
+          <div class="sidebar-footer-thumb">
+            <img src="{% static 'ssets/img/walia.png' %}" alt="" />
+          </div>
+          <!-- sidebar-footer-thumb -->
+          <div class="sidebar-footer-body">
+            <h6>
+              <a href="http://themepixels.me/demo/dashbyte/pages/profile.html"
+                >Shaira Diaz</a
+              >
+            </h6>
+            <p>Premium Member</p>
+          </div>
+          <!-- sidebar-footer-body -->
+          <a id="sidebarFooterMenu" href="#" class="dropdown-link"
+            ><i class="ri-arrow-down-s-line"></i
+          ></a>
+        </div>
+        <!-- sidebar-footer-top -->
+        <div class="sidebar-footer-menu">
+          <nav class="nav">
+            <a href="#"><i class="ri-edit-2-line"></i> Edit Profile</a>
+            <a href="#"><i class="ri-profile-line"></i> View Profile</a>
+          </nav>
+          <hr />
+          <nav class="nav">
+            <a href="#"><i class="ri-question-line"></i> Help Center</a>
+            <a href="#"><i class="ri-lock-line"></i> Privacy Settings</a>
+            <a href="#"
+              ><i class="ri-user-settings-line"></i> Account Settings</a
+            >
+            <a href="#"><i class="ri-logout-box-r-line"></i> Log Out</a>
+          </nav>
+        </div>
+        <!-- sidebar-footer-menu -->
+      </div>
+      <!-- sidebar-footer -->
+    </div>
+    <!-- sidebar -->
+
+    <div class="header-main px-3 px-lg-4">
+      <a id="menuSidebar" href="#" class="menu-link me-3 me-lg-4"
+        ><i class="ri-menu-2-fill"></i
+      ></a>
+
+      <div class="form-search me-auto">
+        <input type="text" class="form-control" placeholder="Search" />
+        <i class="ri-search-line"></i>
+      </div>
+      <!-- form-search -->
+
+      <div class="dropdown dropdown-skin">
+        <a
+          href="#"
+          class="dropdown-link"
+          data-bs-toggle="dropdown"
+          data-bs-auto-close="outside"
+          ><i class="ri-settings-3-line"></i
+        ></a>
+        <div class="dropdown-menu dropdown-menu-end mt-10-f">
+          <label>Skin Mode</label>
+          <nav id="skinMode" class="nav nav-skin">
+            <a href="#" class="nav-link active">Light</a>
+            <a href="#" class="nav-link">Dark</a>
+          </nav>
+          <hr />
+          <label>Sidebar Skin</label>
+          <nav id="sidebarSkin" class="nav nav-skin">
+            <a href="#" class="nav-link active">Default</a>
+            <a href="#" class="nav-link">Prime</a>
+            <a href="#" class="nav-link">Dark</a>
+          </nav>
+          <hr />
+          <label>Direction</label>
+          <nav id="layoutDirection" class="nav nav-skin">
+            <a href="#" class="nav-link active">LTR</a>
+            <a href="#" class="nav-link">RTL</a>
+          </nav>
+        </div>
+        <!-- dropdown-menu -->
+      </div>
+      <!-- dropdown -->
+
+      <div class="dropdown dropdown-notification ms-3 ms-xl-4">
+        <a
+          href="#"
+          class="dropdown-link"
+          data-bs-toggle="dropdown"
+          data-bs-auto-close="outside"
+          ><small>3</small><i class="ri-notification-3-line"></i
+        ></a>
+        <div class="dropdown-menu dropdown-menu-end mt-10-f me--10-f">
+          <div class="dropdown-menu-header">
+            <h6 class="dropdown-menu-title">Notifications</h6>
+          </div>
+          <!-- dropdown-menu-header -->
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="avatar online">
+                <img src="{% static 'assets/img/img10.jpg' %}" alt="" />
+              </div>
+              <div class="list-group-body">
+                <p>
+                  <strong>Dominador Manuel</strong> and
+                  <strong>100 other people</strong> reacted to your comment
+                  "Tell your partner that...
+                </p>
+                <span>Aug 20 08:55am</span>
+              </div>
+              <!-- list-group-body -->
+            </li>
+            <li class="list-group-item">
+              <div class="avatar online">
+                <img src="{% static 'assets/img/img11.jpg' %}" alt="" />
+              </div>
+              <div class="list-group-body">
+                <p>
+                  <strong>Angela Ighot</strong> tagged you and
+                  <strong>9 others</strong> in a post.
+                </p>
+                <span>Aug 18 10:30am</span>
+              </div>
+              <!-- list-group-body -->
+            </li>
+            <li class="list-group-item">
+              <div class="avatar">
+                <span class="avatar-initial bg-primary">a</span>
+              </div>
+              <div class="list-group-body">
+                <p>
+                  New listings were added that match your search alert
+                  <strong>house for rent</strong>
+                </p>
+                <span>Aug 15 08:10pm</span>
+              </div>
+              <!-- list-group-body -->
+            </li>
+            <li class="list-group-item">
+              <div class="avatar online">
+                <img src="{% static 'assets/img/img14.jpg' %}" alt="" />
+              </div>
+              <div class="list-group-body">
+                <p>
+                  Reminder: <strong>Jerry Cuares</strong> invited you to like
+                  <strong>Cuares Surveying Services</strong>. <br /><a href="#"
+                    >Accept</a
+                  >
+                  or <a href="#">Decline</a>
+                </p>
+                <span>Aug 14 11:50pm</span>
+              </div>
+              <!-- list-group-body -->
+            </li>
+            <li class="list-group-item">
+              <div class="avatar online">
+                <img src="{% static 'assets/img/img15.jpg' %}" alt="" />
+              </div>
+              <div class="list-group-body">
+                <p>
+                  <strong>Dyanne Aceron</strong> reacted to your post
+                  <strong>King of the Bed</strong>.
+                </p>
+                <span>Aug 10 05:30am</span>
+              </div>
+              <!-- list-group-body -->
+            </li>
+          </ul>
+          <div class="dropdown-menu-footer">
+            <a href="#">Show all Notifications</a>
+          </div>
+        </div>
+        <!-- dropdown-menu -->
+      </div>
+      <!-- dropdown -->
+      <div class="dropdown dropdown-profile ms-3 ms-xl-4">
+        <a
+          href="#"
+          class="dropdown-link"
+          data-bs-toggle="dropdown"
+          data-bs-auto-close="outside"
+          ><div class="avatar online">
+            <img src="../assets/img/walia.png" alt="" /></div
+        ></a>
+        <div class="dropdown-menu dropdown-menu-end mt-10-f">
+          <div class="dropdown-menu-body">
+            <div class="avatar avatar-xl online mb-3">
+              <img src="{% static 'assets/img/walia.png' %}" alt="" />
+            </div>
+            <h5 class="mb-1 text-dark fw-semibold">Shaira Diaz</h5>
+            <p class="fs-sm text-secondary">Premium Member</p>
+
+            <nav class="nav">
+              <a href="#"><i class="ri-edit-2-line"></i> Edit Profile</a>
+              <a href="#"><i class="ri-profile-line"></i> View Profile</a>
+            </nav>
+            <hr />
+            <nav class="nav">
+              <a href="#"><i class="ri-question-line"></i> Help Center</a>
+              <a href="#"><i class="ri-lock-line"></i> Privacy Settings</a>
+              <a href="#"
+                ><i class="ri-user-settings-line"></i> Account Settings</a
+              >
+              <a href="#"><i class="ri-logout-box-r-line"></i> Log Out</a>
+            </nav>
+          </div>
+          <!-- dropdown-menu-body -->
+        </div>
+        <!-- dropdown-menu -->
+      </div>
+      <!-- dropdown -->
+    </div>
+    <!-- header-main -->
+
+    <div class="main main-app p-3 p-lg-4">
+      <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <div>
+          <ol class="breadcrumb fs-sm mb-1">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Product Management
+            </li>
+          </ol>
+          <h4 class="main-title mb-0">Welcome to Dashboard</h4>
+        </div>
+
+        <div class="d-flex align-items-center gap-2 mt-3 mt-md-0">
+          <button type="button" class="btn btn-white btn-icon">
+            <i class="ri-share-line fs-18 lh-1"></i>
+          </button>
+          <button type="button" class="btn btn-white btn-icon">
+            <i class="ri-printer-line fs-18 lh-1"></i>
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary d-flex align-items-center gap-2"
+          >
+            <i class="ri-bar-chart-2-line fs-18 lh-1"></i>Generate<span
+              class="d-none d-sm-inline"
+            >
+              Report</span
+            >
+          </button>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-xl-5">
+          <div class="row g-3">
+            <div class="col-6 col-md-3 col-xl-6">
+              <div class="card card-one card-product">
+                <div class="card-body p-3">
+                  <div
+                    class="d-flex align-items-center justify-content-between mb-5"
+                  >
+                    <div class="card-icon">
+                      <i class="ri-shopping-bag-fill"></i>
+                    </div>
+                    <h6 class="fw-normal ff-numerals text-success mb-0">
+                      +28.5%
+                    </h6>
+                  </div>
+                  <h2 class="card-value ls--1"><span>$</span>14,803.80</h2>
+                  <label class="card-label fw-medium text-dark"
+                    >Total Sales</label
+                  >
+                  <span class="d-flex gap-1 fs-xs">
+                    <span class="d-flex align-items-center text-success">
+                      <span class="ff-numerals">2.3%</span
+                      ><i class="ri-arrow-up-line"></i>
+                    </span>
+                    <span class="text-secondary">than last week</span>
+                  </span>
+                </div>
+                <!-- card-body -->
+              </div>
+              <!-- card -->
+            </div>
+            <!-- col -->
+            <div class="col-6 col-md-3 col-xl-6">
+              <div class="card card-one card-product">
+                <div class="card-body p-3">
+                  <div
+                    class="d-flex align-items-center justify-content-between mb-5"
+                  >
+                    <div class="card-icon">
+                      <i class="ri-wallet-3-fill"></i>
+                    </div>
+                    <h6 class="fw-normal ff-numerals text-danger mb-0">
+                      -3.8%
+                    </h6>
+                  </div>
+                  <h2 class="card-value ls--1"><span>$</span>8,100.63</h2>
+                  <label class="card-label fw-medium text-dark"
+                    >Total Expenses</label
+                  >
+                  <span class="d-flex gap-1 fs-xs">
+                    <span class="d-flex align-items-center text-danger">
+                      <span class="ff-numerals">0.5%</span
+                      ><i class="ri-arrow-down-line"></i>
+                    </span>
+                    <span class="text-secondary">than last week</span>
+                  </span>
+                </div>
+                <!-- card-body -->
+              </div>
+              <!-- card -->
+            </div>
+            <!-- col -->
+            <div class="col-6 col-md-3 col-xl-6">
+              <div class="card card-one card-product">
+                <div class="card-body p-3">
+                  <div
+                    class="d-flex align-items-center justify-content-between mb-5"
+                  >
+                    <div class="card-icon">
+                      <i class="ri-shopping-basket-fill"></i>
+                    </div>
+                    <h6 class="fw-normal ff-numerals text-danger mb-0">
+                      -8.4%
+                    </h6>
+                  </div>
+                  <h2 class="card-value ls--1">23,480</h2>
+                  <label class="card-label fw-medium text-dark"
+                    >Total Products</label
+                  >
+                  <span class="d-flex gap-1 fs-xs">
+                    <span class="d-flex align-items-center text-danger">
+                      <span class="ff-numerals">0.2%</span
+                      ><i class="ri-arrow-down-line"></i>
+                    </span>
+                    <span class="text-secondary">than last week</span>
+                  </span>
+                </div>
+                <!-- card-body -->
+              </div>
+              <!-- card -->
+            </div>
+            <!-- col -->
+            <div class="col-6 col-md-3 col-xl-6">
+              <div class="card card-one card-product">
+                <div class="card-body p-3">
+                  <div
+                    class="d-flex align-items-center justify-content-between mb-5"
+                  >
+                    <div class="card-icon">
+                      <i class="ri-shopping-basket-fill"></i>
+                    </div>
+                    <h6 class="fw-normal ff-numerals text-success mb-0">
+                      +20.9%
+                    </h6>
+                  </div>
+                  <h2 class="card-value ls--1">18,060</h2>
+                  <label class="card-label fw-medium text-dark"
+                    >Products Sold</label
+                  >
+                  <span class="d-flex gap-1 fs-xs">
+                    <span class="d-flex align-items-center text-success">
+                      <span class="ff-numerals">5.8%</span
+                      ><i class="ri-arrow-up-line"></i>
+                    </span>
+                    <span class="text-secondary">than last week</span>
+                  </span>
+                </div>
+                <!-- card-body -->
+              </div>
+              <!-- card -->
+            </div>
+            <!-- col -->
+          </div>
+          <!-- row -->
+        </div>
+        <!-- col -->
+        <div class="col-xl-7">
+          <div class="card card-one card-product-inventory">
+            <div class="card-header">
+              <h6 class="card-title">Product Inventory</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div>
+            <!-- card-header -->
+            <div class="card-body p-3">
+              <ul class="legend mb-3 position-absolute">
+                <li>Remaining Quantity</li>
+                <li>Sold Quantity</li>
+              </ul>
+              <div id="apexChart1" class="apex-chart-twelve mt-4 pt-3"></div>
+            </div>
+            <!-- card-body -->
+          </div>
+          <!-- card -->
+        </div>
+        <!-- col -->
+        <div class="col-xl-8">
+          <div class="card card-one">
+            <div class="card-header">
+              <h6 class="card-title">Popular Products</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div>
+            <!-- card-header -->
+            <div class="card-body p-3">
+              <div class="product-wrapper">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="product-thumb">
+                          <img
+                            src="{% static 'assets/img/prod1.jpg' %}"
+                            alt=""
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <h6 class="mb-1">
+                          <a href="#">iPhone 14 Pro Max Leather Case</a>
+                        </h6>
+                        <span class="fs-sm text-secondary"
+                          >Leather Case with MagSafe</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Price</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >$35.50</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Available</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >560</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Sold</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >40</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Sales</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >$1,420.00</span
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- product-wrapper -->
+              <div class="product-wrapper">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="product-thumb">
+                          <img
+                            src="{% static 'assets/img/prod2.jpg' %}"
+                            alt=""
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <h6 class="mb-1">
+                          <a href="#">Apple Watch Series 7 GPS</a>
+                        </h6>
+                        <span class="fs-sm text-secondary"
+                          >Midnight Aluminum Sport Band</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Price</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >$395.99</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Available</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >350</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Sold</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >150</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Sales</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >$59,398.50</span
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- product-wrapper -->
+              <div class="product-wrapper">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="product-thumb">
+                          <img
+                            src="{% static 'assets/img/prod3.jpg' %}"
+                            alt=""
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <h6 class="mb-1">
+                          <a href="#">Apple Wireless Black Airpods</a>
+                        </h6>
+                        <span class="fs-sm text-secondary"
+                          >(3rd Generation) Wireless Earbuds</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Price</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >$210.95</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Available</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >250</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Sold</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >100</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Sales</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >$21,095.00</span
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- product-wrapper -->
+              <div class="product-wrapper">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="product-thumb">
+                          <img src="{% static 'assets/img/prod4.jpg' %} alt="">
+                        </div>
+                      </td>
+                      <td>
+                        <h6 class="mb-1">
+                          <a href="#">Macbook Air M2 Chip</a>
+                        </h6>
+                        <span class="fs-sm text-secondary"
+                          >16GB Ram 512GB SSD Storage</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Price</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >$1,910.00</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Available</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >100</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Sold</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >50</span
+                        >
+                      </td>
+                      <td>
+                        <label class="d-block text-secondary fs-sm mb-1"
+                          >Sales</label
+                        >
+                        <span class="d-block fw-medium text-dark ff-numerals"
+                          >$95,500.00</span
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- product-wrapper -->
+            </div>
+            <!-- card-body -->
+          </div>
+          <!-- card -->
+        </div>
+        <!-- col -->
+        <div class="col-xl-4">
+          <div class="card card-one">
+            <div class="card-header">
+              <h6 class="card-title">Revenue By Departments</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div>
+            <!-- card-header -->
+            <div class="card-body p-3">
+              <div class="revenue-item">
+                <div class="revenue-item-body">
+                  <span>Automotive</span>
+                  <span>$12,550.50</span>
+                  <span class="text-success">55.6%</span>
+                </div>
+                <!-- revenue-item-body -->
+                <div class="progress">
+                  <div
+                    class="progress-bar w-50"
+                    role="progressbar"
+                    aria-valuenow="50"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <!-- progress -->
+              </div>
+              <!-- revenue-item -->
+              <div class="revenue-item">
+                <div class="revenue-item-body">
+                  <span>Home &amp; Kitchen</span>
+                  <span>$9,805.00</span>
+                  <span class="text-danger">6.8%</span>
+                </div>
+                <!-- revenue-item-body -->
+                <div class="progress">
+                  <div
+                    class="progress-bar w-40"
+                    role="progressbar"
+                    aria-valuenow="40"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <!-- progress -->
+              </div>
+              <!-- revenue-item -->
+              <div class="revenue-item">
+                <div class="revenue-item-body">
+                  <span>Health &amp; Fashion</span>
+                  <span>$15,004.90</span>
+                  <span class="text-success">69.2%</span>
+                </div>
+                <!-- revenue-item-body -->
+                <div class="progress">
+                  <div
+                    class="progress-bar w-70"
+                    role="progressbar"
+                    aria-valuenow="70"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <!-- progress -->
+              </div>
+              <!-- revenue-item -->
+              <div class="revenue-item">
+                <div class="revenue-item-body">
+                  <span>Movies &amp; Television</span>
+                  <span>$5,338.00</span>
+                  <span class="text-danger">28.5%</span>
+                </div>
+                <!-- revenue-item-body -->
+                <div class="progress">
+                  <div
+                    class="progress-bar w-25"
+                    role="progressbar"
+                    aria-valuenow="25"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <!-- progress -->
+              </div>
+              <!-- revenue-item -->
+              <div class="revenue-item">
+                <div class="revenue-item-body">
+                  <span>Toys &amp; Games</span>
+                  <span>$4,965.40</span>
+                  <span class="text-danger">18.2%</span>
+                </div>
+                <!-- revenue-item-body -->
+                <div class="progress">
+                  <div
+                    class="progress-bar w-20"
+                    role="progressbar"
+                    aria-valuenow="20"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <!-- progress -->
+              </div>
+              <!-- revenue-item -->
+            </div>
+            <!-- card-body -->
+          </div>
+          <!-- card -->
+        </div>
+        <!--- col -->
+        <div class="col-md-4">
+          <div class="card card-one card-purchases">
+            <div class="card-header">
+              <h6 class="card-title">Purchases</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div>
+            <!-- card-header -->
+            <div class="card-body p-3">
+              <div class="position-absolute">
+                <h2 class="card-value mb-1 ls--1"><span>$</span>8,358</h2>
+                <small
+                  ><span class="d-inline-flex text-danger"
+                    >0.7% <i class="ri-arrow-down-line"></i
+                  ></span>
+                  than last week</small
+                >
+              </div>
+              <div id="apexChart2"></div>
+            </div>
+            <!-- card-body -->
+          </div>
+          <!-- card -->
+        </div>
+        <!--- col -->
+        <div class="col-sm-6 col-md-4">
+          <div class="card card-one card-purchases">
+            <div class="card-header">
+              <h6 class="card-title">Product Views</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div>
+            <!-- card-header -->
+            <div class="card-body p-3">
+              <div class="position-absolute">
+                <h2 class="card-value mb-1 ls--1">53,570</h2>
+                <small
+                  ><span class="d-inline-flex text-success"
+                    >1.4% <i class="ri-arrow-up-line"></i
+                  ></span>
+                  than last week</small
+                >
+              </div>
+              <div id="apexChart3"></div>
+            </div>
+            <!-- card-body -->
+          </div>
+          <!-- card -->
+        </div>
+        <!--- col -->
+        <div class="col-sm-6 col-md-4">
+          <div class="card card-one card-purchases">
+            <div class="card-header">
+              <h6 class="card-title">Added to Cart</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div>
+            <!-- card-header -->
+            <div class="card-body p-3">
+              <div class="position-absolute">
+                <h2 class="card-value mb-1 ls--1">16,803</h2>
+                <small
+                  ><span class="d-inline-flex text-success"
+                    >0.8% <i class="ri-arrow-up-line"></i
+                  ></span>
+                  than last week</small
+                >
+              </div>
+              <div id="apexChart4"></div>
+            </div>
+            <!-- card-body -->
+          </div>
+          <!-- card -->
+        </div>
+        <!--- col -->
+        <div class="col-md-6 col-xl-7">
+          <div class="card card-one overflow-hidden">
+            <div class="card-body px-0 pb-3">
+              <div class="total-sales-body">
+                <h2 class="card-value mb-2 ls--1"><span>$</span>285,650.10</h2>
+                <label class="d-block mb-0"
+                  ><span class="fw-semibold text-dark">Total Sales</span>
+                  <span class="ff-numerals"
+                    >(01/01/2023 - 12/31/2023)</span
+                  ></label
+                >
+                <small
+                  ><span class="d-inline-flex text-success"
+                    >0.8% <i class="ri-arrow-up-line"></i
+                  ></span>
+                  than last week</small
+                >
+                <p
+                  class="w-50 fs-xs text-secondary mt-2 mb-0 d-none d-lg-block"
+                >
+                  Note: Sed ut perspi ciatis unde omnis iste natus error sit
+                  volup tatem accu santium dolor emque laudan...
+                </p>
+              </div>
+              <!-- total-sales-body -->
+              <div id="apexChart5"></div>
+            </div>
+            <!-- card-body -->
+          </div>
+          <!-- card -->
+        </div>
+        <!--- col -->
+        <div class="col-sm-6 col-md">
+          <div class="card card-one">
+            <div class="card-body p-3">
+              <div class="text-center p-3 bg-white rounded mb-3">
+                <img
+                  src="{% static 'assets/img/prod3.jpg' %}"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+              <h6 class="fw-semibold text-dark lh-4">
+                Apple Wireless Black Airpods
+              </h6>
+              <p class="mb-3 fs-sm text-secondary">
+                Nam libero tempore cum soluta nobis eligendi...
+              </p>
+              <div class="d-grid">
+                <a href="#" class="btn btn-sm btn-primary"
+                  >Check Availability</a
+                >
+              </div>
+            </div>
+            <!-- card-body -->
+          </div>
+          <!-- card -->
+        </div>
+        <!--- col -->
+        <div class="col-sm-6 col-md">
+          <div class="card card-one">
+            <div class="card-body p-3">
+              <div class="text-center p-3 bg-white rounded mb-3">
+                <img
+                  src="{% static 'assets/img/prod2.jpg' %}"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+              <h6 class="fw-semibold text-dark lh-4">
+                Apple Watch Series 7 GPS
+              </h6>
+              <p class="mb-3 fs-sm text-secondary">
+                Et harum quidem rerum facilis est et expedita...
+              </p>
+              <div class="d-grid">
+                <a href="#" class="btn btn-sm btn-secondary">Sold Out</a>
+              </div>
+            </div>
+            <!-- card-body -->
+          </div>
+          <!-- card -->
+        </div>
+        <!--- col -->
+        <div class="col-xl-6">
+          <div class="card card-one">
+            <div class="card-header">
+              <h6 class="card-title">Featured Product</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div>
+            <!-- card-header -->
+            <div class="card-body p-3">
+              <div class="row g-3">
+                <div class="col-sm-5 col-md-4 col-xl-5 col-xxl-4">
+                  <div class="h-100 border rounded px-2 bg-white">
+                    <img
+                      src="{% static 'assets/img/prod5.jpg' %}"
+                      class="img-fluid"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <!-- col -->
+                <div
+                  class="col-sm-7 col-md-8 col-xl-7 col-xxl d-flex flex-column"
+                >
+                  <h6 class="fs-15 fw-semibold text-dark mb-1">
+                    Nike Sneakers
+                  </h6>
+                  <p class="text-secondary mb-3">
+                    Court Vision Low Next Nature Shoes
+                  </p>
+                  <ul class="list-unstyled">
+                    <li>- Best for lifestyle</li>
+                    <li>- Polyurethane upper</li>
+                    <li>- Vulcanized construction</li>
+                    <li>- Textile inner</li>
+                    <li>- <a href="#">See more</a></li>
+                  </ul>
+                  <div
+                    class="d-flex align-items-center justify-content-between mt-auto"
+                  >
+                    <h6 class="card-value fw-semibold fs-15 mb-0">
+                      <span>$</span>120.50
+                    </h6>
+                    <div class="d-flex gap-1 text-primary fs-14">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-line"></i>
+                    </div>
+                  </div>
+                </div>
+                <!-- col -->
+              </div>
+              <!-- row -->
+            </div>
+            <!-- card-body -->
+          </div>
+          <!-- card -->
+        </div>
+        <!--- col -->
+        <div class="col-xl-6">
+          <div class="card card-one">
+            <div class="card-header">
+              <h6 class="card-title">Featured Reviews</h6>
+              <nav class="nav nav-icon nav-icon-sm ms-auto">
+                <a href="#" class="nav-link"><i class="ri-refresh-line"></i></a>
+                <a href="#" class="nav-link"><i class="ri-more-2-fill"></i></a>
+              </nav>
+            </div>
+            <!-- card-header -->
+            <div class="card-body p-3">
+              <div class="row g-3">
+                <div class="col-sm-4 col-md-3 col-xl-4">
+                  <div class="avatar avatar-xl mb-2">
+                    <span class="avatar-initial bg-gray-700">s</span>
+                  </div>
+                  <h6 class="fw-semibold text-dark mb-1">Reyna R. Labares</h6>
+                  <p class="fs-xs text-secondary mb-1">Dec 20, 2023 8:45am</p>
+                  <div class="d-flex gap-1 text-primary fs-16">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                  </div>
+                </div>
+                <!-- col -->
+                <div class="col-sm-8 col-md-9 col-xl-8 d-flex flex-column">
+                  <h6 class="fw-semibold text-dark lh-5">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod
+                  </h6>
+                  <p class="text-secondary">
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                    irure dolor in reprehenderit in voluptate velit esse cillum
+                    <span class="d-xl-none d-xxl-inline"
+                      >dolore eu fugiat nulla pariatur</span
+                    >...
+                  </p>
+                  <div class="product-review-footer mt-auto">
+                    <a href="#"><i class="ri-thumb-up-line"></i></a>
+                    <a href="#"><i class="ri-thumb-down-line"></i></a>
+                    <a href="#">Report Review</a>
+                  </div>
+                  <!-- product-review-footer -->
+                </div>
+                <!-- col -->
+              </div>
+              <!-- row -->
+            </div>
+            <!-- card-body -->
+          </div>
+          <!-- card -->
+        </div>
+        <!--- col -->
+      </div>
+      <!-- row -->
+
+      <div class="main-footer mt-5">
+        <span>&copy; 2023. Dashbyte. All Rights Reserved.</span>
+        <span
+          >Created by:
+          <a href="http://themepixels.me/" target="_blank">Themepixels</a></span
+        >
+      </div>
+      <!-- main-footer -->
+    </div>
+    <!-- main -->
+
+    <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'lib/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'lib/apexcharts/apexcharts.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/script.js' %}"></script>
+    <script src="{% static 'assets/js/db.product.js' %}"></script>
+  </body>
+
+  <!-- Mirrored from themepixels.me/demo/dashbyte/dashboard/product.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jul 2023 09:22:56 GMT -->
+</html>

@@ -1,0 +1,373 @@
+{% extends 'Campany/_base.html' %} {% load static %} {% block content %}
+
+<!-- Start: Page Banner -->
+<section class="page-banner services-banner">
+  <div class="container">
+    <div class="banner-header">
+      <h2>Blog Posts</h2>
+      <span class="underline center"></span>
+      <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+    </div>
+    <div class="breadcrumb">
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li>Blog</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- End: Page Banner -->
+
+<!-- Start: Blog Section -->
+{% comment %}
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main">
+      <div class="blog-main-list">
+        <div class="container">
+          <div class="row">
+            {% for blog in blogs %}
+            <ul>
+              <div class="blog-page grid">
+                <article>
+                  <li>
+                    <div class="grid-item blog-item">
+                      <div class="post-thumbnail">
+                        <div class="post-date-box">
+                          <div class="post-date">
+                            <a class="date" href="#.">{{ blog.days }}</a>
+                          </div>
+                          <div class="post-date-month">
+                            <a class="month" href="#.">{{ blog.month }}</a>
+                          </div>
+                        </div>
+                        <a href="blog-detail.html"
+                          ><img src="{{ blog.image.url }}" alt="Book"
+                        /></a>
+                        <div class="post-share">
+                          <a href="#."><i class="fa fa-comment"></i> 37</a>
+                          <a href="#."><i class="fa fa-thumbs-o-up"></i> 110</a>
+                          <a href="#."><i class="fa fa-eye"></i> 180</a>
+                          <a href="#."><i class="fa fa-share-alt"></i> Share</a>
+                        </div>
+                      </div>
+                      <div class="post-detail">
+                        <header class="entry-header">
+                          <div class="blog_meta_category">
+                            <span class="arrow-right"></span>
+                            <a href="#." rel="category tag">{{ blog.title }}</a
+                            >,
+                            <a href="#." rel="category tag"
+                              >{{ blog.titles11 }}</a
+                            >
+                          </div>
+                          <h3 class="entry-title">
+                            <a href="blog-detail.html">{{ blog.titles2 }}</a>
+                          </h3>
+                          <div class="entry-meta">
+                            <span
+                              ><i class="fa fa-user"></i>
+                              <a href="#">Admin</a></span
+                            >
+                            <span
+                              ><i class="fa fa-comment"></i>
+                              <a href="#">15 Comments</a></span
+                            >
+                          </div>
+                        </header>
+                        <div class="entry-content">
+                          <p>{{ blog.description }}</p>
+                        </div>
+                        <footer class="entry-footer">
+                          <a
+                            class="btn btn-default"
+                            href="{% url 'blogdetail' blog.id %}"
+                            >Read More</a
+                          >
+                        </footer>
+                      </div>
+                    </div>
+                  </li>
+                </article>
+              </div>
+            </ul>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+{% endcomment %}
+
+<!-- <div class="booksmedia-fullwidth">
+  <ul>
+    {% for blog in blogs %}
+    <li>
+      <figure>
+        <a href="blog-detail.html"
+          ><img src="{{ blog.image.url }}" alt="Book" style="margin: 20px;"
+        /></a>
+        <figcaption>
+          <header>
+            <h4>
+              <a href="{% url 'booksmediagirdviewv2'%}">{{blog.title|safe}}</a>
+            </h4>
+            <p><strong>days:</strong> {{ blog.days }}</p>
+            <p><strong>created:</strong> {{blog.created}}</p>
+            <p><strong>month:</strong> {{ blog.month }}</p>
+          </header>
+          <p>{{blog.description|safe}}</p>
+          <footer class="entry-footer">
+            <a class="btn btn-default" href="{% url 'blogdetail' blog.id %}"
+              >Read More</a
+            >
+          </footer>
+          {% comment %}
+          <div class="actions">
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  target="_blank"
+                  data-toggle="blog-tags"
+                  data-placement="top"
+                  title="Add TO CART"
+                >
+                  <i class="fa fa-shopping-cart"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  target="_blank"
+                  data-toggle="blog-tags"
+                  data-placement="top"
+                  title="Like"
+                >
+                  <i class="fa fa-heart"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  target="_blank"
+                  data-toggle="blog-tags"
+                  data-placement="top"
+                  title="Mail"
+                >
+                  <i class="fa fa-envelope"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  target="_blank"
+                  data-toggle="blog-tags"
+                  data-placement="top"
+                  title="Search"
+                >
+                  <i class="fa fa-search"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  target="_blank"
+                  data-toggle="blog-tags"
+                  data-placement="top"
+                  title="Print"
+                >
+                  <i class="fa fa-print"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  target="_blank"
+                  data-toggle="blog-tags"
+                  data-placement="top"
+                  title="Share"
+                >
+                  <i class="fa fa-share-alt"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          {% endcomment %}
+        </figcaption>
+      </figure>
+    </li>
+
+    {% endfor%}
+  </ul>
+</div> -->
+
+
+<!-- <div class="booksmedia-fullwidth">
+  <ul>
+    {% for blog in blogs %}
+    <li class="blog-card">
+      <figure>
+        <a href="blog-detail.html">
+          <img src="{{ blog.image.url }}" alt="Book" class="blog-image" />
+        </a>
+        <figcaption class="blog-content">
+          <header>
+            <h4>
+              <a href="{% url 'booksmediagirdviewv2'%}">{{ blog.title|safe }}</a>
+            </h4>
+            <p><strong>Days:</strong> {{ blog.days }}</p>
+            <p><strong>Created:</strong> {{ blog.created }}</p>
+            <p><strong>Month:</strong> {{ blog.month }}</p>
+          </header>
+          <p>{{ blog.description|safe }}</p>
+          <footer class="entry-footer">
+            <a class="btn btn-default" href="{% url 'blogdetail' blog.id %}">Read More</a>
+          </footer>
+        </figcaption>
+      </figure>
+    </li>
+    {% endfor %}
+  </ul>
+</div> -->
+
+<!-- <style>
+.booksmedia-fullwidth ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.booksmedia-fullwidth ul li {
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.booksmedia-fullwidth ul li:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-image {
+  width: 80%;
+  height: auto;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.blog-content {
+  padding: 10px;
+}
+
+.blog-content header h4 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.blog-content p {
+  margin: 5px 0;
+}
+
+.entry-footer .btn {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.entry-footer .btn:hover {
+  background-color: #0056b3;
+}
+</style> -->
+
+
+
+<div class="booksmedia-fullwidth">
+  <ul>
+    {% for blog in blogs %}
+    <li class="blog-card">
+      <figure>
+        <a href="blog-detail.html">
+          <img src="{{ blog.image.url }}" alt="Book" class="blog-image" />
+        </a>
+        <figcaption class="blog-content">
+          <header>
+            <h4>
+              <a href="{% url 'booksmediagirdviewv2'%}">{{ blog.title|safe }}</a>
+            </h4>
+            <p><strong>Days:</strong> {{ blog.days }}</p>
+            <p><strong>Created:</strong> {{ blog.created }}</p>
+            <p><strong>Month:</strong> {{ blog.month }}</p>
+          </header>
+          <p>{{ blog.description|safe|truncatechars:5000 }}</p>
+          <footer class="entry-footer">
+            <a class="btn btn-default" href="{% url 'blogdetail' blog.id %}">Read More</a>
+          </footer>
+        </figcaption>
+      </figure>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<style>
+.booksmedia-fullwidth ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.booksmedia-fullwidth ul li {
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.booksmedia-fullwidth ul li:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.blog-content {
+  padding: 20px;
+}
+
+.blog-content header h4 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.blog-content p {
+  margin: 10px 0;
+}
+
+.entry-footer .btn {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.entry-footer .btn:hover {
+  background-color: #0056b3;
+}
+</style>
+
+
+<!-- End: Blog Section -->
+
+{% endblock %}

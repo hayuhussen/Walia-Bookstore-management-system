@@ -1,0 +1,216 @@
+{% extends 'Campany/_base.html' %} {% load static %} {% block content %}
+
+<!-- Start: Page Banner -->
+<section class="page-banner news-listing-banner services-banner">
+  <div class="container">
+    <div class="banner-header">
+      <h2>News Listing</h2>
+      <span class="underline center"></span>
+      <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+    </div>
+    <div class="breadcrumb">
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li>News</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- End: Page Banner -->
+
+<!-- Start: Products Section -->
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main">
+      <div class="main-news-list">
+        <div class="container">
+          <!-- Start: Search Section -->
+
+          <!-- End: Search Section -->
+          <div class="row">
+            <div class="col-md-9 col-md-push-3 news-events-list-view">
+              {% for event in events %}
+              <div class="news-list-box">
+                <div class="single-news-list">
+                  <div class="social-content">
+                    <!-- <div class="social-share">
+                      <ul>
+                          <li>
+                              <a href="#."><i class="fa fa-comment"></i> {{ comments_count }}</a>
+                          </li>
+                          <li>
+                              <a href="#."><i class="fa fa-thumbs-o-up"></i> {{ likes_count }}</a>
+                          </li>
+                          <li>
+                              <a href="#."><i class="fa fa-eye"></i> {{ views_count }}</a>
+                          </li>
+                      </ul>
+                  </div> -->
+                  
+                    <div class="social-media">
+                      <ul>
+                        <li>
+                          <a href="#." target="_blank"
+                            ><i class="fa fa-facebook"></i
+                          ></a>
+                        </li>
+                        <li>
+                          <a href="#." target="_blank"
+                            ><i class="fa fa-twitter"></i
+                          ></a>
+                        </li>
+                        <li>
+                          <a href="#." target="_blank"
+                            ><i class="fa fa-google-plus"></i
+                          ></a>
+                        </li>
+                        <li>
+                          <a href="#." target="_blank"
+                            ><i class="fa fa-rss"></i
+                          ></a>
+                        </li>
+                        <li>
+                          <a href="#." target="_blank"
+                            ><i class="fa fa-linkedin"></i
+                          ></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <figure>
+                    <a href="news-events-detail.html"style="display: block; text-decoration: none;">
+                      <img src="{{ event.image.url }}" alt="events" style="margin: 15px; padding: 5px;" />
+                    </a>
+                  </figure>
+
+                  <div class="content-block">
+                    <div class="member-info">
+                      <div class="content_meta_category">
+                        <span class="arrow-right"></span>
+                        <a href="#." rel="category tag" style="margin: 15px;">{{event.title|safe}}</a>
+                      </div>
+                      <ul class="news-event-info">
+                        <li>
+                          <a href="#" target="_blank">
+                            <i class="fa fa-calendar"></i>
+                            {{event.date}}
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" target="_blank">
+                            <i class="fa fa-clock-o"></i>
+                            {{event.time}}
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" target="_blank">
+                            <i class="fa fa-map-marker"></i>
+                            {{event.lacation}}
+                          </a>
+                        </li>
+                      </ul>
+                      <h3>
+                        <a href="{% url 'newseventsdetail' event.id %}"
+                          >Walia Book Store Event POST</a
+                        >
+                      </h3>
+                      <p>{{event.description|safe}}</p>
+                      <a
+                        class="btn btn-primary"
+                        href="{% url 'newseventsdetail' event.id %}"
+                        >Read More</a
+                      >
+                    </div>
+                  </div>
+
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+              {% endfor %}
+
+              <!-- <nav class="navigation pagination text-center">
+                <h2 class="screen-reader-text">Posts navigation</h2>
+                <div class="nav-links">
+                  <a class="prev page-numbers" href="#."
+                    ><i class="fa fa-long-arrow-left"></i> Previous</a
+                  >
+                  <a class="page-numbers" href="#.">1</a>
+                  <span class="page-numbers current">2</span>
+                  <a class="page-numbers" href="#.">3</a>
+                  <a class="page-numbers" href="#.">4</a>
+                  <a class="next page-numbers" href="#."
+                    >Next <i class="fa fa-long-arrow-right"></i
+                  ></a>
+                </div>
+              </nav> -->
+           
+              <nav class="navigation pagination text-center">
+                <h2 class="screen-reader-text">Posts navigation</h2>
+                <div class="nav-links">
+                    {% if events.has_previous %}
+                    <a class="prev page-numbers" href="?page={{ events.previous_page_number }}">
+                        <i class="fa fa-long-arrow-left"></i> Previous
+                    </a>
+                    {% endif %}
+                    
+                    {% for num in events.paginator.page_range %}
+                    {% if num == events.number %}
+                    <span class="page-numbers current">{{ num }}</span>
+                    {% else %}
+                    <a class="page-numbers" href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                    {% endfor %}
+                    
+                    {% if events.has_next %}
+                    <a class="next page-numbers" href="?page={{ events.next_page_number }}">
+                        Next <i class="fa fa-long-arrow-right"></i>
+                    </a>
+                    {% endif %}
+                </div>
+            </nav>
+            
+            </div>
+
+            <div class="col-md-3 col-md-pull-9">
+              <aside id="secondary" class="sidebar widget-area">
+                {% for recent_news in recent_news_list %}
+                <div class="widget widget_recent_entries">
+                  <h4 class="widget-title" data-control style="padding: 15px; margin:15px">
+                    {{recent_news.title}}
+                  </h4>
+                  <ul>
+                    <li>
+                      <figure>
+                        <img src="{{ recent_news.image.url }}" alt="Book" />
+                      </figure>
+
+                      <a href="#">{{recent_news.titlee}}</a>
+                      <span
+                        ><i class="fa fa-calendar"></i>
+                        {{recent_news.date}}</span
+                      >
+                      <span
+                        ><i class="fa fa-clock-o"></i>
+                        {{recent_news.time}}</span
+                      >
+                      <span
+                        ><i class="fa fa-map-marker"></i>
+                        {{recent_news.location}}</span
+                      >
+                      <div class="clearfix"></div>
+                    </li>
+                  </ul>
+                </div>
+
+                {% endfor %}
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+{% endblock %}

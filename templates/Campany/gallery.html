@@ -1,0 +1,66 @@
+{% extends 'Campany/_base.html' %} {% load static %} {% block content %}
+
+<section class="page-banner services-banner">
+  <div class="container">
+    <div class="banner-header">
+      <h2>Evaent Image Posts</h2>
+      <span class="underline center"></span>
+      <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+    </div>
+    <div class="breadcrumb">
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li>Blog</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main">
+      <div class="books-full-width">
+        <div class="container">
+          <!-- Start: Search Section -->
+
+          <section class="search-filters">
+            <div class="filter-box">
+              <h3>Walia Book Store Events Image</h3>
+              <form
+                action="http://libraria.demo.presstigers.com/{% url 'index'%}"
+                method="get"
+              ></form>
+            </div>
+            <div class="clear"></div>
+          </section>
+
+          <!-- End: Search Section -->
+
+          <!-- {% comment %} {% if booksmgv2_list %} {% endcomment %} -->
+
+          <div class="booksmedia-fullwidth">
+            <ul>
+              {% for EventPostImage in EventImage %}
+              <li>
+                <figure>
+                  {% comment %}
+                  <a href="{% url 'booksmediagirdviewv2'%}">
+                    {% endcomment %}
+                    <img src="{{ EventPostImage.image.url }}" alt="Book" />
+                  </a>
+                </figure>
+              </li>
+
+              {% endfor%}
+            </ul>
+          </div>
+        </div>
+        <!-- Start: Staff Picks -->
+
+        <!-- End: Staff Picks -->
+      </div>
+    </main>
+  </div>
+</div>
+<!-- Start: Social Network -->
+{% endblock %}

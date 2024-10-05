@@ -1,0 +1,374 @@
+{% extends 'customadmin/_base.html' %}
+{% load static %}
+
+{% block head %}
+<!-- Vendor CSS -->
+<link rel="stylesheet" href="{% static 'customadmin/lib/remixicon/fonts/remixicon.css' %}" />
+<link rel="stylesheet" href="{% static 'customadmin/lib/jqvmap/jqvmap.min.css' %}" />
+<link rel="stylesheet" href="{% static 'customadmin/lib/apexcharts/apexcharts.css' %}" />
+<!-- Template CSS -->
+<link rel="stylesheet" href="{% static 'customadmin/assets/css/style.min.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+  /* Default light mode styles */
+body {
+  background-color: #f4f4f4;
+  color: #1E273A;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #1E273A;
+  color: #e0e0e0;
+}
+
+.dark-mode .breadcrumb {
+  color: #e0e0e0;
+}
+
+.dark-mode .highcharts-figure {
+  background-color: #1E273A;
+}
+
+.dark-mode .highcharts-title {
+  color: #e0e0e0;
+}
+
+.dark-mode .highcharts-axis-labels {
+  color: #e0e0e0;
+}
+
+</style>
+<div class="d-flex align-items-center justify-content-between mb-4">
+  <div>
+    <ol class="breadcrumb fs-sm mb-1">
+      <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+      </li>
+    </ol>
+    <h4 class="main-title mb-0">Hi {{ request.user }}, Welcome to Dashboard</h4>
+  </div>
+  <button id="theme-toggle" class="btn btn-primary">Toggle Theme</button>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <figure class="highcharts-figure">
+      <div id="books-chart"></div>
+      <p class="highcharts-description">
+        This chart displays the total counts of books, audiobooks, and ebooks.
+      </p>
+    </figure>
+  </div>
+
+  <div class="col-lg-6">
+    <figure class="highcharts-figure">
+      <div id="transactions-chart"></div>
+      <p class="highcharts-description">
+        This chart displays the total transaction amounts over time.
+      </p>
+    </figure>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    const darkTheme = {
+      chart: {
+        backgroundColor: '#2a2a2b',
+        style: {
+          fontFamily: '\'Unica One\', sans-serif'
+        },
+        plotBorderColor: '#606063'
+      },
+      title: {
+        style: {
+          color: '#E0E0E3',
+          textTransform: 'uppercase',
+          fontSize: '20px'
+        }
+      },
+      xAxis: {
+        gridLineColor: '#707073',
+        labels: {
+          style: {
+            color: '#E0E0E3'
+          }
+        },
+        lineColor: '#707073',
+        tickColor: '#707073',
+        title: {
+          style: {
+            color: '#A0A0A3'
+          }
+        }
+      },
+      yAxis: {
+        gridLineColor: '#707073',
+        labels: {
+          style: {
+            color: '#E0E0E3'
+          }
+        },
+        lineColor: '#707073',
+        tickColor: '#707073',
+        tickWidth: 1,
+        title: {
+          style: {
+            color: '#A0A0A3'
+          }
+        }
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.85)',
+        style: {
+          color: '#F0F0F0'
+        }
+      },
+      plotOptions: {
+        series: {
+          dataLabels: {
+            color: '#F0F0F3',
+            style: {
+              fontSize: '13px'
+            }
+          },
+          marker: {
+            lineColor: '#333'
+          }
+        }
+      },
+      credits: {
+        style: {
+          color: '#666'
+        }
+      },
+      labels: {
+        style: {
+          color: '#707073'
+        }
+      },
+      navigator: {
+        handles: {
+          backgroundColor: '#666',
+          borderColor: '#AAA'
+        },
+        outlineColor: '#CCC',
+        maskFill: 'rgba(255,255,255,0.1)',
+        series: {
+          color: '#7798BF',
+          lineColor: '#A6C7ED'
+        },
+        xAxis: {
+          gridLineColor: '#505053'
+        }
+      },
+      scrollbar: {
+        barBackgroundColor: '#808083',
+        barBorderColor: '#808083',
+        buttonArrowColor: '#CCC',
+        buttonBackgroundColor: '#606063',
+        buttonBorderColor: '#606063',
+        rifleColor: '#FFF',
+        trackBackgroundColor: '#404043',
+        trackBorderColor: '#404043'
+      }
+    };
+
+    const lightTheme = {
+      chart: {
+        backgroundColor: '#ffffff',
+        style: {
+          fontFamily: '\'Unica One\', sans-serif'
+        },
+        plotBorderColor: '#e6e6e6'
+      },
+      title: {
+        style: {
+          color: '#333333',
+          textTransform: 'uppercase',
+          fontSize: '20px'
+        }
+      },
+      xAxis: {
+        gridLineColor: '#e6e6e6',
+        labels: {
+          style: {
+            color: '#333333'
+          }
+        },
+        lineColor: '#e6e6e6',
+        tickColor: '#e6e6e6',
+        title: {
+          style: {
+            color: '#333333'
+          }
+        }
+      },
+      yAxis: {
+        gridLineColor: '#e6e6e6',
+        labels: {
+          style: {
+            color: '#333333'
+          }
+        },
+        lineColor: '#e6e6e6',
+        tickColor: '#e6e6e6',
+        tickWidth: 1,
+        title: {
+          style: {
+            color: '#333333'
+          }
+        }
+      },
+      tooltip: {
+        backgroundColor: '#ffffff',
+        style: {
+          color: '#333333'
+        }
+      },
+      plotOptions: {
+        series: {
+          dataLabels: {
+            color: '#333333',
+            style: {
+              fontSize: '13px'
+            }
+          },
+          marker: {
+            lineColor: '#333'
+          }
+        }
+      },
+      credits: {
+        style: {
+          color: '#333'
+        }
+      },
+      labels: {
+        style: {
+          color: '#333333'
+        }
+      },
+      navigator: {
+        handles: {
+          backgroundColor: '#cccccc',
+          borderColor: '#999999'
+        },
+        outlineColor: '#cccccc',
+        maskFill: 'rgba(0,0,0,0.1)',
+        series: {
+          color: '#a0a0a0',
+          lineColor: '#e0e0e0'
+        },
+        xAxis: {
+          gridLineColor: '#e6e6e6'
+        }
+      },
+      scrollbar: {
+        barBackgroundColor: '#e6e6e6',
+        barBorderColor: '#e6e6e6',
+        buttonArrowColor: '#333',
+        buttonBackgroundColor: '#ffffff',
+        buttonBorderColor: '#e6e6e6',
+        rifleColor: '#333',
+        trackBackgroundColor: '#f0f0f0',
+        trackBorderColor: '#f0f0f0'
+      }
+    };
+
+    function applyTheme(theme) {
+      Highcharts.setOptions(theme);
+      updateCharts();
+    }
+
+    function updateCharts() {
+      Highcharts.chart('books-chart', {
+        chart: {
+          type: 'column'
+        },
+        title: {
+          text: 'Total Books, Audiobooks, and Ebooks'
+        },
+        xAxis: {
+          categories: ['Books', 'Audiobooks', 'Ebooks']
+        },
+        yAxis: {
+          title: {
+            text: 'Total Count'
+          }
+        },
+        series: [{
+          name: 'Count',
+          data: [{{ total_books }}, {{ total_audiobooks }}, {{ total_ebooks }}]
+        }]
+      });
+
+      Highcharts.chart('transactions-chart', {
+        chart: {
+          type: 'column'
+        },
+        title: {
+          text: 'Transaction Summary'
+        },
+        xAxis: {
+          categories: ['Yearly', 'Monthly', 'Weekly']
+        },
+        yAxis: {
+          title: {
+            text: 'Total Amount (ETB)'
+          }
+        },
+        series: [{
+          name: 'Total Amount',
+          data: [
+            {% for year_data in transactions_by_year %}
+              {{ year_data.total }},
+            {% endfor %}
+            {% for month_data in transactions_by_month %}
+              {{ month_data.total }},
+            {% endfor %}
+            {% for week_data in transactions_by_week %}
+              {{ week_data.total }},
+            {% endfor %}
+          ]
+        }]
+      });
+    }
+
+    const themeToggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    themeToggleButton.addEventListener('click', function () {
+      if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        applyTheme(lightTheme);
+      } else {
+        body.classList.add('dark-mode');
+        applyTheme(darkTheme);
+      }
+    });
+
+    // Set default theme
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    if (prefersDarkScheme.matches) {
+      body.classList.add('dark-mode');
+      applyTheme(darkTheme);
+    } else {
+      applyTheme(lightTheme);
+    }
+  });
+</script>
+{% endblock %}

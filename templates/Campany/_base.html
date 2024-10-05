@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+  {% include 'Campany/head.html' %}
+  <body>
+    <!-- Start: Header Section -->
+    {% include 'Campany/header.html' %}
+    <!-- End: Header Section -->
+
+    {% block content %}{% endblock %}
+
+    <!-- Start: Social Network -->
+    {% include 'Campany/social-network.html' %}
+    <!-- End: Social Network -->
+
+    <!-- Start: Footer -->
+    {% include 'Campany/footer.html' %}
+    <!-- End: Footer -->
+
+    <!-- jQuery Latest Version 1.x -->
+    {% include 'Campany/javascript.html' %}
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+  </body>
+</html>
